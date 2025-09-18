@@ -1996,8 +1996,8 @@
 
 // export default ComingSoonPage;
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Mail, User, Phone } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
@@ -2005,6 +2005,140 @@ import emailjs from "@emailjs/browser";
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
+// Question Carousel Component
+const QuestionCarousel = () => {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  const questions = [
+    // {
+    //   category: "For Buyers & Investors",
+    //   question:
+    //     "What if your next property investment was available 365 days a year, on your schedule?",
+    //   gradient: "from-[#073c75] via-[#0f4d87] to-[#1a5ea3]",
+    // },
+    // {
+    //   category: "For Buyers & Investors",
+    //   question:
+    //     "Are you ready to unlock direct access to Dubai's most exclusive opportunities?",
+    //   gradient: "from-[#073c75] via-[#0f4d87] to-[#1a5ea3]",
+    // },
+    {
+      category: "For Real Estate Agents",
+      question: "What if closing important deals took hours instead of weeks?",
+      gradient: "from-[#073c75] via-[#1e3a8a] to-[#3b82f6]",
+    },
+    {
+      category: "For Real Estate Agents",
+      question:
+        "Are you ready for an always-on marketplace that fuels your commissions?",
+      gradient: "from-[#073c75] via-[#1e3a8a] to-[#3b82f6]",
+    },
+    {
+      category: "For Developers",
+      question:
+        "What if your projects had a permanent stage in Dubai's property hub?",
+      gradient: "from-[#073c75] via-[#1e3a8a] to-[#3b82f6]",
+    },
+    {
+      category: "For Developers",
+      question:
+        "Are you ready to connect instantly with the city's top agents and qualified buyers?",
+      gradient: "from-[#073c75] via-[#1e3a8a] to-[#3b82f6]",
+    },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentQuestion((prev) => (prev + 1) % questions.length);
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [questions.length]);
+
+  const nextQuestion = () => {
+    setCurrentQuestion((prev) => (prev + 1) % questions.length);
+  };
+
+  const prevQuestion = () => {
+    setCurrentQuestion(
+      (prev) => (prev - 1 + questions.length) % questions.length
+    );
+  };
+
+  return (
+    <div className="relative mb-4">
+      <div className="overflow-hidden rounded-3xl shadow-2xl">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentQuestion}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 0.7 }}
+            className={`bg-gradient-to-br ${questions[currentQuestion].gradient} p-8 md:p-12 text-white relative min-h-[200px] flex items-center`}
+          >
+            <div className="text-center w-full">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="mb-6"
+              >
+                <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium text-white/90 border border-white/30">
+                  {questions[currentQuestion].category}
+                </span>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="text-xl md:text-2xl  font-medium leading-relaxed text-white w-full mx-auto"
+              >
+                {questions[currentQuestion].question}
+              </motion.p>
+            </div>
+
+            {/* Navigation buttons */}
+            {/* <button
+              onClick={prevQuestion}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/15 hover:bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 border border-white/30"
+            >
+              <ChevronLeft size={24} />
+            </button>
+
+            <button
+              onClick={nextQuestion}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/15 hover:bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 border border-white/30"
+            >
+              <ChevronRight size={24} />
+            </button> */}
+
+            {/* Decorative elements */}
+            <div className="absolute top-4 left-4 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
+            <div className="absolute bottom-4 right-4 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Question indicators */}
+      <div className="flex justify-center mt-6 space-x-2">
+        {questions.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentQuestion(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              currentQuestion === index
+                ? "bg-[#073c75] scale-125"
+                : "bg-[#073c75]/40 hover:bg-[#073c75]/70"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 // Registration Form Component
@@ -2277,6 +2411,15 @@ const ComingSoonPage = () => {
                 <p className="text-xl text-blue-200">
                   The Central Nervous System of Dubai Real Estate
                 </p>
+              </motion.div>
+
+              {/* Question Carousel */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.8 }}
+              >
+                <QuestionCarousel />
               </motion.div>
 
               {/* Launch Date */}
