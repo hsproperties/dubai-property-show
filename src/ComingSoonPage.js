@@ -2245,7 +2245,7 @@ const ComingSoonPage = () => {
                 className="flex items-center justify-center lg:justify-start mb-8"
               >
                 <img
-                  src="/DPS_LOGOWIDE_white.png"
+                  src="/DPS_LOGOWIDE_WHITE.png"
                   alt="Dubai Property Show"
                   className="h-16 md:h-20 w-auto object-contain filter drop-shadow-lg"
                 />
