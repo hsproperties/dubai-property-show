@@ -1532,166 +1532,479 @@
 
 // export default ComingSoonPage;
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowRight,
-  Mail,
-  User,
-  Phone,
-  Building2,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+// import React, { useState, useEffect } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import {
+//   ArrowRight,
+//   Mail,
+//   User,
+//   Phone,
+//   Building2,
+//   ChevronLeft,
+//   ChevronRight,
+// } from "lucide-react";
+
+// // Animation variants
+// const fadeInUp = {
+//   hidden: { opacity: 0, y: 30 },
+//   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+// };
+
+// const slideIn = {
+//   hidden: { opacity: 0, x: 100 },
+//   visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+// };
+
+// const slideOut = {
+//   hidden: { opacity: 0, x: -100 },
+//   exit: { opacity: 0, x: -100, transition: { duration: 0.6 } },
+// };
+
+// // Question Carousel Component
+// const QuestionCarousel = () => {
+//   const [currentQuestion, setCurrentQuestion] = useState(0);
+
+//   const questions = [
+//     {
+//       category: "For Buyers & Investors",
+//       question:
+//         "What if your next property investment was available 365 days a year, on your schedule?",
+//       gradient: "from-[#073c75] via-[#0f4d87] to-[#1a5ea3]",
+//     },
+//     {
+//       category: "For Buyers & Investors",
+//       question:
+//         "Are you ready to unlock direct access to Dubai's most exclusive opportunities?",
+//       gradient: "from-[#073c75] via-[#0f4d87] to-[#1a5ea3]",
+//     },
+//     {
+//       category: "For Real Estate Agents",
+//       question: "What if closing important deals took hours instead of weeks?",
+//       gradient: "from-[#073c75] via-[#1e3a8a] to-[#3b82f6]",
+//     },
+//     {
+//       category: "For Real Estate Agents",
+//       question:
+//         "Are you ready for an always-on marketplace that fuels your commissions?",
+//       gradient: "from-[#073c75] via-[#1e3a8a] to-[#3b82f6]",
+//     },
+//     {
+//       category: "For Developers",
+//       question:
+//         "What if your projects had a permanent stage in Dubai's property hub?",
+//       gradient: "from-[#073c75] via-[#1e3a8a] to-[#3b82f6]",
+//     },
+//     {
+//       category: "For Developers",
+//       question:
+//         "Are you ready to connect instantly with the city's top agents and qualified buyers?",
+//       gradient: "from-[#073c75] via-[#1e3a8a] to-[#3b82f6]",
+//     },
+//   ];
+
+//   useEffect(() => {
+//     const timer = setInterval(() => {
+//       setCurrentQuestion((prev) => (prev + 1) % questions.length);
+//     }, 4000);
+
+//     return () => clearInterval(timer);
+//   }, [questions.length]);
+
+//   const nextQuestion = () => {
+//     setCurrentQuestion((prev) => (prev + 1) % questions.length);
+//   };
+
+//   const prevQuestion = () => {
+//     setCurrentQuestion(
+//       (prev) => (prev - 1 + questions.length) % questions.length
+//     );
+//   };
+
+//   return (
+//     <div className="relative mb-4">
+//       <div className="overflow-hidden rounded-3xl shadow-2xl">
+//         <AnimatePresence mode="wait">
+//           <motion.div
+//             key={currentQuestion}
+//             initial={{ opacity: 0, y: 50 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             exit={{ opacity: 0, y: -50 }}
+//             transition={{ duration: 0.7 }}
+//             className={`bg-gradient-to-br ${questions[currentQuestion].gradient} p-8 md:p-12 text-white relative min-h-[200px] flex items-center`}
+//           >
+//             <div className="text-center w-full">
+//               <motion.div
+//                 initial={{ opacity: 0, scale: 0.9 }}
+//                 animate={{ opacity: 1, scale: 1 }}
+//                 transition={{ delay: 0.2, duration: 0.5 }}
+//                 className="mb-6"
+//               >
+//                 <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium text-white/90 border border-white/30">
+//                   {questions[currentQuestion].category}
+//                 </span>
+//               </motion.div>
+
+//               <motion.p
+//                 initial={{ opacity: 0, y: 20 }}
+//                 animate={{ opacity: 1, y: 0 }}
+//                 transition={{ delay: 0.4, duration: 0.6 }}
+//                 className="text-xl md:text-2xl  font-medium leading-relaxed text-white w-full mx-auto"
+//               >
+//                 {questions[currentQuestion].question}
+//               </motion.p>
+//             </div>
+
+//             {/* Navigation buttons */}
+//             {/* <button
+//               onClick={prevQuestion}
+//               className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/15 hover:bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 border border-white/30"
+//             >
+//               <ChevronLeft size={24} />
+//             </button>
+
+//             <button
+//               onClick={nextQuestion}
+//               className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/15 hover:bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 border border-white/30"
+//             >
+//               <ChevronRight size={24} />
+//             </button> */}
+
+//             {/* Decorative elements */}
+//             <div className="absolute top-4 left-4 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
+//             <div className="absolute bottom-4 right-4 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
+//           </motion.div>
+//         </AnimatePresence>
+//       </div>
+
+//       {/* Question indicators */}
+//       <div className="flex justify-center mt-6 space-x-2">
+//         {questions.map((_, index) => (
+//           <button
+//             key={index}
+//             onClick={() => setCurrentQuestion(index)}
+//             className={`w-3 h-3 rounded-full transition-all duration-300 ${
+//               currentQuestion === index
+//                 ? "bg-[#073c75] scale-125"
+//                 : "bg-[#073c75]/40 hover:bg-[#073c75]/70"
+//             }`}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// // Registration Form Component
+// const RegistrationForm = () => {
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     phone: "",
+//     interest: "buyer",
+//   });
+//   const [submitted, setSubmitted] = useState(false);
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log("Form submitted:", formData);
+//     setSubmitted(true);
+//     setTimeout(() => {
+//       setSubmitted(false);
+//       setFormData({ name: "", email: "", phone: "", interest: "buyer" });
+//     }, 3000);
+//   };
+
+//   if (submitted) {
+//     return (
+//       <motion.div
+//         initial={{ scale: 0.8, opacity: 0 }}
+//         animate={{ scale: 1, opacity: 1 }}
+//         className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-white/40 text-center shadow-2xl"
+//       >
+//         <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+//           <svg
+//             className="w-8 h-8 text-white"
+//             fill="none"
+//             stroke="currentColor"
+//             viewBox="0 0 24 24"
+//           >
+//             <path
+//               strokeLinecap="round"
+//               strokeLinejoin="round"
+//               strokeWidth={2}
+//               d="M5 13l4 4L19 7"
+//             />
+//           </svg>
+//         </div>
+//         <h3 className="text-2xl font-bold text-[#073c75] mb-2">You're In!</h3>
+//         <p className="text-[#073c75]/80">
+//           We'll notify you as soon as DPS launches.
+//         </p>
+//       </motion.div>
+//     );
+//   }
+
+//   return (
+//     <motion.div
+//       variants={fadeInUp}
+//       initial="hidden"
+//       animate="visible"
+//       className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-white/40 shadow-2xl"
+//     >
+//       <div className="text-center mb-8">
+//         <h3 className="text-3xl font-bold text-[#073c75] mb-3">
+//           Be the First to Know
+//         </h3>
+//         <p className="text-[#073c75]/80 text-lg">
+//           Join the waitlist and get exclusive early access
+//         </p>
+//       </div>
+
+//       <div className="space-y-6">
+//         <div>
+//           <div className="relative">
+//             <User
+//               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#073c75]/60"
+//               size={22}
+//             />
+//             <input
+//               type="text"
+//               value={formData.name}
+//               onChange={(e) =>
+//                 setFormData({ ...formData, name: e.target.value })
+//               }
+//               className="w-full pl-12 pr-4 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
+//               placeholder="Full Name"
+//               required
+//             />
+//           </div>
+//         </div>
+
+//         <div>
+//           <div className="relative">
+//             <Mail
+//               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#073c75]/60"
+//               size={22}
+//             />
+//             <input
+//               type="email"
+//               value={formData.email}
+//               onChange={(e) =>
+//                 setFormData({ ...formData, email: e.target.value })
+//               }
+//               className="w-full pl-12 pr-4 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
+//               placeholder="Email Address"
+//               required
+//             />
+//           </div>
+//         </div>
+
+//         <div>
+//           <div className="relative">
+//             <Phone
+//               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#073c75]/60"
+//               size={22}
+//             />
+//             <input
+//               type="tel"
+//               value={formData.phone}
+//               onChange={(e) =>
+//                 setFormData({ ...formData, phone: e.target.value })
+//               }
+//               className="w-full pl-12 pr-4 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
+//               placeholder="Phone Number"
+//               required
+//             />
+//           </div>
+//         </div>
+
+//         <div>
+//           <select
+//             value={formData.interest}
+//             onChange={(e) =>
+//               setFormData({ ...formData, interest: e.target.value })
+//             }
+//             className="w-full px-4 py-4 bg-white/70 backdrop-blur-sm border-2 border-[#073c75]/20 rounded-xl text-[#073c75] focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
+//           >
+//             {/* <option value="buyer" className="bg-white text-[#073c75]">
+//               Buyer/Investor
+//             </option> */}
+//             <option value="agent" className="bg-white text-[#073c75]">
+//               Real Estate Agent
+//             </option>
+//             <option value="developer" className="bg-white text-[#073c75]">
+//               Developer
+//             </option>
+//           </select>
+//         </div>
+
+//         <motion.button
+//           onClick={handleSubmit}
+//           whileHover={{ scale: 1.02 }}
+//           whileTap={{ scale: 0.98 }}
+//           className="w-full py-4 bg-gradient-to-r from-[#073c75] to-[#0f4d87] hover:from-[#0f4d87] hover:to-[#1a5ea3] text-white rounded-xl font-semibold transition-all duration-300 transform hover:shadow-2xl hover:shadow-[#073c75]/25 flex items-center justify-center gap-3 text-lg"
+//         >
+//           Join the Revolution
+//           <ArrowRight size={22} />
+//         </motion.button>
+//       </div>
+
+//       <p className="text-center text-[#073c75]/70 text-sm mt-6">
+//         No spam, just exclusive updates about DPS launch
+//       </p>
+//     </motion.div>
+//   );
+// };
+
+// // Main Coming Soon Page Component
+// const ComingSoonPage = () => {
+//   return (
+//     <div className="min-h-screen relative overflow-hidden">
+//       {/* Gradient Background */}
+//       <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#073c75] to-[#1e3a8a]">
+//         {/* Animated gradient orbs */}
+//         <motion.div
+//           animate={{
+//             scale: [1, 1.2, 1],
+//             opacity: [0.3, 0.6, 0.3],
+//             rotate: [0, 180, 360],
+//           }}
+//           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+//           className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"
+//         />
+
+//         <motion.div
+//           animate={{
+//             scale: [1, 1.3, 1],
+//             opacity: [0.2, 0.5, 0.2],
+//             rotate: [360, 180, 0],
+//           }}
+//           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+//           className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"
+//         />
+
+//         <motion.div
+//           animate={{
+//             scale: [1, 1.1, 1],
+//             opacity: [0.4, 0.7, 0.4],
+//             rotate: [0, 90, 180],
+//           }}
+//           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+//           className="absolute top-3/4 left-1/2 w-64 h-64 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-full blur-2xl"
+//         />
+
+//         {/* Subtle pattern overlay */}
+//         {/* <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.02"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div> */}
+//       </div>
+
+//       {/* Hero Section */}
+//       <div className="relative z-10 min-h-screen flex items-center">
+//         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+//             {/* Left Column - Content */}
+//             <motion.div
+//               initial={{ opacity: 0, x: -50 }}
+//               animate={{ opacity: 1, x: 0 }}
+//               transition={{ duration: 1 }}
+//               className="text-center lg:text-left"
+//             >
+//               {/* Logo */}
+//               <motion.div
+//                 initial={{ opacity: 0, y: -20 }}
+//                 animate={{ opacity: 1, y: 0 }}
+//                 transition={{ delay: 0.2, duration: 0.8 }}
+//                 className="flex items-center justify-center lg:justify-start mb-8"
+//               >
+//                 <img
+//                   src="/DPS_LOGOWIDE_white.png"
+//                   alt="Dubai Property Show"
+//                   className="h-16 md:h-20 w-auto object-contain filter drop-shadow-lg"
+//                 />
+//               </motion.div>
+
+//               {/* Main Headline */}
+//               <motion.h1
+//                 initial={{ opacity: 0, y: 30 }}
+//                 animate={{ opacity: 1, y: 0 }}
+//                 transition={{ delay: 0.4, duration: 0.8 }}
+//                 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight"
+//               >
+//                 The Future
+//                 <br />
+//                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-white to-cyan-300 ">
+//                   Is Coming
+//                 </span>
+//               </motion.h1>
+
+//               <motion.div
+//                 initial={{ opacity: 0, y: 30 }}
+//                 animate={{ opacity: 1, y: 0 }}
+//                 transition={{ delay: 0.6, duration: 0.8 }}
+//                 className="mb-12"
+//               >
+//                 <p className="text-2xl md:text-3xl text-white mb-4 font-medium">
+//                   One Platform. Every Deal. Zero Friction.
+//                 </p>
+//                 <p className="text-xl text-blue-200">
+//                   The Central Nervous System of Dubai Real Estate
+//                 </p>
+//               </motion.div>
+
+//               {/* Question Carousel */}
+//               {/* <motion.div
+//                 initial={{ opacity: 0, y: 30 }}
+//                 animate={{ opacity: 1, y: 0 }}
+//                 transition={{ delay: 0.8, duration: 0.8 }}
+//               >
+//                 <QuestionCarousel />
+//               </motion.div> */}
+
+//               {/* Launch Date */}
+//               <motion.div
+//                 initial={{ opacity: 0, y: 30 }}
+//                 animate={{ opacity: 1, y: 0 }}
+//                 transition={{ delay: 1, duration: 0.8 }}
+//                 className="text-center lg:text-left"
+//               >
+//                 <div className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 shadow-xl">
+//                   <div className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+//                   <span className="text-white/90 text-sm font-medium mr-2">
+//                     Launching{" "}
+//                   </span>
+//                   <span className="text-white font-bold text-lg">Soon</span>
+//                 </div>
+//               </motion.div>
+//             </motion.div>
+
+//             {/* Right Column - Form */}
+//             <motion.div
+//               initial={{ opacity: 0, x: 50 }}
+//               animate={{ opacity: 1, x: 0 }}
+//               transition={{ delay: 0.6, duration: 1 }}
+//               className="flex justify-center"
+//             >
+//               <div className="w-full max-w-lg">
+//                 <RegistrationForm />
+//               </div>
+//             </motion.div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ComingSoonPage;
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, Mail, User, Phone } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 // Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-};
-
-const slideIn = {
-  hidden: { opacity: 0, x: 100 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
-};
-
-const slideOut = {
-  hidden: { opacity: 0, x: -100 },
-  exit: { opacity: 0, x: -100, transition: { duration: 0.6 } },
-};
-
-// Question Carousel Component
-const QuestionCarousel = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-
-  const questions = [
-    {
-      category: "For Buyers & Investors",
-      question:
-        "What if your next property investment was available 365 days a year, on your schedule?",
-      gradient: "from-[#073c75] via-[#0f4d87] to-[#1a5ea3]",
-    },
-    {
-      category: "For Buyers & Investors",
-      question:
-        "Are you ready to unlock direct access to Dubai's most exclusive opportunities?",
-      gradient: "from-[#073c75] via-[#0f4d87] to-[#1a5ea3]",
-    },
-    {
-      category: "For Real Estate Agents",
-      question: "What if closing important deals took hours instead of weeks?",
-      gradient: "from-[#073c75] via-[#1e3a8a] to-[#3b82f6]",
-    },
-    {
-      category: "For Real Estate Agents",
-      question:
-        "Are you ready for an always-on marketplace that fuels your commissions?",
-      gradient: "from-[#073c75] via-[#1e3a8a] to-[#3b82f6]",
-    },
-    {
-      category: "For Developers",
-      question:
-        "What if your projects had a permanent stage in Dubai's property hub?",
-      gradient: "from-[#073c75] via-[#1e3a8a] to-[#3b82f6]",
-    },
-    {
-      category: "For Developers",
-      question:
-        "Are you ready to connect instantly with the city's top agents and qualified buyers?",
-      gradient: "from-[#073c75] via-[#1e3a8a] to-[#3b82f6]",
-    },
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentQuestion((prev) => (prev + 1) % questions.length);
-    }, 4000);
-
-    return () => clearInterval(timer);
-  }, [questions.length]);
-
-  const nextQuestion = () => {
-    setCurrentQuestion((prev) => (prev + 1) % questions.length);
-  };
-
-  const prevQuestion = () => {
-    setCurrentQuestion(
-      (prev) => (prev - 1 + questions.length) % questions.length
-    );
-  };
-
-  return (
-    <div className="relative mb-4">
-      <div className="overflow-hidden rounded-3xl shadow-2xl">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentQuestion}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            transition={{ duration: 0.7 }}
-            className={`bg-gradient-to-br ${questions[currentQuestion].gradient} p-8 md:p-12 text-white relative min-h-[200px] flex items-center`}
-          >
-            <div className="text-center w-full">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                className="mb-6"
-              >
-                <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium text-white/90 border border-white/30">
-                  {questions[currentQuestion].category}
-                </span>
-              </motion.div>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-xl md:text-2xl  font-medium leading-relaxed text-white w-full mx-auto"
-              >
-                {questions[currentQuestion].question}
-              </motion.p>
-            </div>
-
-            {/* Navigation buttons */}
-            {/* <button
-              onClick={prevQuestion}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/15 hover:bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 border border-white/30"
-            >
-              <ChevronLeft size={24} />
-            </button>
-
-            <button
-              onClick={nextQuestion}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/15 hover:bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 border border-white/30"
-            >
-              <ChevronRight size={24} />
-            </button> */}
-
-            {/* Decorative elements */}
-            <div className="absolute top-4 left-4 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
-            <div className="absolute bottom-4 right-4 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Question indicators */}
-      <div className="flex justify-center mt-6 space-x-2">
-        {questions.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentQuestion(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              currentQuestion === index
-                ? "bg-[#073c75] scale-125"
-                : "bg-[#073c75]/40 hover:bg-[#073c75]/70"
-            }`}
-          />
-        ))}
-      </div>
-    </div>
-  );
 };
 
 // Registration Form Component
@@ -1704,9 +2017,31 @@ const RegistrationForm = () => {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+    try {
+      await emailjs.send(
+        "service_otx1rwi", // replace with EmailJS service ID
+        "template_reojebe", // replace with EmailJS template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          interest: formData.interest,
+        },
+        "DsWeIlaGUWjO8AFSt" // replace with your EmailJS public key
+      );
+
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: "", email: "", phone: "", interest: "buyer" });
+      }, 3000);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert("Something went wrong. Please try again!");
+    }
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -1826,9 +2161,6 @@ const RegistrationForm = () => {
             }
             className="w-full px-4 py-4 bg-white/70 backdrop-blur-sm border-2 border-[#073c75]/20 rounded-xl text-[#073c75] focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
           >
-            <option value="buyer" className="bg-white text-[#073c75]">
-              Buyer/Investor
-            </option>
             <option value="agent" className="bg-white text-[#073c75]">
               Real Estate Agent
             </option>
@@ -1892,9 +2224,6 @@ const ComingSoonPage = () => {
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
           className="absolute top-3/4 left-1/2 w-64 h-64 bg-gradient-to-r from-blue-500/20 to-cyan-400/20 rounded-full blur-2xl"
         />
-
-        {/* Subtle pattern overlay */}
-        {/* <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.02"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div> */}
       </div>
 
       {/* Hero Section */}
@@ -1916,7 +2245,7 @@ const ComingSoonPage = () => {
                 className="flex items-center justify-center lg:justify-start mb-8"
               >
                 <img
-                  src="/DPS_LOGOWIDE.png"
+                  src="/DPS_LOGOWIDE_white.png"
                   alt="Dubai Property Show"
                   className="h-16 md:h-20 w-auto object-contain filter drop-shadow-lg"
                 />
@@ -1950,15 +2279,6 @@ const ComingSoonPage = () => {
                 </p>
               </motion.div>
 
-              {/* Question Carousel */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
-              >
-                <QuestionCarousel />
-              </motion.div>
-
               {/* Launch Date */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -1971,9 +2291,7 @@ const ComingSoonPage = () => {
                   <span className="text-white/90 text-sm font-medium mr-2">
                     Launching{" "}
                   </span>
-                  <span className="text-white font-bold text-lg">
-                    March 2025
-                  </span>
+                  <span className="text-white font-bold text-lg">Soon</span>
                 </div>
               </motion.div>
             </motion.div>
