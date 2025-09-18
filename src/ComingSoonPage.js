@@ -1337,7 +1337,7 @@ const RegistrationForm = () => {
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
               }
-              className="w-full pl-12 pr-4 py-4 bg-gray-800/10 backdrop-blur-sm border border-gray-800/30 rounded-xl text-gray-800 placeholder-gray-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
+              className="w-full pl-12 pr-4 py-4 bg-gray-800/10 border border-gray-800/30 rounded-xl text-gray-800 placeholder-gray-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
               placeholder="Full Name"
               required
             />
@@ -1356,7 +1356,7 @@ const RegistrationForm = () => {
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
-              className="w-full pl-12 pr-4 py-4 bg-gray-800/10 backdrop-blur-sm border border-gray-800/30 rounded-xl text-gray-800 placeholder-gray-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
+              className="w-full pl-12 pr-4 py-4 bg-gray-800/10 border border-gray-800/30 rounded-xl text-gray-800 placeholder-gray-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
               placeholder="Email Address"
               required
             />
@@ -1375,7 +1375,7 @@ const RegistrationForm = () => {
               onChange={(e) =>
                 setFormData({ ...formData, phone: e.target.value })
               }
-              className="w-full pl-12 pr-4 py-4 bg-gray-800/10 backdrop-blur-sm border border-gray-800/30 rounded-xl text-gray-800 placeholder-gray-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
+              className="w-full pl-12 pr-4 py-4 bg-gray-800/10 border border-gray-800/30 rounded-xl text-gray-800 placeholder-gray-800/60 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
               placeholder="Phone Number"
               required
             />
@@ -1388,20 +1388,20 @@ const RegistrationForm = () => {
             onChange={(e) =>
               setFormData({ ...formData, interest: e.target.value })
             }
-            className="w-full px-4 py-4 bg-gray-800/10 backdrop-blur-sm border border-gray-800/30 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
+            className="w-full px-4 py-4 bg-gray-800/10 border border-gray-800/30 rounded-xl text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
           >
-            <option value="buyer" className="bg-gray-900">
+            <option value="buyer" className="bg-white">
               Buyer/Investor
             </option>
-            <option value="agent" className="bg-gray-900">
+            <option value="agent" className="bg-white">
               Real Estate Agent
             </option>
-            <option value="developer" className="bg-gray-900">
+            <option value="developer" className="bg-white">
               Developer
             </option>
-            <option value="other" className="bg-gray-900">
+            {/* <option value="other" className="bg-white">
               Other
-            </option>
+            </option> */}
           </select>
         </div>
 
