@@ -2431,10 +2431,9 @@ const ComingSoonPage = () => {
               >
                 <div className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 shadow-xl">
                   <div className="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-white/90 text-sm font-medium mr-2">
-                    Launching{" "}
+                  <span className="text-white font-bold text-md">
+                    Launching Soon
                   </span>
-                  <span className="text-white font-bold text-lg">Soon</span>
                 </div>
               </motion.div>
             </motion.div>
