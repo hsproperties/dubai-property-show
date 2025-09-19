@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { getCountries, getCountryCallingCode } from "react-phone-number-input";
 // import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { ArrowUp, ArrowDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const CountrySelect = ({
     styling,
@@ -52,16 +52,16 @@ const CountrySelect = ({
                         </>
                     )}
                     {isOpen ? (
-                        <ArrowUp className="ml-1 text-[#073c75]/60" />
+                        <ChevronUp className="ml-1 text-[#073c75]/60" size={15} strokeWidth={4} />
                     ) : (
-                        <ArrowDown className="ml-1 text-[#073c75]/60" />
+                        <ChevronDown className="ml-1 text-[#073c75]/60" size={15} strokeWidth={4} />
                     )}
                 </button>
 
                 <input
                     type="tel"
                     name="phoneNumber"
-                    className="flex-grow pl-4 focus:outline-none"
+                    className="flex-grow focus:outline-none w-full"
                     value={phoneNumber}
                     onChange={handlePhoneNumberChange}
                     required

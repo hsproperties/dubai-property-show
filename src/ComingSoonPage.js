@@ -2229,7 +2229,7 @@ const RegistrationForm = () => {
       variants={fadeInUp}
       initial="hidden"
       animate="visible"
-      className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-white/40 shadow-2xl"
+      className="bg-white/95 backdrop-blur-xl rounded-3xl p-6 lg:p-8 border border-white/40 shadow-2xl"
     >
       <div className="text-center mb-8">
         <h3 className="text-3xl font-bold text-[#073c75] mb-3">
