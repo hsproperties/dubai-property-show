@@ -2000,6 +2000,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Mail, User, Phone } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import flags from "react-phone-number-input/flags";
+import en from "react-phone-number-input/locale/en";
+import CountrySelect from "./CountrySelect";
 
 // Animation variants
 const fadeInUp = {
@@ -2057,15 +2060,16 @@ const QuestionCarousel = () => {
     return () => clearInterval(timer);
   }, [questions.length]);
 
-  const nextQuestion = () => {
-    setCurrentQuestion((prev) => (prev + 1) % questions.length);
-  };
+  // const nextQuestion = () => {
+  //   setCurrentQuestion((prev) => (prev + 1) % questions.length);
+  // };
 
-  const prevQuestion = () => {
-    setCurrentQuestion(
-      (prev) => (prev - 1 + questions.length) % questions.length
-    );
-  };
+  // const prevQuestion = () => {
+  //   setCurrentQuestion(
+  //     (prev) => (prev - 1 + questions.length) % questions.length
+  //   );
+  // };
+
 
   return (
     <div className="relative mb-4">
@@ -2129,11 +2133,10 @@ const QuestionCarousel = () => {
           <button
             key={index}
             onClick={() => setCurrentQuestion(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              currentQuestion === index
-                ? "bg-[#073c75] scale-125"
-                : "bg-[#073c75]/40 hover:bg-[#073c75]/70"
-            }`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${currentQuestion === index
+              ? "bg-[#073c75] scale-125"
+              : "bg-[#073c75]/40 hover:bg-[#073c75]/70"
+              }`}
           />
         ))}
       </div>
@@ -2150,6 +2153,14 @@ const RegistrationForm = () => {
     interest: "buyer",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [country, setCountry] = useState("AE");
+
+  const handlePhoneNumberChange = (value) => {
+    setFormData({
+      ...formData,
+      phone: value,
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -2270,11 +2281,11 @@ const RegistrationForm = () => {
 
         <div>
           <div className="relative">
-            <Phone
+            {/* <Phone
               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#073c75]/60"
               size={22}
-            />
-            <input
+            /> */}
+            {/* <input
               type="tel"
               value={formData.phone}
               onChange={(e) =>
@@ -2283,6 +2294,14 @@ const RegistrationForm = () => {
               className="w-full pl-12 pr-4 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
               placeholder="Phone Number"
               required
+            /> */}
+            <CountrySelect
+              styling="w-full px-2 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
+              flags={flags}
+              labels={en}
+              value={country}
+              onChange={setCountry}
+              onPhoneChange={handlePhoneNumberChange}
             />
           </div>
         </div>
