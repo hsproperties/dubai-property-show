@@ -2060,17 +2060,6 @@ const QuestionCarousel = () => {
     return () => clearInterval(timer);
   }, [questions.length]);
 
-  // const nextQuestion = () => {
-  //   setCurrentQuestion((prev) => (prev + 1) % questions.length);
-  // };
-
-  // const prevQuestion = () => {
-  //   setCurrentQuestion(
-  //     (prev) => (prev - 1 + questions.length) % questions.length
-  //   );
-  // };
-
-
   return (
     <div className="relative mb-4">
       <div className="overflow-hidden rounded-3xl shadow-2xl">
@@ -2104,21 +2093,6 @@ const QuestionCarousel = () => {
                 {questions[currentQuestion].question}
               </motion.p>
             </div>
-
-            {/* Navigation buttons */}
-            {/* <button
-              onClick={prevQuestion}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/15 hover:bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 border border-white/30"
-            >
-              <ChevronLeft size={24} />
-            </button>
-
-            <button
-              onClick={nextQuestion}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/15 hover:bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 border border-white/30"
-            >
-              <ChevronRight size={24} />
-            </button> */}
 
             {/* Decorative elements */}
             <div className="absolute top-4 left-4 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
@@ -2240,70 +2214,51 @@ const RegistrationForm = () => {
         </p>
       </div>
 
-      <div className="space-y-6">
-        <div>
-          <div className="relative">
-            <User
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#073c75]/60"
-              size={22}
-            />
-            <input
-              type="text"
-              value={formData.name}
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
-              className="w-full pl-12 pr-4 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
-              placeholder="Full Name"
-              required
-            />
-          </div>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="relative">
+          <User
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#073c75]/60"
+            size={22}
+          />
+          <input
+            type="text"
+            value={formData.name}
+            onChange={(e) =>
+              setFormData({ ...formData, name: e.target.value })
+            }
+            className="w-full pl-12 pr-4 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
+            placeholder="Full Name"
+            required
+          />
         </div>
 
-        <div>
-          <div className="relative">
-            <Mail
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#073c75]/60"
-              size={22}
-            />
-            <input
-              type="email"
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-              className="w-full pl-12 pr-4 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
-              placeholder="Email Address"
-              required
-            />
-          </div>
+        <div className="relative">
+          <Mail
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#073c75]/60"
+            size={22}
+          />
+          <input
+            type="email"
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
+            className="w-full pl-12 pr-4 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
+            placeholder="Email Address"
+            required
+          />
         </div>
 
-        <div>
-          <div className="relative">
-            {/* <Phone
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-[#073c75]/60"
-              size={22}
-            /> */}
-            {/* <input
-              type="tel"
-              value={formData.phone}
-              onChange={(e) =>
-                setFormData({ ...formData, phone: e.target.value })
-              }
-              className="w-full pl-12 pr-4 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
-              placeholder="Phone Number"
-              required
-            /> */}
-            <CountrySelect
-              styling="w-full px-2 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
-              flags={flags}
-              labels={en}
-              value={country}
-              onChange={setCountry}
-              onPhoneChange={handlePhoneNumberChange}
-            />
-          </div>
+        <div className="relative">
+          <CountrySelect
+            styling="w-full px-2 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
+            flags={flags}
+            labels={en}
+            value={country}
+            onChange={setCountry}
+            onPhoneChange={handlePhoneNumberChange}
+            required
+          />
         </div>
 
         <div>
@@ -2313,7 +2268,9 @@ const RegistrationForm = () => {
               setFormData({ ...formData, interest: e.target.value })
             }
             className="w-full px-4 py-4 bg-white/70 backdrop-blur-sm border-2 border-[#073c75]/20 rounded-xl text-[#073c75] focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
+            required
           >
+            <option value="">Select your role</option>
             <option value="agent" className="bg-white text-[#073c75]">
               Real Estate Agent
             </option>
@@ -2324,7 +2281,7 @@ const RegistrationForm = () => {
         </div>
 
         <motion.button
-          onClick={handleSubmit}
+          type="submit"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="w-full py-4 bg-gradient-to-r from-[#073c75] to-[#0f4d87] hover:from-[#0f4d87] hover:to-[#1a5ea3] text-white rounded-xl font-semibold transition-all duration-300 transform hover:shadow-2xl hover:shadow-[#073c75]/25 flex items-center justify-center gap-3 text-lg"
@@ -2332,13 +2289,14 @@ const RegistrationForm = () => {
           Join the Revolution
           <ArrowRight size={22} />
         </motion.button>
-      </div>
+      </form>
 
       <p className="text-center text-[#073c75]/70 text-sm mt-6">
         No spam, just exclusive updates about DPS launch
       </p>
     </motion.div>
   );
+
 };
 
 // Main Coming Soon Page Component
