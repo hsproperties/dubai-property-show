@@ -1393,7 +1393,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} /> */}
+      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
       <main>
         <AnimatePresence mode="wait">
           <motion.div
@@ -1403,12 +1403,12 @@ const App = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
-            {/* {renderPage()} */}
-            <ComingSoonPage />
+            {renderPage()}
+            {/* <ComingSoonPage /> */}
           </motion.div>
         </AnimatePresence>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
