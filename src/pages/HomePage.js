@@ -279,7 +279,7 @@ const HomePage = () => {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               The Architect of{" "}
-              <span className="gradient-text">Convergence</span>
+              <span className=" text-blue-600">Convergence</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               DPS is a strategic infrastructure built to optimize the entire
