@@ -223,7 +223,7 @@ const HomePage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding !pt-0 bg-white">
         <div className="container-custom">
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-8"
