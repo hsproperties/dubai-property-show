@@ -32,6 +32,7 @@ import {
   Coffee,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import AnimatedCounter from "../components/sections/AnimatedCounter";
 
 const DeveloperBenefitsSection = () => {
   const ref = useRef(null);
@@ -73,10 +74,7 @@ const DeveloperBenefitsSection = () => {
   ];
 
   return (
-    <section
-      ref={ref}
-      className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100"
-    >
+    <section ref={ref} className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -84,7 +82,7 @@ const DeveloperBenefitsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <Badge className="mb-6 bg-blue-100 text-blue-700 hover:bg-blue-200 text-sm font-semibold px-6 py-3">
+          <Badge className="mb-6 bg-blue-50 text-[#073c75] border-blue-200 hover:text-white text-sm font-semibold px-4 py-2">
             Developer Benefits
           </Badge>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
@@ -109,12 +107,12 @@ const DeveloperBenefitsSection = () => {
               <Card className="h-full hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-white">
                 <CardContent className="p-8">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                    className={`w-16 h-16 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
                   >
                     <benefit.icon className="text-white" size={28} />
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#073c75] transition-colors">
                     {benefit.title}
                   </h3>
 
@@ -123,11 +121,11 @@ const DeveloperBenefitsSection = () => {
                   </p>
 
                   <div className="flex items-center justify-between">
-                    <Badge className="bg-blue-50 text-blue-700 text-sm font-semibold">
+                    <Badge className="bg-[#073c75] text-white text-sm font-semibold">
                       {benefit.stats}
                     </Badge>
                     <ArrowRight
-                      className="text-blue-600 group-hover:translate-x-1 transition-transform"
+                      className="text-[#073c75] group-hover:translate-x-1 transition-transform"
                       size={20}
                     />
                   </div>
@@ -189,7 +187,7 @@ const PlatformFeaturesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <Badge className="mb-6 bg-purple-100 text-purple-700 hover:bg-purple-200 text-sm font-semibold px-6 py-3">
+          <Badge className="mb-6 bg-blue-50 text-[#073c75] border-blue-200 hover:text-white text-sm font-semibold px-4 py-2">
             Platform Features
           </Badge>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
@@ -223,7 +221,7 @@ const PlatformFeaturesSection = () => {
 
               <div className="lg:w-1/2 space-y-6">
                 <div
-                  className={`w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg`}
+                  className={`w-16 h-16 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center shadow-lg`}
                 >
                   <feature.icon className="text-white" size={28} />
                 </div>
@@ -236,7 +234,7 @@ const PlatformFeaturesSection = () => {
                   {feature.description}
                 </p>
 
-                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                <Button className="bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white">
                   Learn More
                   <ArrowRight className="ml-2" size={16} />
                 </Button>
@@ -283,7 +281,7 @@ const ContactFormSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <Badge className="mb-6 bg-green-100 text-green-700 hover:bg-green-200 text-sm font-semibold px-6 py-3">
+          <Badge className="mb-6 bg-blue-50 text-[#073c75] border-blue-200 hover:text-white text-sm font-semibold px-4 py-2">
             Join DPS Today
           </Badge>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
@@ -400,7 +398,7 @@ const ContactFormSection = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-lg py-4"
+                  className="w-full bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white text-lg py-4"
                 >
                   Reserve Your Booth
                   <ArrowRight className="ml-2" size={20} />
@@ -414,78 +412,213 @@ const ContactFormSection = () => {
   );
 };
 
-const Developers = () => {
-  const heroRef = useRef(null);
-  const heroInView = useInView(heroRef, { once: true });
-
+const HeroSection = () => {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+  const textVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut",
+      },
+    },
+  };
   return (
-    <div className="min-h-screen pt-24">
-      {/* Hero Section */}
-      <section
-        ref={heroRef}
-        className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 relative overflow-hidden"
-      >
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
-            alt="Dubai Development"
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80"></div>
-        </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900"></div>
+      </div>
 
+      {/* Floating Elements */}
+      <motion.div
+        className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.6, 0.3],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+        animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.4, 0.7, 0.4],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
-          animate={heroInView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          className="mb-8"
         >
-          <Badge className="mb-6 bg-white/20 text-white border-white/30 text-sm font-semibold px-6 py-3">
+          <Badge className="mb-6 bg-white/20 text-white border-white/30 hover:bg-white/30 text-sm font-semibold px-6 py-3">
             For Developers
           </Badge>
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 leading-tight">
-            Amplify Your Projects with
-            <br />
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+            Amplify Your Projects with{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#51779e] to-white">
               Dubai's Premier Platform
             </span>
           </h1>
-          <p className="text-xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed">
+
+          <p className="text-xl sm:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed">
             Join 30+ leading developers at DPS and showcase your projects to
             Dubai's most qualified buyers and agents. Reduce marketing costs
             while maximizing exposure and sales.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
-            <Button
-              size="xl"
-              className="bg-white text-blue-600 hover:bg-gray-100 text-lg px-10 py-6 h-auto font-semibold shadow-2xl"
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+            {/* <Button
+              size="lg"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105"
             >
-              <Calendar size={24} className="mr-3" />
-              Schedule Consultation
-            </Button>
+              <Calendar className="mr-2" size={20} />
+              Visit DPS Today
+            </Button> */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8"
+            >
+              <motion.div whileHover="hover" initial="hidden" animate="visible">
+                <Button
+                  size="xl"
+                  className="group bg-white text-gray-900 hover:bg-gray-100 shadow-2xl text-lg px-6 py-3 h-auto font-semibold overflow-hidden relative"
+                  asChild
+                >
+                  <Link to="/about" className="flex items-center gap-3">
+                    <motion.span
+                      variants={textVariants}
+                      className="relative z-10 text-sm"
+                    >
+                      Visit DPS Today
+                    </motion.span>
+                    <Calendar
+                      className="group-hover:translate-x-1 transition-transform relative z-10"
+                      size={20}
+                    />
+                    {/* Animated background on hover */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "0%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </Link>
+                </Button>
+              </motion.div>
+            </motion.div>
 
-            <Button
-              size="xl"
+            {/* <Button
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 text-lg px-10 py-6 h-auto font-semibold"
+              size="lg"
+              className="border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-full text-lg font-semibold backdrop-blur-sm"
             >
-              Download Brochure
-            </Button>
+              <Play className="mr-2" size={20} />
+              Watch Virtual Tour
+            </Button> */}
           </div>
 
-          {/* Quick Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          {/* Key Stats */}
+          {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {[
+              { value: 30, suffix: "+", label: "Top Developers" },
+              { value: 4, suffix: "M+", label: "Residents" },
+              { value: 351538, label: "Annual Transactions" },
+              { value: 1.192, suffix: "T", label: "AED Market Value" },
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+                className="text-center"
+              >
+                <div className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                  <AnimatedCounter
+                    end={stat.value}
+                    suffix={stat.suffix || ""}
+                  />
+                </div>
+                <div className="text-sm text-gray-300">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div> */}
+          {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <div className="text-3xl font-bold text-white mb-2">30+</div>
+              <div className="text-3xl font-bold text-white mb-2">
+                <AnimatedCounter end={500} suffix="+" />
+              </div>
+              <div className="text-white/70 text-sm">Properties Available</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <div className="text-3xl font-bold text-white mb-2">
+                {" "}
+                <AnimatedCounter end={30} suffix="+" />
+              </div>
               <div className="text-white/70 text-sm">Premium Developers</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <div className="text-3xl font-bold text-white mb-2">10K+</div>
+              <div className="text-3xl font-bold text-white mb-2">
+                {" "}
+                <AnimatedCounter end={40} suffix="%" />
+              </div>
+              <div className="text-white/70 text-sm">Higher Closing Rate</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <div className="text-3xl font-bold text-white mb-2">24/7</div>
+              <div className="text-white/70 text-sm">Platform Access</div>
+            </div>
+          </div> */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <div className="text-3xl font-bold text-white mb-2">
+                <AnimatedCounter end={30} suffix="+" />
+              </div>
+              <div className="text-white/70 text-sm">Premium Developers</div>
+            </div>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+              <div className="text-3xl font-bold text-white mb-2">
+                <AnimatedCounter end={10} suffix="K+" />
+              </div>
               <div className="text-white/70 text-sm">Monthly Visitors</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
-              <div className="text-3xl font-bold text-white mb-2">60%</div>
+              <div className="text-3xl font-bold text-white mb-2">
+                <AnimatedCounter end={60} suffix="%" />
+              </div>
               <div className="text-white/70 text-sm">Cost Reduction</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
@@ -494,14 +627,22 @@ const Developers = () => {
             </div>
           </div>
         </motion.div>
-      </section>
+      </div>
+    </section>
+  );
+};
+
+const Developers = () => {
+  return (
+    <div className="min-h-screen bg-white">
+      <HeroSection />
 
       <DeveloperBenefitsSection />
       <PlatformFeaturesSection />
       <ContactFormSection />
 
       {/* Final CTA */}
-      <section className="py-16 bg-gradient-to-r from-gray-900 to-blue-900 text-white">
+      {/* <section className="py-16 bg-gradient-to-r from-gray-900 to-blue-900 text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h3 className="text-3xl font-bold mb-4">
             Ready to Join Dubai's Premier Developers?
@@ -528,7 +669,7 @@ const Developers = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

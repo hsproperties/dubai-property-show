@@ -76,16 +76,40 @@ const AnimatedCounter = ({ end, duration = 2, prefix = "", suffix = "" }) => {
 };
 
 const HeroSection = () => {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+  const textVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+    hover: {
+      scale: 1.05,
+      transition: {
+        duration: 0.2,
+        ease: "easeInOut",
+      },
+    },
+  };
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
-          alt="Dubai Property"
-          className="w-full h-full object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-purple-900/60 to-blue-900/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900"></div>
       </div>
 
       {/* Floating Elements */}
@@ -128,7 +152,7 @@ const HeroSection = () => {
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
             SEE MORE. COMPARE FASTER.{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#51779e] to-white">
               DECIDE SMARTER
             </span>
           </h1>
@@ -140,22 +164,54 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Button
+            {/* <Button
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105"
             >
               <Calendar className="mr-2" size={20} />
               Visit DPS Today
-            </Button>
+            </Button> */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16"
+            >
+              <motion.div whileHover="hover" initial="hidden" animate="visible">
+                <Button
+                  size="xl"
+                  className="group bg-white text-gray-900 hover:bg-gray-100 shadow-2xl text-lg px-6 py-3 h-auto font-semibold overflow-hidden relative"
+                  asChild
+                >
+                  <Link to="/about" className="flex items-center gap-3">
+                    <motion.span
+                      variants={textVariants}
+                      className="relative z-10 text-sm"
+                    >
+                      Visit DPS Today
+                    </motion.span>
+                    <Calendar
+                      className="group-hover:translate-x-1 transition-transform relative z-10"
+                      size={20}
+                    />
+                    {/* Animated background on hover */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "0%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </Link>
+                </Button>
+              </motion.div>
+            </motion.div>
 
-            <Button
+            {/* <Button
               variant="outline"
               size="lg"
               className="border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-full text-lg font-semibold backdrop-blur-sm"
             >
               <Play className="mr-2" size={20} />
               Watch Virtual Tour
-            </Button>
+            </Button> */}
           </div>
 
           {/* Key Stats */}
@@ -200,7 +256,7 @@ const BuyerBenefitsSection = () => {
       description:
         "Find every top developer in Dubai under a single roof. Make the most important decision of your life with perfect information and zero pressure.",
       stats: "30+ Top Developers",
-      color: "from-green-500 to-green-700",
+      color: "from-[#073c75] to-green-700",
       features: [
         "Central location",
         "Easy access",
@@ -253,10 +309,7 @@ const BuyerBenefitsSection = () => {
   ];
 
   return (
-    <section
-      ref={ref}
-      className="py-20 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50"
-    >
+    <section ref={ref} className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -264,14 +317,14 @@ const BuyerBenefitsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <Badge className="mb-6 bg-green-100 text-green-700 hover:bg-green-200 text-sm font-semibold px-6 py-3">
+          {/* <Badge className="mb-6 bg-green-100 text-green-700 hover:bg-green-200 text-sm font-semibold px-6 py-3">
+            Your Portfolio Command Center
+          </Badge> */}
+          <Badge className="mb-6 bg-blue-50 text-[#073c75] border-blue-200 hover:text-white text-sm font-semibold px-4 py-2">
             Your Portfolio Command Center
           </Badge>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Where Choices{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">
-              Become Clarity
-            </span>
+            Where Choices <span className="text-gradient">Become Clarity</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             At DPS, we bring the entire Dubai Real Estate market under one roof.
@@ -291,12 +344,12 @@ const BuyerBenefitsSection = () => {
               <Card className="h-full hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-white backdrop-blur-sm">
                 <CardContent className="p-8">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                    className={`w-16 h-16 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
                   >
                     <benefit.icon className="text-white" size={28} />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-green-600 transition-colors">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4  transition-colors">
                     {benefit.title}
                   </h3>
 
@@ -308,7 +361,7 @@ const BuyerBenefitsSection = () => {
                     {benefit.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-3">
                         <CheckCircle
-                          className="text-green-500 flex-shrink-0"
+                          className="text-[#073c75] flex-shrink-0"
                           size={16}
                         />
                         <span className="text-gray-600 text-sm">{feature}</span>
@@ -317,11 +370,11 @@ const BuyerBenefitsSection = () => {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <Badge className="bg-green-50 text-green-700 text-sm font-semibold px-3 py-1">
+                    <Badge className="bg-[#073c75] text-white text-sm font-semibold px-3 py-1">
                       {benefit.stats}
                     </Badge>
                     <ArrowRight
-                      className="text-green-600 group-hover:translate-x-1 transition-transform"
+                      className="text-[#073c75] group-hover:translate-x-1 transition-transform"
                       size={20}
                     />
                   </div>
@@ -338,14 +391,14 @@ const BuyerBenefitsSection = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center"
         >
-          <Card className="bg-gradient-to-r from-blue-900 via-purple-900 to-blue-900 text-white border-0 shadow-2xl">
+          <Card className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white border-0 shadow-2xl">
             <CardContent className="p-12">
               <h3 className="text-3xl font-bold mb-6">
                 Dubai's Thriving Property Market
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
-                  <div className="text-4xl font-bold mb-2 text-blue-300">
+                  <div className="text-4xl font-bold mb-2 text-white">
                     <AnimatedCounter end={4} suffix="M+" />
                   </div>
                   <p className="text-gray-200">
@@ -353,7 +406,7 @@ const BuyerBenefitsSection = () => {
                   </p>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold mb-2 text-purple-300">
+                  <div className="text-4xl font-bold mb-2 text-white">
                     <AnimatedCounter end={100000} suffix="+" />
                   </div>
                   <p className="text-gray-200">
@@ -361,7 +414,7 @@ const BuyerBenefitsSection = () => {
                   </p>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold mb-2 text-pink-300">
+                  <div className="text-4xl font-bold mb-2 text-white">
                     <AnimatedCounter end={963} />
                   </div>
                   <p className="text-gray-200">
@@ -449,14 +502,14 @@ const ExperienceSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <Badge className="mb-6 bg-blue-100 text-blue-700 hover:bg-blue-200 text-sm font-semibold px-6 py-3">
+          {/* <Badge className="mb-6 bg-blue-100 text-blue-700 hover:bg-blue-200 text-sm font-semibold px-6 py-3">
+            The DPS Experience
+          </Badge> */}
+          <Badge className="mb-6 bg-blue-50 text-[#073c75] border-blue-200 hover:text-white text-sm font-semibold px-4 py-2">
             The DPS Experience
           </Badge>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Designed for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Your Success
-            </span>
+            Designed for <span className="text-gradient">Your Success</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Every aspect of DPS is designed to make your property journey
@@ -484,7 +537,7 @@ const ExperienceSection = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
                   <div
-                    className={`absolute top-6 left-6 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg`}
+                    className={`absolute top-6 left-6 w-12 h-12 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-xl flex items-center justify-center shadow-lg`}
                   >
                     <experience.icon className="text-white" size={24} />
                   </div>
@@ -505,7 +558,7 @@ const ExperienceSection = () => {
                     {experience.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-3">
                         <CheckCircle
-                          className="text-green-500 flex-shrink-0"
+                          className="text-[#073c75] flex-shrink-0"
                           size={20}
                         />
                         <span className="text-gray-700 font-medium">
@@ -515,7 +568,7 @@ const ExperienceSection = () => {
                     ))}
                   </div>
 
-                  <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                  <Button className="bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
                     Learn More
                     <ArrowRight className="ml-2" size={16} />
                   </Button>
@@ -543,9 +596,9 @@ const CTASection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 relative overflow-hidden">
+    <section className="py-20 bg-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80')] bg-cover bg-center opacity-20"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90"></div>
+      <div className="absolute inset-0 bg-white"></div>
 
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -555,10 +608,10 @@ const CTASection = () => {
         className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             Ready to Find Your Dream Property?
           </h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             Join thousands who have already discovered their perfect home or
             investment at DPS. Your journey to Dubai's finest properties starts
             here.
@@ -575,10 +628,10 @@ const CTASection = () => {
           >
             <Card className="bg-white/10 backdrop-blur-lg border-white/20">
               <CardHeader>
-                <CardTitle className="text-white text-2xl">
+                <CardTitle className="text-gray-900 text-2xl">
                   Get Started Today
                 </CardTitle>
-                <p className="text-gray-200">
+                <p className="text-gray-700">
                   Let us help you find the perfect property
                 </p>
               </CardHeader>
@@ -590,7 +643,7 @@ const CTASection = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="bg-white/20 border-white/30 text-white placeholder:text-gray-300"
+                    className="bg-gray-100 border-gray-100 text-gray-900 placeholder:text-gray-700"
                   />
                   <Input
                     type="email"
@@ -599,7 +652,7 @@ const CTASection = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="bg-white/20 border-white/30 text-white placeholder:text-gray-300"
+                    className="bg-gray-100 border-gray-100 text-gray-900 placeholder:text-gray-700"
                   />
                   <Input
                     placeholder="Phone Number"
@@ -607,32 +660,32 @@ const CTASection = () => {
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    className="bg-white/20 border-white/30 text-white placeholder:text-gray-300"
+                    className="bg-gray-100 border-gray-100 text-gray-900 placeholder:text-gray-700"
                   />
                   <select
                     value={formData.interest}
                     onChange={(e) =>
                       setFormData({ ...formData, interest: e.target.value })
                     }
-                    className="w-full p-3 bg-white/20 border border-white/30 rounded-md text-white"
+                    className="w-full p-3 bg-gray-100 border-gray-100 rounded-md text-gray-900"
                   >
-                    <option value="residential" className="text-black">
+                    <option value="residential" className="text-gray-900">
                       Residential Properties
                     </option>
-                    <option value="commercial" className="text-black">
+                    <option value="commercial" className="text-gray-900">
                       Commercial Properties
                     </option>
-                    <option value="investment" className="text-black">
+                    <option value="investment" className="text-gray-900">
                       Investment Opportunities
                     </option>
-                    <option value="luxury" className="text-black">
+                    <option value="luxury" className="text-gray-900">
                       Luxury Properties
                     </option>
                   </select>
 
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 text-white py-3 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white py-3 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     Book Your Visit
                     <Calendar className="ml-2" size={20} />
@@ -650,36 +703,36 @@ const CTASection = () => {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <div className="text-white">
+            <div className="text-gray-900">
               <h3 className="text-2xl font-bold mb-6">Visit DPS Today</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
-                  <MapPin className="text-blue-400" size={24} />
+                  <MapPin className="text-[#073c75]" size={24} />
                   <div>
                     <p className="font-semibold">DPS Exhibition Center</p>
-                    <p className="text-gray-300">
+                    <p className="text-gray-700">
                       Main Umm Seqiem Road, Barsh 2, Dubai, UAE
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <Clock className="text-purple-400" size={24} />
+                  <Clock className="text-[#073c75]" size={24} />
                   <div>
                     <p className="font-semibold">Open Daily</p>
-                    <p className="text-gray-300">9:00 AM - 10:00 PM</p>
+                    <p className="text-gray-700">9:00 AM - 10:00 PM</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <Phone className="text-green-400" size={24} />
+                  <Phone className="text-[#073c75]" size={24} />
                   <div>
                     <p className="font-semibold">Call Us</p>
-                    <p className="text-gray-300">+971 4 XXX XXXX</p>
+                    <p className="text-gray-700">+971 4 XXX XXXX</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Button className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm py-4">
                 <Play className="mr-2" size={20} />
                 Virtual Tour
@@ -688,7 +741,7 @@ const CTASection = () => {
                 <BookOpen className="mr-2" size={20} />
                 Property Guide
               </Button>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </motion.div>

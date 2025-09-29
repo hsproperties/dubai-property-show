@@ -74,7 +74,7 @@ const ContactForm = () => {
         className="text-center py-12"
       >
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle className="w-10 h-10 text-green-600" />
+          <CheckCircle className="w-10 h-10 text-[#073c75]" />
         </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-4">
           Message Sent Successfully!
@@ -303,7 +303,7 @@ const Contact = () => {
                 <Card className="text-center hover:shadow-xl transition-shadow duration-300 border-0 shadow-lg">
                   <CardHeader>
                     <div
-                      className={`w-16 h-16 bg-gradient-to-br ${method.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}
+                      className={`w-16 h-16 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}
                     >
                       <method.icon className="text-white" size={28} />
                     </div>
@@ -380,7 +380,7 @@ const Contact = () => {
 
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#cdd8e3] rounded-lg flex items-center justify-center">
                       <MapPin className="text-[#073c75]" size={20} />
                     </div>
                     <div>
@@ -397,8 +397,8 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                      <Clock className="text-green-600" size={20} />
+                    <div className="w-12 h-12 bg-[#cdd8e3] rounded-lg flex items-center justify-center">
+                      <Clock className="text-[#073c75]" size={20} />
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">
@@ -428,10 +428,17 @@ const Contact = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="absolute inset-0 bg-white/20 backdrop-blur-sm flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                    <Button variant="outline" className="bg-white/90">
+                  <div className="absolute inset-0 bg-white/20 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 cursor-pointer">
+                    {/* <Button variant="outline" className="bg-white/90">
                       Open in Google Maps
-                    </Button>
+                    </Button> */}
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.821390602998!2d55.22079707592778!3d25.107906735310458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b798c7080a5%3A0x11c19a9e96fbd2f1!2sH%26S%20Real%20Estate!5e0!3m2!1sen!2sae!4v1759140746683!5m2!1sen!2sae"
+                      width="600"
+                      height="450"
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
                   </div>
                 </div>
               </Card>
@@ -448,7 +455,7 @@ const Contact = () => {
 
                 <Card className="text-center border-0 shadow-lg">
                   <CardContent className="p-6">
-                    <Users className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+                    <Users className="w-8 h-8 text-[#073c75] mx-auto mb-2" />
                     <div className="text-2xl font-bold text-gray-900">10K+</div>
                     <div className="text-sm text-gray-600">
                       Monthly Visitors
@@ -462,7 +469,7 @@ const Contact = () => {
       </section>
 
       {/* Social Media & Final CTA */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+      {/* <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80')] bg-cover bg-center opacity-20"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div>
 
@@ -482,7 +489,7 @@ const Contact = () => {
             property showcase.
           </p>
 
-          {/* Social Links */}
+          {/* Social Links 
           <div className="flex justify-center gap-6 mb-12">
             {socialLinks.map((social, index) => (
               <motion.a
@@ -522,7 +529,7 @@ const Contact = () => {
             </p>
           </div>
         </motion.div>
-      </section>
+      </section> */}
     </div>
   );
 };

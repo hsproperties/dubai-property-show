@@ -104,9 +104,12 @@ const Navigation = () => {
                 <div className="absolute -inset-1 bg-gradient-to-br from-blue-400 to-purple-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div> */}
                 <img
                   src={
-                    location.pathname !== "/"
+                    location.pathname !== "/" &&
+                    location.pathname !== "/buyers" &&
+                    location.pathname !== "/agents" &&
+                    location.pathname !== "/developers"
                       ? "/DPS_LOGOWIDE.png"
-                      : scrolled
+                      : scrolled || isOpen
                       ? "/DPS_LOGOWIDE.png"
                       : "/DPS_LOGOWIDE_WHITE.png"
                   }
@@ -137,7 +140,10 @@ const Navigation = () => {
                     <div
                       className={cn(
                         "flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative cursor-pointer",
-                        location.pathname !== "/"
+                        location.pathname !== "/" &&
+                          location.pathname !== "/buyers" &&
+                          location.pathname !== "/agents" &&
+                          location.pathname !== "/developers"
                           ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
                           : scrolled || isOpen
                           ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
@@ -154,7 +160,10 @@ const Navigation = () => {
                       to={item.path}
                       className={cn(
                         "flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative group/link",
-                        location.pathname !== "/"
+                        location.pathname !== "/" &&
+                          location.pathname !== "/buyers" &&
+                          location.pathname !== "/agents" &&
+                          location.pathname !== "/developers"
                           ? location.pathname === item.path
                             ? "text-[#073c75] bg-blue-50"
                             : "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
@@ -219,13 +228,16 @@ const Navigation = () => {
                 </div>
               ))}
             </div>
-            <div className="flex items-center gap-3 ml-6">
+            <div className="lg:flex items-center gap-3 ml-6 hidden">
               <Button
                 variant="ghost"
                 size="sm"
                 className={cn(
                   "transition-colors duration-200",
-                  location.pathname !== "/"
+                  location.pathname !== "/" &&
+                    location.pathname !== "/buyers" &&
+                    location.pathname !== "/agents" &&
+                    location.pathname !== "/developers"
                     ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
                     : scrolled || isOpen
                     ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"

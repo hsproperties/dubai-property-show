@@ -26,6 +26,7 @@ import {
   Calendar,
   Target,
 } from "lucide-react";
+import AnimatedCounter from "../components/sections/AnimatedCounter";
 
 const ExhibitorCard = ({ exhibitor, delay = 0 }) => {
   const ref = useRef(null);
@@ -45,24 +46,16 @@ const ExhibitorCard = ({ exhibitor, delay = 0 }) => {
               {/* <Building2 className="text-white" size={28} /> */}
               <img src={exhibitor.logo} alt={exhibitor.name} />
             </div>
-            <Badge
-              className={`${
-                exhibitor.tier === "Premium"
-                  ? "bg-gold-500"
-                  : exhibitor.tier === "Platinum"
-                  ? "bg-gray-400"
-                  : "bg-blue-500"
-              } text-white`}
-            >
+            {/* <Badge className={`bg-[#073c75] text-white`}>
               {exhibitor.tier}
-            </Badge>
+            </Badge> */}
           </div>
 
           <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-[#073c75] transition-colors mb-2">
             {exhibitor.name}
           </CardTitle>
 
-          <div className="flex items-center text-gray-500 mb-3">
+          {/* <div className="flex items-center text-gray-500 mb-3">
             <MapPin className="w-4 h-4 mr-1" />
             <span className="text-sm">{exhibitor.location}</span>
           </div>
@@ -77,7 +70,7 @@ const ExhibitorCard = ({ exhibitor, delay = 0 }) => {
             <div className="text-sm text-gray-500">
               {exhibitor.projectsCount} Projects
             </div>
-          </div>
+          </div> */}
         </CardHeader>
 
         <CardContent>
@@ -86,25 +79,25 @@ const ExhibitorCard = ({ exhibitor, delay = 0 }) => {
           </p>
 
           {/* Specialties */}
-          <div className="flex flex-wrap gap-2 mb-6">
+          {/* <div className="flex flex-wrap gap-2 mb-6">
             {exhibitor.specialties.map((specialty, index) => (
               <Badge key={index} variant="secondary" className="text-xs">
                 {specialty}
               </Badge>
             ))}
-          </div>
+          </div> */}
 
           {/* Stats */}
           <div className="grid grid-cols-2 gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
             <div className="text-center">
               <div className="text-lg font-bold text-[#073c75]">
-                {exhibitor.yearsExperience}
+                <AnimatedCounter end={exhibitor.yearsExperience} suffix="+" />
               </div>
               <div className="text-xs text-gray-500">Years</div>
             </div>
             <div className="text-center">
-              <div className="text-lg font-bold text-green-600">
-                {exhibitor.completedProjects}
+              <div className="text-lg font-bold text-[#073c75]">
+                <AnimatedCounter end={exhibitor.completedProjects} suffix="+" />
               </div>
               <div className="text-xs text-gray-500">Delivered</div>
             </div>
@@ -163,8 +156,8 @@ const Exhibitors = () => {
       rating: 4.9,
       projectsCount: 25,
       tier: "Platinum",
-      yearsExperience: "25+",
-      completedProjects: "100+",
+      yearsExperience: "25",
+      completedProjects: "100",
       description:
         "Leading real estate developer in Dubai, creator of iconic landmarks including Burj Khalifa and Dubai Mall.",
       specialties: ["Luxury", "Residential", "Commercial"],
@@ -178,8 +171,8 @@ const Exhibitors = () => {
       rating: 4.8,
       projectsCount: 18,
       tier: "Premium",
-      yearsExperience: "20+",
-      completedProjects: "80+",
+      yearsExperience: "20",
+      completedProjects: "80",
       description:
         "Luxury real estate developer known for high-end residential and commercial projects across prime Dubai locations.",
       specialties: ["Luxury", "Residential", "Hotels"],
@@ -193,8 +186,8 @@ const Exhibitors = () => {
       rating: 4.7,
       projectsCount: 22,
       tier: "Premium",
-      yearsExperience: "18+",
-      completedProjects: "65+",
+      yearsExperience: "18",
+      completedProjects: "65",
       description:
         "Subsidiary of Dubai Holding, developing premium residential and commercial properties across Dubai.",
       specialties: ["Residential", "Commercial", "Mixed-Use"],
@@ -208,8 +201,8 @@ const Exhibitors = () => {
       rating: 4.8,
       projectsCount: 15,
       tier: "Platinum",
-      yearsExperience: "22+",
-      completedProjects: "50+",
+      yearsExperience: "22",
+      completedProjects: "50",
       description:
         "Master developer behind iconic projects like Palm Jumeirah, creating unique waterfront communities.",
       specialties: ["Luxury", "Waterfront", "Master Communities"],
@@ -223,8 +216,8 @@ const Exhibitors = () => {
       rating: 4.6,
       projectsCount: 12,
       tier: "Premium",
-      yearsExperience: "15+",
-      completedProjects: "35+",
+      yearsExperience: "15",
+      completedProjects: "35",
       description:
         "Premium developer focused on creating luxury residential communities with world-class amenities.",
       specialties: ["Luxury", "Residential", "Villas"],
@@ -238,8 +231,8 @@ const Exhibitors = () => {
       rating: 4.7,
       projectsCount: 20,
       tier: "Premium",
-      yearsExperience: "12+",
-      completedProjects: "45+",
+      yearsExperience: "12",
+      completedProjects: "45",
       description:
         "Innovative developer creating lifestyle destinations that blend residential, retail, and entertainment with world-class amenities.",
       specialties: ["Mixed-Use", "Entertainment", "Retail"],
@@ -323,7 +316,7 @@ const Exhibitors = () => {
             className="grid grid-cols-2 lg:grid-cols-4 gap-8"
           >
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Building2 className="text-white" size={28} />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">30+</div>
@@ -331,7 +324,7 @@ const Exhibitors = () => {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Star className="text-white" size={28} />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">4.8</div>
@@ -339,7 +332,7 @@ const Exhibitors = () => {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Award className="text-white" size={28} />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">500+</div>
@@ -347,7 +340,7 @@ const Exhibitors = () => {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="text-white" size={28} />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">20+</div>
@@ -361,7 +354,7 @@ const Exhibitors = () => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filter Categories */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -381,7 +374,7 @@ const Exhibitors = () => {
                 {category}
               </Button>
             ))}
-          </motion.div>
+          </motion.div> */}
 
           {/* Results Summary */}
           <motion.div
@@ -391,13 +384,13 @@ const Exhibitors = () => {
             className="text-center mb-12"
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-2">
-              {filteredExhibitors.length} Premium Developers
+              All Premium Developers
             </h3>
-            <p className="text-gray-600">
+            {/* <p className="text-gray-600">
               {selectedCategory === "All"
                 ? "All categories"
                 : `Specializing in ${selectedCategory}`}
-            </p>
+            </p> */}
           </motion.div>
 
           {/* Exhibitors Grid */}
@@ -445,7 +438,7 @@ const Exhibitors = () => {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <CheckCircle className="text-white" size={32} />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -464,7 +457,7 @@ const Exhibitors = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-center"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Award className="text-white" size={32} />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -483,7 +476,7 @@ const Exhibitors = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-center"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Clock className="text-white" size={32} />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -502,7 +495,7 @@ const Exhibitors = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-center"
             >
-              <div className="w-20 h-20 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                 <Users className="text-white" size={32} />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -565,7 +558,7 @@ const Exhibitors = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
+      {/* <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80')] bg-cover bg-center opacity-20"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div>
 
@@ -630,7 +623,7 @@ const Exhibitors = () => {
             </div>
           </div>
         </motion.div>
-      </section>
+      </section> */}
     </div>
   );
 };

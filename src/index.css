@@ -92,8 +92,42 @@
   }
 
   /* Text Gradient */
+  /* .text-gradient {
+    @apply bg-gradient-to-r from-[#073c75] via-[#51779e] to-[#073c75] bg-clip-text text-transparent;
+  } */
+
   .text-gradient {
     @apply bg-gradient-to-r from-[#073c75] via-[#51779e] to-[#073c75] bg-clip-text text-transparent;
+    background-size: 200% auto; /* Makes gradient move */
+    animation: gradient-move 3s linear infinite;
+  }
+
+  @keyframes gradient-move {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: -200% center;
+    }
+  }
+
+  .glow-wrapper {
+    position: relative;
+    background: linear-gradient(135deg, #073c75, #51779e);
+    box-shadow: 0 0 25px rgba(81, 119, 158, 0.7);
+    animation: glowRun 3s linear infinite;
+  }
+
+  @keyframes glowRun {
+    0% {
+      box-shadow: 0 0 15px #073c75, 0 0 30px #51779e, 0 0 45px #073c75;
+    }
+    50% {
+      box-shadow: 0 0 30px #51779e, 0 0 60px #073c75, 0 0 90px #51779e;
+    }
+    100% {
+      box-shadow: 0 0 15px #073c75, 0 0 30px #51779e, 0 0 45px #073c75;
+    }
   }
 
   /* Enhanced Animations */

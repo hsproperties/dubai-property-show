@@ -20,6 +20,7 @@ import {
   Star,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import AnimatedCounter from "../components/sections/AnimatedCounter";
 
 const TimelineItem = ({ title, description, icon: Icon, date, delay = 0 }) => {
   const ref = useRef(null);
@@ -177,15 +178,15 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Card className="h-full border-0 shadow-lg bg-gradient-to-br from-blue-50 to-blue-100 hover:shadow-xl transition-all duration-300">
+              <Card className="h-full border-0 shadow-2xl bg-white transition-all duration-300">
                 <CardHeader className="text-center">
-                  <Eye className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-                  <CardTitle className="text-2xl font-bold text-blue-900">
+                  <Eye className="w-16 h-16 text-[#073c75] mx-auto mb-4" />
+                  <CardTitle className="text-2xl font-bold text-gray-900">
                     Our Vision
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-blue-700 text-center leading-relaxed">
+                  <p className="text-gray-900 text-center leading-relaxed">
                     To centralize discovery and transaction, creating the most
                     efficient and transparent Real Estate market in the World.
                   </p>
@@ -199,15 +200,15 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <Card className="h-full border-0 shadow-lg bg-gradient-to-br from-purple-50 to-purple-100 hover:shadow-xl transition-all duration-300">
+              <Card className="h-full border-0 shadow-2xl bg-white transition-all duration-300">
                 <CardHeader className="text-center">
-                  <Target className="w-16 h-16 text-purple-600 mx-auto mb-4" />
-                  <CardTitle className="text-2xl font-bold text-purple-900">
+                  <Target className="w-16 h-16 text-[#073c75] mx-auto mb-4" />
+                  <CardTitle className="text-2xl font-bold text-gray-900">
                     Our Mission
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-purple-700 text-center leading-relaxed">
+                  <p className="text-gray-900 text-center leading-relaxed">
                     To assemble the complete collection of Dubai's premier Real
                     Estate Developers, establishing our showcase as the
                     indispensable first destination for discovery.
@@ -222,15 +223,15 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Card className="h-full border-0 shadow-lg bg-gradient-to-br from-green-50 to-green-100 hover:shadow-xl transition-all duration-300">
+              <Card className="h-full border-0 shadow-2xl bg-white transition-all duration-300">
                 <CardHeader className="text-center">
-                  <Diamond className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                  <CardTitle className="text-2xl font-bold text-green-900">
+                  <Diamond className="w-16 h-16 text-[#073c75] mx-auto mb-4" />
+                  <CardTitle className="text-2xl font-bold text-gray-900">
                     Our Values
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-green-700 text-center leading-relaxed">
+                  <p className="text-gray-900 text-center leading-relaxed">
                     Leveraged Visibility. We create a network effect where the
                     success of each participant amplifies the success of all.
                   </p>
@@ -333,23 +334,31 @@ const About = () => {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="glass rounded-2xl p-8 hover:bg-white/15 transition-all duration-300">
-              <Building2 className="text-blue-300 w-12 h-12 mx-auto mb-4" />
-              <div className="text-3xl font-bold text-white mb-2">30+</div>
+              <Building2 className="text-white w-12 h-12 mx-auto mb-4" />
+              <div className="text-3xl font-bold text-white mb-2">
+                <AnimatedCounter end={30} suffix="+" />
+              </div>
               <div className="text-gray-300">Developers</div>
             </div>
             <div className="glass rounded-2xl p-8 hover:bg-white/15 transition-all duration-300">
-              <Users className="text-purple-300 w-12 h-12 mx-auto mb-4" />
-              <div className="text-3xl font-bold text-white mb-2">10K+</div>
+              <Users className="text-white w-12 h-12 mx-auto mb-4" />
+              <div className="text-3xl font-bold text-white mb-2">
+                <AnimatedCounter end={10} suffix="K+" />
+              </div>
               <div className="text-gray-300">Monthly Visitors</div>
             </div>
             <div className="glass rounded-2xl p-8 hover:bg-white/15 transition-all duration-300">
-              <TrendingUp className="text-green-300 w-12 h-12 mx-auto mb-4" />
-              <div className="text-3xl font-bold text-white mb-2">95%</div>
+              <TrendingUp className="text-white w-12 h-12 mx-auto mb-4" />
+              <div className="text-3xl font-bold text-white mb-2">
+                <AnimatedCounter end={95} suffix="%" />
+              </div>
               <div className="text-gray-300">Satisfaction Rate</div>
             </div>
             <div className="glass rounded-2xl p-8 hover:bg-white/15 transition-all duration-300">
-              <Star className="text-yellow-300 w-12 h-12 mx-auto mb-4" />
-              <div className="text-3xl font-bold text-white mb-2">365</div>
+              <Star className="text-white w-12 h-12 mx-auto mb-4" />
+              <div className="text-3xl font-bold text-white mb-2">
+                <AnimatedCounter end={365} suffix="" />
+              </div>
               <div className="text-gray-300">Days Open</div>
             </div>
           </div>

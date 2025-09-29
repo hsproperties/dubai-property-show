@@ -26,6 +26,7 @@ import {
   Phone,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import AnimatedCounter from "./AnimatedCounter";
 
 const StakeholderCard = ({ stakeholder, delay = 0 }) => {
   const ref = useRef(null);
@@ -55,14 +56,14 @@ const StakeholderCard = ({ stakeholder, delay = 0 }) => {
 
         <CardHeader className="relative z-10 text-center pb-6">
           <motion.div
-            className={`w-20 h-20 bg-gradient-to-br ${stakeholder.gradient} rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 transition-transform duration-500`}
+            className={`w-20 h-20 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 transition-transform duration-500`}
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.8 }}
           >
             <stakeholder.icon className="text-white" size={36} />
           </motion.div>
 
-          <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-3">
+          <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-[#073c75] transition-colors mb-3">
             {stakeholder.title}
           </CardTitle>
 
@@ -87,7 +88,7 @@ const StakeholderCard = ({ stakeholder, delay = 0 }) => {
                   className="flex items-start gap-3"
                 >
                   <CheckCircle
-                    className="text-green-500 flex-shrink-0 mt-0.5"
+                    className="text-[#073c75] flex-shrink-0 mt-0.5"
                     size={16}
                   />
                   <span className="text-gray-700 text-xs">{benefit}</span>
@@ -100,13 +101,11 @@ const StakeholderCard = ({ stakeholder, delay = 0 }) => {
           <div className="grid grid-cols-2 gap-4 py-4 border-t border-gray-100">
             {stakeholder.stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div
-                  className={`text-2xl font-bold text-${
-                    stakeholder.color.split("-")[0]
-                  }-600`}
-                >
-                  {stat.value}
+                <div className={`text-2xl font-bold text-[#073c75]`}>
+                  {/* {stat.value} */}
+                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                 </div>
+
                 <div className="text-xs text-gray-500">{stat.label}</div>
               </div>
             ))}
@@ -114,7 +113,7 @@ const StakeholderCard = ({ stakeholder, delay = 0 }) => {
 
           {/* CTA Button */}
           <Button
-            className={`w-full bg-gradient-to-r ${stakeholder.gradient} hover:shadow-lg transform hover:scale-105 transition-all duration-300`}
+            className={`w-full bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white hover:shadow-lg transform hover:scale-105 transition-all duration-300`}
             size="lg"
           >
             {stakeholder.cta}
@@ -146,8 +145,8 @@ const StakeholderSections = () => {
         "Access to pre-qualified, serious investors",
       ],
       stats: [
-        { value: "30+", label: "Developers" },
-        { value: "95%", label: "Occupancy Rate" },
+        { value: "30", suffix: "+", label: "Developers" },
+        { value: "95", suffix: "%", label: "Occupancy Rate" },
       ],
       cta: "Join as Developer",
     },
@@ -166,8 +165,8 @@ const StakeholderSections = () => {
         "Comprehensive property comparison tools",
       ],
       stats: [
-        { value: "500+", label: "Properties" },
-        { value: "10K+", label: "Monthly Leads" },
+        { value: "500", suffix: "+", label: "Properties" },
+        { value: "10", suffix: "K+", label: "Monthly Leads" },
       ],
       cta: "Register as Agent",
     },
@@ -186,8 +185,8 @@ const StakeholderSections = () => {
         "Professional consultation and guidance",
       ],
       stats: [
-        { value: "4M+", label: "Residents" },
-        { value: "351K+", label: "Annual Deals" },
+        { value: "4", suffix: "M+", label: "Residents" },
+        { value: "351", suffix: "K+", label: "Annual Deals" },
       ],
       cta: "Start Property Search",
     },
@@ -245,9 +244,10 @@ const StakeholderSections = () => {
         >
           <div className="relative mb-8">
             {/* DPS Logo in Center */}
-            <div className="w-24 h-24 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl p-4">
-              <img src="/DPS_LOGO.png" alt="" />
-              {/* <span className="text-white font-bold text-2xl">DPS</span> */}
+            <div className="relative w-24 h-24 mx-auto mb-6">
+              <div className="glow-wrapper w-24 h-24 rounded-full flex items-center justify-center p-4">
+                <img src="/DPS_LOGO.png" alt="DPS Logo" />
+              </div>
             </div>
 
             {/* Connecting Lines */}
@@ -274,21 +274,21 @@ const StakeholderSections = () => {
           {/* Value Propositions */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div className="text-center">
-              <Eye className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+              <Eye className="w-12 h-12 text-[#073c75] mx-auto mb-4" />
               <h4 className="font-bold text-gray-900 mb-2">Transparency</h4>
               <p className="text-gray-600 text-sm">
                 Complete visibility into all options, pricing, and opportunities
               </p>
             </div>
             <div className="text-center">
-              <Target className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+              <Target className="w-12 h-12 text-[#073c75] mx-auto mb-4" />
               <h4 className="font-bold text-gray-900 mb-2">Efficiency</h4>
               <p className="text-gray-600 text-sm">
                 Streamlined processes that save time and reduce friction
               </p>
             </div>
             <div className="text-center">
-              <Diamond className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <Diamond className="w-12 h-12 text-[#073c75] mx-auto mb-4" />
               <h4 className="font-bold text-gray-900 mb-2">Quality</h4>
               <p className="text-gray-600 text-sm">
                 Premium experience with verified, trusted partners only

@@ -125,13 +125,7 @@ const PropertyShowcase = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                   <Badge
-                    className={`absolute top-4 left-4 ${
-                      property.status === "Available Now"
-                        ? "bg-green-500"
-                        : property.status === "Launching Soon"
-                        ? "bg-[#073c75]"
-                        : "bg-purple-500"
-                    } text-white border-0 shadow-lg`}
+                    className={`absolute top-4 left-4 bg-[#073c75] text-white border-0 shadow-lg`}
                   >
                     {property.status}
                   </Badge>
@@ -163,7 +157,7 @@ const PropertyShowcase = () => {
                     <span className="bg-gray-100 px-3 py-1 rounded-full">
                       {property.type}
                     </span>
-                    <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+                    <span className="bg-[#cdd8e3] text-[#073c75] px-3 py-1 rounded-full">
                       {property.bedrooms}
                     </span>
                   </div>
@@ -186,7 +180,7 @@ const PropertyShowcase = () => {
         <div className="text-center">
           <Button
             size="lg"
-            className="bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white text-lg px-10 py-4"
+            className="bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white text-lg px-8 py-4"
             asChild
           >
             <Link to="/properties">
@@ -244,7 +238,7 @@ const ProcessSection = () => {
   return (
     <section
       ref={ref}
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50"
+      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -266,55 +260,50 @@ const ProcessSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="relative group"
-            >
-              {/* Connection Line */}
-              {/* {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-20 left-full w-full h-px bg-gradient-to-r from-blue-200 to-purple-200 z-10">
-                  <motion.div
-                    className="h-full bg-gradient-to-r from-[#073c75] to-purple-500"
-                    initial={{ width: "0%" }}
-                    animate={inView ? { width: "100%" } : {}}
-                    transition={{ duration: 1, delay: index * 0.3 + 0.5 }}
-                  />
-                </div>
-              )} */}
-
-              <Card className="relative overflow-hidden hover:shadow-xl transition-all duration-500 border-0 shadow-lg bg-white">
-                <div className="absolute top-0 left-0 w-full h-32 overflow-hidden">
-                  <img
-                    src={step.image}
-                    alt={step.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
-                </div>
-
-                <CardContent className="relative pt-20 p-6 text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <step.icon className="text-white" size={24} />
+        {/* Infinite Carousel */}
+        <div className="relative w-full overflow-hidden">
+          <motion.div
+            className="flex gap-8 py-4"
+            animate={{
+              x: ["0%", "-100%"],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 25,
+              ease: "linear",
+            }}
+          >
+            {[...steps, ...steps].map((step, index) => (
+              <div key={index} className="min-w-[280px] lg:min-w-[320px]">
+                <Card className="relative overflow-hidden hover:shadow-xl transition-all duration-500 border-0 shadow-lg bg-white">
+                  <div className="absolute top-0 left-0 w-full h-32 overflow-hidden">
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
                   </div>
 
-                  <div className="text-4xl font-bold text-[#073c75] mb-3">
-                    {step.number}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {step.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                  <CardContent className="relative pt-20 p-6 text-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <step.icon className="text-white" size={24} />
+                    </div>
+
+                    <div className="text-4xl font-bold text-[#073c75] mb-3">
+                      {step.number}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-sm">
+                      {step.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
@@ -341,7 +330,7 @@ const TestimonialsSection = () => {
       role: "Senior Property Consultant",
       company: "Gulf Real Estate",
       image:
-        "https://images.unsplash.com/photo-1494790108755-2616b95f2b5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
       content:
         "As an agent, DPS is invaluable. I can show my clients multiple developer options in one location, making the comparison process seamless and professional.",
       stakeholder: "Agent",
@@ -358,18 +347,18 @@ const TestimonialsSection = () => {
     },
   ];
 
-  const getStakeholderColor = (stakeholder) => {
-    switch (stakeholder) {
-      case "Developer":
-        return "bg-blue-100 text-blue-700";
-      case "Agent":
-        return "bg-purple-100 text-purple-700";
-      case "Buyer":
-        return "bg-green-100 text-green-700";
-      default:
-        return "bg-gray-100 text-gray-700";
-    }
-  };
+  // const getStakeholderColor = (stakeholder) => {
+  //   switch (stakeholder) {
+  //     case "Developer":
+  //       return "bg-blue-100 text-blue-700";
+  //     case "Agent":
+  //       return "bg-purple-100 text-purple-700";
+  //     case "Buyer":
+  //       return "bg-green-100 text-green-700";
+  //     default:
+  //       return "bg-gray-100 text-gray-700";
+  //   }
+  // };
 
   return (
     <section ref={ref} className="py-20 bg-white">
@@ -407,7 +396,7 @@ const TestimonialsSection = () => {
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
-                        className="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-blue-100"
+                        className="w-16 h-16 rounded-full object-cover mr-4 ring-4 ring-[#cdd8e3] object-top"
                       />
                       <div>
                         <h4 className="font-bold text-gray-900">
@@ -421,11 +410,7 @@ const TestimonialsSection = () => {
                         </p>
                       </div>
                     </div>
-                    <Badge
-                      className={`text-xs ${getStakeholderColor(
-                        testimonial.stakeholder
-                      )}`}
-                    >
+                    <Badge className={`text-xs bg-[#073c75] text-white`}>
                       {testimonial.stakeholder}
                     </Badge>
                   </div>
@@ -522,7 +507,7 @@ const CTASection = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
           <Button
             size="xl"
-            className="bg-white text-[#073c75] hover:bg-gray-100 text-lg px-10 py-6 h-auto font-semibold shadow-2xl"
+            className="bg-white text-[#073c75] hover:bg-gray-100 text-sm px-6 py-3 h-auto font-semibold shadow-2xl"
             asChild
           >
             <Link to="/contact" className="flex items-center gap-3">
@@ -535,7 +520,7 @@ const CTASection = () => {
           <Button
             size="xl"
             variant="outline"
-            className="border-2 border-white text-[#073c75] hover:bg-gray-100 hover:text-[#073c75] text-lg px-10 py-6 h-auto font-semibold"
+            className="border-2 border-white text-[#073c75] hover:bg-gray-100 hover:text-[#073c75] text-sm px-6 py-3 h-auto font-semibold"
             asChild
           >
             <Link to="/exhibitors">Meet Our Developers</Link>
@@ -545,25 +530,25 @@ const CTASection = () => {
         {/* Trust Indicators */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-white">
           <div className="flex flex-col items-center">
-            <Shield className="text-green-400 mb-2" size={32} />
+            <Shield className="text-white mb-2" size={32} />
             <div className="text-lg font-bold">100% Verified</div>
             <div className="text-sm text-white/70">Trusted Developers</div>
           </div>
 
           <div className="flex flex-col items-center">
-            <Award className="text-yellow-400 mb-2" size={32} />
+            <Award className="text-white mb-2" size={32} />
             <div className="text-lg font-bold">30+ Developers</div>
             <div className="text-sm text-white/70">Premium Partners</div>
           </div>
 
           <div className="flex flex-col items-center">
-            <Users className="text-blue-400 mb-2" size={32} />
+            <Users className="text-white mb-2" size={32} />
             <div className="text-lg font-bold">10K+ Satisfied</div>
             <div className="text-sm text-white/70">Customers Served</div>
           </div>
 
           <div className="flex flex-col items-center">
-            <Heart className="text-red-400 mb-2" size={32} />
+            <Heart className="text-white mb-2" size={32} />
             <div className="text-lg font-bold">24/7 Support</div>
             <div className="text-sm text-white/70">Always Here for You</div>
           </div>

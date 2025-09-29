@@ -312,7 +312,7 @@ const EventCalendar = () => {
 
             {/* Quick Stats */}
             <div className="grid grid-cols-2 gap-4">
-              <Card className="text-center border-0 shadow-lg bg-gradient-to-br from-blue-50 to-blue-100">
+              <Card className="text-center border-0 shadow-lg bg-[#cdd8e3]">
                 <CardContent className="p-4">
                   <Building2 className="w-8 h-8 text-[#073c75] mx-auto mb-2" />
                   <div className="text-2xl font-bold text-gray-900">
@@ -322,9 +322,9 @@ const EventCalendar = () => {
                 </CardContent>
               </Card>
 
-              <Card className="text-center border-0 shadow-lg bg-gradient-to-br from-green-50 to-green-100">
+              <Card className="text-center border-0 shadow-lg bg-[#cdd8e3]">
                 <CardContent className="p-4">
-                  <Users className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                  <Users className="w-8 h-8 text-[#073c75] mx-auto mb-2" />
                   <div className="text-2xl font-bold text-gray-900">1.2K+</div>
                   <div className="text-sm text-gray-600">
                     Expected Attendees
