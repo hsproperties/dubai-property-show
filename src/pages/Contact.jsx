@@ -215,7 +215,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: ["info@dps-expo.com", "partners@dps-expo.com"],
+      details: ["info@dpsexpo.com", "partners@dpsexpo.com"],
       description: "Send us your inquiries anytime",
       color: "from-blue-500 to-cyan-600",
     },

@@ -824,7 +824,7 @@ const Agents = () => {
               className="border-white text-white hover:bg-white hover:text-[#073c75] px-8"
             >
               <Mail className="mr-2" size={20} />
-              agents@dps-expo.com
+              agents@dpsexpo.com
             </Button>
           </div>
         </div>

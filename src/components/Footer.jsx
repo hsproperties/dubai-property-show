@@ -214,7 +214,7 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              // className="lg:col-span-4"
+            // className="lg:col-span-4"
             >
               {/* Logo */}
               <Link to="/" className="flex items-center space-x-3 mb-6 group">
@@ -329,7 +329,7 @@ const Footer = () => {
                 <div className="flex items-center gap-3">
                   <Mail className="text-white flex-shrink-0" size={20} />
                   <div>
-                    <div className="font-medium">info@dps-expo.com</div>
+                    <div className="font-medium">info@dpsexpo.com</div>
                     <div className="text-white/70 text-sm">
                       General Inquiries
                     </div>

@@ -116,7 +116,8 @@ const StakeholderCard = ({ stakeholder, delay = 0 }) => {
             className={`w-full bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white hover:shadow-lg transform hover:scale-105 transition-all duration-300`}
             size="lg"
           >
-            {stakeholder.cta}
+            <Link to={stakeholder.title.toLowerCase()}>{stakeholder.cta}</Link>
+
             <ArrowRight className="ml-2" size={16} />
           </Button>
         </CardContent>
@@ -148,7 +149,7 @@ const StakeholderSections = () => {
         { value: "30", suffix: "+", label: "Developers" },
         { value: "95", suffix: "%", label: "Occupancy Rate" },
       ],
-      cta: "Join as Developer",
+      cta: "Learn more",
     },
     {
       title: "Agents",
@@ -168,7 +169,7 @@ const StakeholderSections = () => {
         { value: "500", suffix: "+", label: "Properties" },
         { value: "10", suffix: "K+", label: "Monthly Leads" },
       ],
-      cta: "Register as Agent",
+      cta: "Learn more",
     },
     {
       title: "Buyers",
@@ -188,7 +189,7 @@ const StakeholderSections = () => {
         { value: "4", suffix: "M+", label: "Residents" },
         { value: "351", suffix: "K+", label: "Annual Deals" },
       ],
-      cta: "Start Property Search",
+      cta: "Learn more",
     },
   ];
 
@@ -265,7 +266,7 @@ const StakeholderSections = () => {
           <h3 className="text-3xl font-bold text-gray-900 mb-4">
             The Architect of <span className="text-gradient">Convergence</span>
           </h3>
-          <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">
             DPS creates a network effect where the success of each participant
             amplifies the success of all. We've built strategic infrastructure
             to optimize the entire real estate transaction chain.
@@ -273,21 +274,21 @@ const StakeholderSections = () => {
 
           {/* Value Propositions */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <div className="text-center">
+            <div className="text-center px-4 lg:px-12">
               <Eye className="w-12 h-12 text-[#073c75] mx-auto mb-4" />
               <h4 className="font-bold text-gray-900 mb-2">Transparency</h4>
               <p className="text-gray-600 text-sm">
                 Complete visibility into all options, pricing, and opportunities
               </p>
             </div>
-            <div className="text-center">
+            <div className="text-center px-4 lg:px-12">
               <Target className="w-12 h-12 text-[#073c75] mx-auto mb-4" />
               <h4 className="font-bold text-gray-900 mb-2">Efficiency</h4>
               <p className="text-gray-600 text-sm">
                 Streamlined processes that save time and reduce friction
               </p>
             </div>
-            <div className="text-center">
+            <div className="text-center px-4 lg:px-12">
               <Diamond className="w-12 h-12 text-[#073c75] mx-auto mb-4" />
               <h4 className="font-bold text-gray-900 mb-2">Quality</h4>
               <p className="text-gray-600 text-sm">

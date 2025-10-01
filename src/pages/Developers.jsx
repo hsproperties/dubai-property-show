@@ -361,7 +361,7 @@ const ContactFormSection = () => {
                   </div>
                 </div>
 
-                <div>
+                {/* <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Project Type *
                   </label>
@@ -379,11 +379,11 @@ const ContactFormSection = () => {
                     <option value="luxury">Luxury</option>
                     <option value="off-plan">Off-Plan</option>
                   </select>
-                </div>
+                </div> */}
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Project Details & Requirements
+                    Give further details
                   </label>
                   <Textarea
                     name="message"
@@ -664,7 +664,7 @@ const Developers = () => {
               className="border-white text-white hover:bg-white hover:text-blue-600 px-8"
             >
               <Mail className="mr-2" size={20} />
-              partners@dps-expo.com
+              partners@dpsexpo.com
             </Button>
           </div>
         </div>
