@@ -145,7 +145,7 @@ const PropertyCard = ({ property, delay = 0 }) => {
                 <span>{property.price}</span>
               </div>
               {property.pricePerSqft && (
-                <div className="text-xs text-gray-500 flex justify-center items-center gap-1">
+                <div className="text-xs text-gray-500 flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     version="1.2"

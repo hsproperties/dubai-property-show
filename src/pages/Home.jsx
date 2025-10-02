@@ -41,6 +41,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
+import HeroSectionAlt from "../components/sections/HeroSectionAlt";
 
 const PropertyShowcase = () => {
   const ref = useRef(null);
@@ -249,10 +250,7 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section
-      ref={ref}
-      className="py-20 bg-white overflow-hidden"
-    >
+    <section ref={ref} className="py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -323,7 +321,6 @@ const ProcessSection = () => {
   );
 };
 
-
 const DeveloperLogosSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, threshold: 0.1 });
@@ -354,8 +351,7 @@ const DeveloperLogosSection = () => {
             Trusted Developers
           </Badge>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Building Dubai’s{" "}
-            <span className="text-gradient">Landmarks</span>
+            Building Dubai’s <span className="text-gradient">Landmarks</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Partnering with Dubai’s most reputable developers ensures that your
@@ -364,7 +360,12 @@ const DeveloperLogosSection = () => {
         </motion.div>
 
         {/* Infinite Carousel */}
-        <Marquee pauseOnHover={true} speed={50} gradient={false} className="lg:py-6">
+        <Marquee
+          pauseOnHover={true}
+          speed={50}
+          gradient={false}
+          className="lg:py-6"
+        >
           {developers.map((dev, index) => (
             <div key={index} className="mx-6 lg:mx-16 flex items-center">
               {/* {index === 4
@@ -380,15 +381,19 @@ const DeveloperLogosSection = () => {
                 className="w-44"
               />
               } */}
-              {index === 4 ? <img
-                src={dev.image}
-                alt={`developer-logo-${index}`}
-                className="w-28 lg:w-40 -mt-4"
-              /> : <img
-                src={dev.image}
-                alt={`developer-logo-${index}`}
-                className="w-28 lg:w-44"
-              />}
+              {index === 4 ? (
+                <img
+                  src={dev.image}
+                  alt={`developer-logo-${index}`}
+                  className="w-28 lg:w-40 -mt-4"
+                />
+              ) : (
+                <img
+                  src={dev.image}
+                  alt={`developer-logo-${index}`}
+                  className="w-28 lg:w-44"
+                />
+              )}
             </div>
           ))}
         </Marquee>
@@ -396,8 +401,6 @@ const DeveloperLogosSection = () => {
     </section>
   );
 };
-
-
 
 const TestimonialsSection = () => {
   const ref = useRef(null);
@@ -650,11 +653,12 @@ const CTASection = () => {
 const Home = () => {
   return (
     <div className="min-h-screen">
-      <HeroSection />
-      <DeveloperLogosSection />
-      <PropertyShowcase />
+      <HeroSectionAlt />
+      {/* <HeroSection /> */}
       <StakeholderSections />
+      {/* <PropertyShowcase /> */}
       <ProcessSection />
+      <DeveloperLogosSection />
       <EventCalendar />
       <CTASection />
       <TestimonialsSection />

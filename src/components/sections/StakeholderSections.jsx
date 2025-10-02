@@ -137,13 +137,13 @@ const StakeholderSections = () => {
       color: "blue-600",
       gradient: "from-blue-500 to-blue-700",
       description:
-        "Showcase your projects to qualified buyers and agents in Dubai's premier real estate platform.",
+        "Showcase projects to Dubai's qualified buyers and agents under one roof.",
       benefits: [
-        "24/7 visibility among top agents and serious buyers",
-        "Drastically reduce customer acquisition costs",
-        "30x amplified visibility through shared traffic",
-        "State-of-the-art 4K presentation technology",
-        "Access to pre-qualified, serious investors",
+        "24/7 exposure to top agents and serious buyers",
+        "Significantly lower customer acquisition costs",
+        "30x greater visibility through shared traffic flow",
+        "Immersive 4K presentation technology for maximum impact",
+        "Direct access to pre-qualified investors ready to close",
       ],
       stats: [
         { value: "30", suffix: "+", label: "Developers" },
@@ -156,14 +156,13 @@ const StakeholderSections = () => {
       icon: UserCheck,
       color: "purple-600",
       gradient: "from-purple-500 to-purple-700",
-      description:
-        "Access Dubai's most comprehensive property database and connect directly with top developers.",
+      description: "Your direct gateway to Dubai's premier developments.",
       benefits: [
-        "One-stop access to all premium developments",
-        "Direct developer relationships and commissions",
-        "Professional environment for client meetings",
-        "Exclusive off-market opportunities",
-        "Comprehensive property comparison tools",
+        "One-stop access to the city's leading projects",
+        "Build relationships directly with developers and earn commissions",
+        "Professional setting to host and impress your clients",
+        "Access to exclusive off-market opportunities",
+        "Powerful tools to compare projects and plans side-by-side",
       ],
       stats: [
         { value: "500", suffix: "+", label: "Properties" },
@@ -176,14 +175,13 @@ const StakeholderSections = () => {
       icon: Users,
       color: "green-600",
       gradient: "from-green-500 to-green-700",
-      description:
-        "Compare properties side-by-side, meet developers directly, and make informed investment decisions.",
+      description: "Explore, compare, and invest with complete confidence.",
       benefits: [
-        "See all top developers in one convenient location",
-        "Compare specs, prices, and payment plans easily",
-        "No pressure environment for thoughtful exploration",
-        "Direct access to developer representatives",
-        "Professional consultation and guidance",
+        "Discover Dubai's top developers in one convenient destination",
+        "Compare floor plans, prices, and payment options with ease",
+        "A pressure-free environment designed for smart decisions",
+        "Direct access to official developer representatives",
+        "Professional consultation to guide every step of your journey",
       ],
       stats: [
         { value: "4", suffix: "M+", label: "Residents" },
