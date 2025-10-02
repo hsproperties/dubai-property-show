@@ -177,9 +177,9 @@ const StakeholderSections = () => {
       gradient: "from-green-500 to-green-700",
       description: "Explore, compare, and invest with complete confidence.",
       benefits: [
-        "Discover Dubai's top developers in one convenient destination",
+        "Discover Dubai's top developers in one destination.",
         "Compare floor plans, prices, and payment options with ease",
-        "A pressure-free environment designed for smart decisions",
+        "A pressure-free environment for smart decisions.",
         "Direct access to official developer representatives",
         "Professional consultation to guide every step of your journey",
       ],
