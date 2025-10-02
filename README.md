@@ -2,7 +2,7 @@
 
 A luxury-themed, fully responsive website for Dubai Property Show (DPS) - "One Platform. Every Deal. Zero Friction."
 
-## í¿—ï¸ Built With
+## ï¿½ï¿½ï¿½ï¸ Built With
 
 - **React 18** - Modern JavaScript framework
 - **Vite** - Fast build tool and dev server
@@ -12,7 +12,7 @@ A luxury-themed, fully responsive website for Dubai Property Show (DPS) - "One P
 - **Lucide React** - Beautiful icon library
 - **React Router DOM** - Client-side routing
 
-## íº€ Quick Start
+## ï¿½ï¿½ï¿½ Quick Start
 
 1. **Install Dependencies**
 ```bash
@@ -34,7 +34,7 @@ npm run build
 npm run preview
 ```
 
-## í³ Project Structure
+## ï¿½ï¿½ï¿½ Project Structure
 
 ```
 src/
@@ -63,7 +63,7 @@ src/
 â””â”€â”€ index.css              # Global styles
 ```
 
-## í¾¨ Features
+## ï¿½ï¿½ï¿½ Features
 
 ### Design & Animation
 - **Luxury Theme**: Deep blue, white, and gold color scheme
@@ -84,14 +84,14 @@ src/
 - **Accessibility**: ARIA labels, keyboard navigation, screen reader support
 - **Mobile Responsive**: Hamburger menu, touch-friendly interactions
 
-## í¾¯ Key Statistics (from PDF content)
+## ï¿½ï¿½ï¿½ Key Statistics (from PDF content)
 
 - **4M+ Dubai Residents** - Target market
 - **AED 1.192 Trillion** - Market value
 - **351,538+ Annual Transactions** - Market activity
 - **100,000+ New Residents** - Yearly growth
 
-## í¿¢ Exhibitor Features
+## ï¿½ï¿½ï¿½ Exhibitor Features
 
 Based on PDF content, the platform showcases:
 - Premium developers (Emaar, DAMAC, Nakheel, etc.)
@@ -100,7 +100,7 @@ Based on PDF content, the platform showcases:
 - State-of-the-art booth technology (4K screens)
 - Centralized amenities and professional environment
 
-## í³± Content Sections
+## ï¿½ï¿½ï¿½ Content Sections
 
 ### Homepage
 - Hero with Dubai skyline and animated statistics
@@ -132,7 +132,7 @@ Based on PDF content, the platform showcases:
 - Contact form with inquiry types
 - Social media integration
 
-## í¾¨ Design References
+## ï¿½ï¿½ï¿½ Design References
 
 The website follows modern luxury design principles inspired by:
 - Contemporary Dubai architecture
@@ -140,14 +140,14 @@ The website follows modern luxury design principles inspired by:
 - High-end exhibition and showcase platforms
 - Modern SaaS application interfaces
 
-## í³ Contact Information
+## ï¿½ï¿½ï¿½ Contact Information
 
 - **Address**: DPS Exhibition Center, Main Umm Seqiem Road, Barsh 2, Dubai, UAE
-- **Email**: info@dps-expo.com
-- **Partners**: partners@dps-expo.com
+- **Email**: info@dpsexpo.com
+- **Partners**: partners@dpsexpo.com
 - **Hours**: Open 365 days, 10 AM - 10 PM
 
-## í¿·ï¸ Social Media
+## ï¿½ï¿½ï¿½ï¸ Social Media
 
 - **Hashtags**: #DubaiPropertyShow | #InvestInDubai | #DPSExpo
 - **Platforms**: Facebook, Instagram, Twitter, LinkedIn, YouTube

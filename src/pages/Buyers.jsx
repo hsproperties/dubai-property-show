@@ -106,7 +106,7 @@ const HeroSection = () => {
     },
   };
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900">
+    <section className="relative h-[70rem] lg:h-[50rem] flex items-center justify-center overflow-hidden bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900">
       {/* Background Image */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900"></div>
@@ -146,24 +146,24 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <Badge className="mb-6 bg-white/20 text-white border-white/30 hover:bg-white/30 text-sm font-semibold px-6 py-3">
+          <Badge className="mb-6 bg-white/20 text-white border-white/30 hover:bg-white/30 text-xs font-semibold px-6 py-3">
             For Property Buyers
           </Badge>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-8 leading-tight">
             SEE MORE. COMPARE FASTER.{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#51779e] to-white">
               DECIDE SMARTER
             </span>
           </h1>
 
-          <p className="text-xl sm:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-2xl lg:text-3xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed">
             Experience Dubai's most comprehensive property showcase where every
             option is compared, every question is answered, and every decision
             is made with complete confidence.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
             {/* <Button
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105"
@@ -540,9 +540,8 @@ const ExperienceSection = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`flex flex-col ${
-                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-              } items-center gap-12`}
+              className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                } items-center gap-12`}
             >
               <div className="lg:w-1/2">
                 <div className="relative group">

@@ -327,10 +327,10 @@ const HeroSection = () => {
               className="group bg-white text-gray-900 hover:bg-gray-100 shadow-2xl text-lg px-6 py-3 h-auto font-semibold overflow-hidden relative"
               asChild
             >
-              <Link to="/about" className="flex items-center gap-3">
+              <Link to="/about" className="flex items-center gap-3 ">
                 <motion.span
                   variants={textVariants}
-                  className="relative z-10 text-sm"
+                  className="relative z-10 text-sm "
                 >
                   Learn More
                 </motion.span>

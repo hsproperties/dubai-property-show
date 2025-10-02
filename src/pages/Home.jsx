@@ -40,6 +40,7 @@ import {
   UserCheck,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import Marquee from "react-fast-marquee";
 
 const PropertyShowcase = () => {
   const ref = useRef(null);
@@ -250,7 +251,7 @@ const ProcessSection = () => {
   return (
     <section
       ref={ref}
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden"
+      className="py-20 bg-white overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -321,6 +322,82 @@ const ProcessSection = () => {
     </section>
   );
 };
+
+
+const DeveloperLogosSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, threshold: 0.1 });
+
+  const developers = [
+    { image: "/brand-logos/emaar-logo.svg" },
+    { image: "/brand-logos/damac-logo.svg" },
+    { image: "/brand-logos/nakheel-logo.svg" },
+    { image: "/brand-logos/meras-logo.svg" },
+    { image: "/brand-logos/dp-logo.svg" },
+    { image: "/brand-logos/shoba-logo.svg" },
+  ];
+
+  return (
+    <section
+      ref={ref}
+      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden"
+    >
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <Badge className="mb-6 bg-blue-50 text-[#073c75] border-blue-200 hover:text-white text-sm font-semibold px-6 py-2">
+            Trusted Developers
+          </Badge>
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            Building Dubai’s{" "}
+            <span className="text-gradient">Landmarks</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Partnering with Dubai’s most reputable developers ensures that your
+            investment is secure, high-quality, and future-ready.
+          </p>
+        </motion.div>
+
+        {/* Infinite Carousel */}
+        <Marquee pauseOnHover={true} speed={50} gradient={false} className="lg:py-6">
+          {developers.map((dev, index) => (
+            <div key={index} className="mx-6 lg:mx-16 flex items-center">
+              {/* {index === 4
+                < img
+                    src={dev.image}
+              alt={`developer-logo-${index}`}
+              className="w-36"
+                  />
+              :
+              <img
+                src={dev.image}
+                alt={`developer-logo-${index}`}
+                className="w-44"
+              />
+              } */}
+              {index === 4 ? <img
+                src={dev.image}
+                alt={`developer-logo-${index}`}
+                className="w-28 lg:w-40 -mt-4"
+              /> : <img
+                src={dev.image}
+                alt={`developer-logo-${index}`}
+                className="w-28 lg:w-44"
+              />}
+            </div>
+          ))}
+        </Marquee>
+      </div>
+    </section>
+  );
+};
+
+
 
 const TestimonialsSection = () => {
   const ref = useRef(null);
@@ -574,6 +651,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       <HeroSection />
+      <DeveloperLogosSection />
       <PropertyShowcase />
       <StakeholderSections />
       <ProcessSection />

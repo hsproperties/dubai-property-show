@@ -207,9 +207,8 @@ const PlatformFeaturesSection = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`flex flex-col ${
-                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-              } items-center gap-12`}
+              className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                } items-center gap-12`}
             >
               <div className="lg:w-1/2">
                 <img
@@ -362,7 +361,7 @@ const ContactFormSection = () => {
                   </div>
                 </div>
 
-                <div>
+                {/* <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Project Type *
                   </label>
@@ -380,11 +379,11 @@ const ContactFormSection = () => {
                     <option value="luxury">Luxury</option>
                     <option value="off-plan">Off-Plan</option>
                   </select>
-                </div>
+                </div> */}
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Project Details & Requirements
+                    Give further details
                   </label>
                   <Textarea
                     name="message"
@@ -443,7 +442,7 @@ const HeroSection = () => {
     },
   };
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900">
+    <section className="relative h-[70rem] lg:h-[50rem] flex items-center justify-center overflow-hidden bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900">
       {/* Background Image */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900"></div>
@@ -483,11 +482,11 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <Badge className="mb-6 bg-white/20 text-white border-white/30 hover:bg-white/30 text-sm font-semibold px-6 py-3">
+          <Badge className="mb-6 bg-white/20 text-white border-white/30 hover:bg-white/30 text-xs font-semibold px-6 py-3">
             For Developers
           </Badge>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+          <h1 className="text-4xl lg:text-6xl font-bold text-white mb-8 leading-tight">
             Amplify Your Projects with{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#51779e] to-white">
               Dubai's Premier Platform
@@ -500,7 +499,7 @@ const HeroSection = () => {
             while maximizing exposure and sales.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
             {/* <Button
               size="lg"
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105"
@@ -665,7 +664,7 @@ const Developers = () => {
               className="border-white text-white hover:bg-white hover:text-blue-600 px-8"
             >
               <Mail className="mr-2" size={20} />
-              partners@dps-expo.com
+              partners@dpsexpo.com
             </Button>
           </div>
         </div>
