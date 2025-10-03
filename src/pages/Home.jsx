@@ -44,6 +44,8 @@ import Marquee from "react-fast-marquee";
 import HeroSectionAlt from "../components/sections/HeroSectionAlt";
 import HeroSectionAlt2 from "../components/sections/HeroSectionAlt2";
 import HeroSectionAlt3 from "../components/sections/HeroSectionAlt3";
+import HeroSectionAlt4 from "../components/sections/HeroSectionAlt4";
+import HeroSectionAlt5 from "../components/sections/HeroSectionAlt5";
 
 const PropertyShowcase = () => {
   const ref = useRef(null);
@@ -655,13 +657,15 @@ const CTASection = () => {
 const Home = () => {
   return (
     <div className="min-h-screen">
+      {/* <HeroSectionAlt5 /> */}
       <HeroSectionAlt />
       <HeroSectionAlt2 />
       <HeroSectionAlt3 />
+      <HeroSectionAlt4 />
       {/* <HeroSection /> */}
       <StakeholderSections />
       {/* <PropertyShowcase /> */}
-      <ProcessSection />
+      {/* <ProcessSection /> */}
       <DeveloperLogosSection />
       <EventCalendar />
       <CTASection />

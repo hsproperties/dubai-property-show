@@ -303,12 +303,12 @@ const HeroSectionAlt = () => {
         {/* CTAs */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-16"
+          className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-10"
         >
           <motion.div whileHover="hover" initial="hidden" animate="visible">
             <Button
               size="xl"
-              className="group bg-white text-gray-900 hover:bg-gray-100 shadow-2xl text-base sm:text-lg px-6 py-3 h-auto font-semibold overflow-hidden relative rounded-2xl"
+              className="group bg-white/10 backdrop-blur-xs shadow-2xl text-base px-6 py-3 h-auto overflow-hidden relative rounded-2xl"
               asChild
             >
               <Link to="/about" className="flex items-center gap-3">
@@ -320,7 +320,7 @@ const HeroSectionAlt = () => {
                   size={20}
                 />
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0"
                   initial={{ x: "-100%" }}
                   whileHover={{ x: "0%" }}
                   transition={{ duration: 0.3 }}
@@ -345,18 +345,18 @@ const HeroSectionAlt = () => {
         {/* Stats */}
         <motion.div
           variants={itemVariants}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-5xl mx-auto"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-4xl mx-auto"
         >
           {/* Residents */}
           <StatCard
-            icon={<Users className="text-white" size={26} />}
+            icon={<Users className="text-white" size={18} />}
             value={<AnimatedCounter end={4} suffix="M+" />}
             label="Dubai Residents"
             delay={0}
           />
           {/* Developers */}
           <StatCard
-            icon={<Building2 className="text-white" size={26} />}
+            icon={<Building2 className="text-white" size={18} />}
             value={<AnimatedCounter end={30} suffix="+" />}
             label="Premium Developers"
             delay={0.05}
@@ -375,7 +375,7 @@ const HeroSectionAlt = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 version="1.2"
                 viewBox="0 0 1000 870"
-                className="w-7 h-7 fill-white"
+                className="w-4 h-4 fill-white"
               >
                 <path
                   id="Layer copy"
@@ -390,7 +390,7 @@ const HeroSectionAlt = () => {
           />
           {/* Deals */}
           <StatCard
-            icon={<Calendar className="text-white" size={26} />}
+            icon={<Calendar className="text-white" size={18} />}
             value={<AnimatedCounter end={351} suffix="K+" />}
             label="Annual Deals"
             delay={0.15}
@@ -414,7 +414,7 @@ const StatCard = ({ icon, value, label, delay = 0 }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut", delay }}
       whileHover={{ y: -6, scale: 1.02 }}
-      className="group relative overflow-hidden bg-white/10 backdrop-blur-xs rounded-2xl p-6 border border-white/20 shadow-[0_10px_40px_rgba(66,153,255,0.15)]"
+      className="group relative overflow-hidden bg-white/10 backdrop-blur-xs rounded-2xl p-4 border border-white/20 shadow-[0_10px_40px_rgba(66,153,255,0.15)]"
     >
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
@@ -423,11 +423,11 @@ const StatCard = ({ icon, value, label, delay = 0 }) => {
             "radial-gradient(40rem 12rem at 50% -10%, rgba(93, 188, 255, 0.18), transparent)",
         }}
       />
-      <div className="flex items-center justify-center mb-3">{icon}</div>
-      <div className="text-3xl sm:text-4xl font-bold text-white mb-1 text-center">
+      <div className="flex items-center justify-center mb-2">{icon}</div>
+      <div className="text-xl font-bold text-white mb-1 text-center">
         {value}
       </div>
-      <div className="text-white/70 text-sm font-medium text-center">
+      <div className="text-white/70 text-xs font-medium text-center">
         {label}
       </div>
     </motion.div>

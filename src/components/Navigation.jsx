@@ -36,30 +36,30 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    {
-      name: "For You",
-      path: "#",
-      submenu: [
-        {
-          name: "Developers",
-          path: "/developers",
-          icon: Building2,
-          description: "Showcase your projects",
-        },
-        {
-          name: "Agents",
-          path: "/agents",
-          icon: Users,
-          description: "Connect with buyers",
-        },
-        {
-          name: "Buyers",
-          path: "/buyers",
-          icon: Target,
-          description: "Find your dream property",
-        },
-      ],
-    },
+    // {
+    //   name: "For You",
+    //   path: "#",
+    //   submenu: [
+    //     {
+    //       name: "Developers",
+    //       path: "/developers",
+    //       icon: Building2,
+    //       description: "Showcase your projects",
+    //     },
+    //     {
+    //       name: "Agents",
+    //       path: "/agents",
+    //       icon: Users,
+    //       description: "Connect with buyers",
+    //     },
+    //     {
+    //       name: "Buyers",
+    //       path: "/buyers",
+    //       icon: Target,
+    //       description: "Find your dream property",
+    //     },
+    //   ],
+    // },
     // {
     //   name: "Properties",
     //   path: "/properties",
@@ -71,8 +71,20 @@ const Navigation = () => {
     //     { name: "Commercial", path: "/properties?type=commercial" },
     //   ],
     // },
+    {
+      name: "Developers",
+      path: "/developers",
+    },
+    {
+      name: "Agents",
+      path: "/agents",
+    },
+    {
+      name: "Buyers",
+      path: "/buyers",
+    },
     { name: "Exhibitors", path: "/exhibitors" },
-    { name: "About", path: "/about" },
+    // { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -105,13 +117,13 @@ const Navigation = () => {
                 <img
                   src={
                     location.pathname !== "/" &&
-                      location.pathname !== "/buyers" &&
-                      location.pathname !== "/agents" &&
-                      location.pathname !== "/developers"
+                    location.pathname !== "/buyers" &&
+                    location.pathname !== "/agents" &&
+                    location.pathname !== "/developers"
                       ? "/DPS_LOGOWIDE.png"
                       : scrolled || isOpen
-                        ? "/DPS_LOGOWIDE.png"
-                        : "/DPS_LOGOWIDE_WHITE.png"
+                      ? "/DPS_LOGOWIDE.png"
+                      : "/DPS_LOGOWIDE_WHITE.png"
                   }
                   alt="DPS Logo"
                   className="w-44"
@@ -146,8 +158,8 @@ const Navigation = () => {
                           location.pathname !== "/developers"
                           ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
                           : scrolled || isOpen
-                            ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
-                            : "text-white/90 hover:text-white hover:bg-white/20"
+                          ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
+                          : "text-white/90 hover:text-white hover:bg-white/20"
                       )}
                     >
                       {item.name}
@@ -168,12 +180,12 @@ const Navigation = () => {
                             ? "text-[#073c75] bg-blue-50"
                             : "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
                           : location.pathname === item.path
-                            ? scrolled || isOpen
-                              ? "text-[#073c75] bg-blue-50"
-                              : "text-white bg-white/20"
-                            : scrolled || isOpen
-                              ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
-                              : "text-white/90 hover:text-white hover:bg-white/20"
+                          ? scrolled || isOpen
+                            ? "text-[#073c75] bg-blue-50"
+                            : "text-white bg-white/20"
+                          : scrolled || isOpen
+                          ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
+                          : "text-white/90 hover:text-white hover:bg-white/20"
                       )}
                     >
                       {item.name}
@@ -240,8 +252,8 @@ const Navigation = () => {
                     location.pathname !== "/developers"
                     ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
                     : scrolled || isOpen
-                      ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
-                      : "text-white/90 hover:text-white hover:bg-white/20"
+                    ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
+                    : "text-white/90 hover:text-white hover:bg-white/20"
                 )}
               >
                 <Phone size={16} className="mr-2" />
