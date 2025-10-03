@@ -42,6 +42,8 @@ import {
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import HeroSectionAlt from "../components/sections/HeroSectionAlt";
+import HeroSectionAlt2 from "../components/sections/HeroSectionAlt2";
+import HeroSectionAlt3 from "../components/sections/HeroSectionAlt3";
 
 const PropertyShowcase = () => {
   const ref = useRef(null);
@@ -216,8 +218,7 @@ const ProcessSection = () => {
     {
       number: "01",
       title: "Discover",
-      description:
-        "Browse through curated properties from Dubai's top developers",
+      description: "Browse curated projects from Dubai's leading developers.",
       icon: Search,
       image:
         "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
@@ -226,7 +227,7 @@ const ProcessSection = () => {
       number: "02",
       title: "Compare",
       description:
-        "Side-by-side comparison of features, pricing, and locations",
+        "View side-by-side comparisons of features, pricing, yields, and payments.",
       icon: Filter,
       image:
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
@@ -234,7 +235,7 @@ const ProcessSection = () => {
     {
       number: "03",
       title: "Connect",
-      description: "Meet directly with developers and schedule property visits",
+      description: "Meet developers directly and schedule property visits.",
       icon: Users,
       image:
         "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
@@ -242,7 +243,8 @@ const ProcessSection = () => {
     {
       number: "04",
       title: "Invest",
-      description: "Make informed decisions with expert guidance and support",
+      description:
+        "Make informed decisions with live market data sourced from Dubai Land Department.",
       icon: TrendingUp,
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
@@ -262,7 +264,7 @@ const ProcessSection = () => {
             How It Works
           </Badge>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Your Journey to{" "}
+            Your seamless journey to{" "}
             <span className="text-gradient">Property Ownership</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -296,7 +298,7 @@ const ProcessSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white"></div>
                   </div>
 
-                  <CardContent className="relative pt-20 p-6 text-center">
+                  <CardContent className="relative pt-20 px-4 py-6 text-center">
                     <div className="w-16 h-16 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                       <step.icon className="text-white" size={24} />
                     </div>
@@ -654,6 +656,8 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       <HeroSectionAlt />
+      <HeroSectionAlt2 />
+      <HeroSectionAlt3 />
       {/* <HeroSection /> */}
       <StakeholderSections />
       {/* <PropertyShowcase /> */}

@@ -184,7 +184,7 @@ const StakeholderSections = () => {
         "Professional consultation to guide every step of your journey",
       ],
       stats: [
-        { value: "4", suffix: "M+", label: "Residents" },
+        { value: "1000", suffix: "+", label: "Monthly Visitors" },
         { value: "351", suffix: "K+", label: "Annual Deals" },
       ],
       cta: "Learn more",
@@ -290,7 +290,7 @@ const StakeholderSections = () => {
               <Diamond className="w-12 h-12 text-[#073c75] mx-auto mb-4" />
               <h4 className="font-bold text-gray-900 mb-2">Quality</h4>
               <p className="text-gray-600 text-sm">
-                Premium experience with verified, trusted partners only
+                Properties designed for strong ROI and long-term value growth
               </p>
             </div>
           </div>

@@ -136,13 +136,13 @@ const SkylineLayer = ({ className = "", opacity = 0.5 }) => (
   //     <rect x="0" y="380" width="1440" height="20" />
   //   </g>
   // </svg>
-  <img src="/dubai-DPS-crop.png" alt="" className={className} />
+  <img src="/freepik__background__56518.png" alt="" className={className} />
   //   <></>
 );
 
 /* ---------------------------- Main View ---------------------------- */
 
-const HeroSectionAlt = () => {
+const HeroSectionAlt3 = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -210,7 +210,7 @@ const HeroSectionAlt = () => {
       />
 
       {/* Parallax Skyline Layers */}
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-0 inset-x-0 text-sky-300/25"
         style={{ x: far.x, y: far.y }}
       >
@@ -227,7 +227,7 @@ const HeroSectionAlt = () => {
           className="w-[160%] min-w-[1400px] mx-auto translate-x-[-5%]"
           opacity={0.45}
         />
-      </motion.div>
+      </motion.div> */}
       <motion.div
         className="absolute bottom-0 inset-x-0 text-white/70"
         style={{ x: near.x, y: near.y }}
@@ -434,4 +434,4 @@ const StatCard = ({ icon, value, label, delay = 0 }) => {
   );
 };
 
-export default HeroSectionAlt;
+export default HeroSectionAlt3;

@@ -136,13 +136,13 @@ const SkylineLayer = ({ className = "", opacity = 0.5 }) => (
   //     <rect x="0" y="380" width="1440" height="20" />
   //   </g>
   // </svg>
-  <img src="/dubai-DPS-crop.png" alt="" className={className} />
+  <img src="/freepik__background__56518.png" alt="" className={className} />
   //   <></>
 );
 
 /* ---------------------------- Main View ---------------------------- */
 
-const HeroSectionAlt = () => {
+const HeroSectionAlt2 = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -434,4 +434,4 @@ const StatCard = ({ icon, value, label, delay = 0 }) => {
   );
 };
 
-export default HeroSectionAlt;
+export default HeroSectionAlt2;
