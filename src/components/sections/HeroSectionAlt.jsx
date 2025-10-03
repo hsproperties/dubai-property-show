@@ -286,7 +286,7 @@ const HeroSectionAlt = () => {
           <span className="block text-4xl sm:text-5xl lg:text-7xl mt-2">
             <NeonGradHeadline>Premium Properties</NeonGradHeadline>
           </span>
-          <span className="block text-xl lg:text-2xl mt-4 text-white/80 font-light">
+          <span className="block text-xl mt-4 text-white/80 font-light">
             One Platform. Every Deal. Zero Friction.
           </span>
         </motion.h1>
@@ -294,10 +294,11 @@ const HeroSectionAlt = () => {
         {/* Subtext */}
         <motion.p
           variants={itemVariants}
-          className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed font-light"
+          className="text-lg sm:text-xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed font-light"
         >
-          Connect with premier developers, explore luxury homes and off-plan
-          gems, and invest in the world’s most dynamic real-estate market.
+          Connect with premier developers, explore luxury homes and unlock
+          off-plan gems, and invest in the world’s most dynamic real-estate
+          market.
         </motion.p>
 
         {/* CTAs */}

@@ -10,6 +10,7 @@ import {
   Eye,
   Target,
   Diamond,
+  BadgeCheck,
   TrendingUp,
   Award,
   Shield,
@@ -287,7 +288,7 @@ const StakeholderSections = () => {
               </p>
             </div>
             <div className="text-center px-4 lg:px-12">
-              <Diamond className="w-12 h-12 text-[#073c75] mx-auto mb-4" />
+              <BadgeCheck className="w-12 h-12 text-[#073c75] mx-auto mb-4" />
               <h4 className="font-bold text-gray-900 mb-2">Quality</h4>
               <p className="text-gray-600 text-sm">
                 Properties designed for strong ROI and long-term value growth
