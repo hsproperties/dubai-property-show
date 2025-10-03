@@ -155,14 +155,14 @@ const EventCalendar = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Calendar */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-2"
+            // className="lg:col-span-2"
           >
             <Card className="shadow-xl border-0 overflow-hidden">
               <CardHeader className="bg-gradient-to-r from-[#073c75] to-[#51779e] text-white">
@@ -219,7 +219,7 @@ const EventCalendar = () => {
                     return (
                       <div
                         key={index}
-                        className={`min-h-[80px] p-2 border-r border-b border-gray-200 cursor-pointer hover:bg-blue-50 transition-colors ${
+                        className={`min-h-[66px] p-2 border-r border-b border-gray-200 cursor-pointer hover:bg-blue-50 transition-colors ${
                           isSelected ? "bg-blue-100 ring-2 ring-[#073c75]" : ""
                         }`}
                         onClick={() => date && setSelectedDate(date)}
@@ -253,7 +253,7 @@ const EventCalendar = () => {
           </motion.div>
 
           {/* Upcoming Events */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -310,7 +310,7 @@ const EventCalendar = () => {
               </CardContent>
             </Card>
 
-            {/* Quick Stats */}
+            {/* Quick Stats 
             <div className="grid grid-cols-2 gap-4">
               <Card className="text-center border-0 shadow-lg bg-[#cdd8e3]">
                 <CardContent className="p-4">
@@ -332,11 +332,63 @@ const EventCalendar = () => {
                 </CardContent>
               </Card>
             </div>
+          </motion.div> */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            // className="mt-16"
+          >
+            <Card className="overflow-hidden shadow-2xl border-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
+              {/* <div className="grid grid-cols-1"> */}
+              <div className="p-8 lg:p-12">
+                <Badge className="mb-4 bg-white/20 text-white border-white/30">
+                  Featured Event
+                </Badge>
+                <h3 className="text-3xl font-bold mb-4">
+                  Dubai Real Estate Summit 2025
+                </h3>
+                <p className="text-white/90 mb-6 text-lg">
+                  Join industry leaders, top developers, and investment experts
+                  for the most comprehensive real estate event of the year.
+                </p>
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center gap-3">
+                    <Calendar className="text-white/80" size={20} />
+                    <span>March 15-17, 2025</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <MapPin className="text-white/80" size={20} />
+                    <span>DPS Exhibition Center, Dubai</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Users className="text-white/80" size={20} />
+                    <span>2000+ Expected Attendees</span>
+                  </div>
+                </div>
+                <Button
+                  className="bg-white text-[#073c75] hover:bg-gray-100"
+                  size="lg"
+                >
+                  Register Now
+                </Button>
+              </div>
+              {/* <div className="relative">
+                  <img
+                    src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Summit Event"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div> */}
+              {/* </div> */}
+            </Card>
           </motion.div>
         </div>
 
         {/* Featured Event */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -387,6 +439,133 @@ const EventCalendar = () => {
               </div>
             </div>
           </Card>
+        </motion.div> */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="space-y-6 mt-12"
+        >
+          {/* <Card className="shadow-xl border-0">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Bell className="text-[#073c75]" size={20} />
+                Upcoming Events
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {upcomingEvents.map((event, index) => (
+                <motion.div
+                  key={event.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group cursor-pointer"
+                >
+                  <div className="flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors">
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="w-16 h-16 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-gray-900 text-sm mb-1 group-hover:text-[#073c75] transition-colors">
+                        {event.title}
+                      </h4>
+                      <div className="flex items-center gap-2 text-xs text-gray-500 mb-1">
+                        <Calendar size={12} />
+                        {new Date(event.date).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "numeric",
+                        })}
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-gray-500">
+                        <Clock size={12} />
+                        {event.time.split(" - ")[0]}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+
+              <Button className="w-full mt-4" variant="outline">
+                <Plus size={16} className="mr-2" />
+                Add to Calendar
+              </Button>
+            </CardContent>
+          </Card> */}
+
+          {/* Quick Stats */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <Card className="shadow-xl border-0">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Bell className="text-[#073c75]" size={20} />
+                  Upcoming Events
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {upcomingEvents.map((event, index) => (
+                  <motion.div
+                    key={event.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="group cursor-pointer"
+                  >
+                    <div className="flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors">
+                      <img
+                        src={event.image}
+                        alt={event.title}
+                        className="w-16 h-16 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-gray-900 text-sm mb-1 group-hover:text-[#073c75] transition-colors">
+                          {event.title}
+                        </h4>
+                        <div className="flex items-center gap-2 text-xs text-gray-500 mb-1">
+                          <Calendar size={12} />
+                          {new Date(event.date).toLocaleDateString("en-US", {
+                            month: "short",
+                            day: "numeric",
+                          })}
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-gray-500">
+                          <Clock size={12} />
+                          {event.time.split(" - ")[0]}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+
+                <Button className="w-full mt-4" variant="outline">
+                  <Plus size={16} className="mr-2" />
+                  Add to Calendar
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="text-center shadow-xl border-0">
+              <CardContent className="p-4">
+                <Building2 className="w-8 h-8 text-[#073c75] mx-auto mb-2" />
+                <div className="text-2xl font-bold text-gray-900">
+                  {events.length}
+                </div>
+                <div className="text-sm text-gray-600">Events This Month</div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center shadow-xl border-0">
+              <CardContent className="p-4">
+                <Users className="w-8 h-8 text-[#073c75] mx-auto mb-2" />
+                <div className="text-2xl font-bold text-gray-900">1.2K+</div>
+                <div className="text-sm text-gray-600">Expected Attendees</div>
+              </CardContent>
+            </Card>
+          </div>
         </motion.div>
       </div>
     </section>
