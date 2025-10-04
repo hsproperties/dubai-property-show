@@ -76,7 +76,7 @@ const ParticleField = ({ count = 48 }) => {
   );
 };
 
-const NeonGradHeadline = ({ children }) => {
+export const NeonGradHeadline = ({ children }) => {
   // Animated gradient sweep
   const [hovered, setHovered] = React.useState(false);
   return (

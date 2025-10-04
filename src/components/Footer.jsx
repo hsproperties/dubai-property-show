@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedCounter from "./sections/AnimatedCounter";
+import { NeonGradHeadline } from "./sections/HeroSectionAlt";
 
 const Footer = () => {
   const footerSections = [
@@ -68,7 +69,19 @@ const Footer = () => {
       title: "Company",
       links: [
         { name: "About DPS", href: "/about" },
-        { name: "Our Vision", href: "/about#vision" },
+        // { name: "Our Vision", href: "/about#vision" },
+        {
+          name: "Developers",
+          href: "/developers",
+        },
+        {
+          name: "Agents",
+          href: "/agents",
+        },
+        {
+          name: "Buyers",
+          href: "/buyers",
+        },
         { name: "Exhibitors", href: "/exhibitors" },
         { name: "Contact Us", href: "/contact" },
       ],
@@ -178,9 +191,10 @@ const Footer = () => {
             <div>
               <h3 className="text-3xl sm:text-4xl font-bold mb-4">
                 Stay Updated with Dubai's{" "}
-                <span className="bg-gradient-to-r from-white via-[#51779e] to-white bg-clip-text text-transparent">
+                {/* <span className="bg-gradient-to-r from-white via-[#51779e] to-white bg-clip-text text-transparent">
                   Hottest Properties
-                </span>
+                </span> */}
+                <NeonGradHeadline>Hottest Properties</NeonGradHeadline>
               </h3>
               <p className="text-white/80 text-lg leading-relaxed">
                 Get exclusive access to new launches, market insights, and
@@ -214,7 +228,7 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-            // className="lg:col-span-4"
+              // className="lg:col-span-4"
             >
               {/* Logo */}
               <Link to="/" className="flex items-center space-x-3 mb-6 group">
@@ -288,7 +302,7 @@ const Footer = () => {
                     <li key={linkIndex}>
                       <Link
                         to={link.href}
-                        className="text-white/70 hover:text-white transition-colors duration-300 text-sm hover:translate-x-1 transform inline-block"
+                        className="text-white hover:text-white/70 transition-colors duration-300 text-sm hover:translate-x-1 transform inline-block"
                       >
                         {link.name}
                       </Link>
@@ -397,22 +411,22 @@ const Footer = () => {
               <p>&copy; 2025 Dubai Property Show. All rights reserved.</p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-6 text-sm">
+            <div className="grid grid-cols-2 lg:grid-cols-4 items-center gap-2 lg:gap-6 text-sm">
               <Link
                 to="/privacy"
-                className="text-white/70 hover:text-white transition-colors"
+                className="text-white/70 hover:text-white transition-colors flex items-center"
               >
                 Privacy Policy
               </Link>
               <Link
                 to="/terms"
-                className="text-white/70 hover:text-white transition-colors"
+                className="text-white/70 hover:text-white transition-colors flex items-center"
               >
                 Terms of Service
               </Link>
               <Link
                 to="/cookies"
-                className="text-white/70 hover:text-white transition-colors"
+                className="text-white/70 hover:text-white transition-colors flex items-center"
               >
                 Cookie Policy
               </Link>
