@@ -548,7 +548,7 @@ const EventCalendar = () => {
                 </Button>
               </CardContent>
             </Card>
-            <Card className="text-center shadow-xl border-0">
+            <Card className="text-center shadow-xl border-0 flex flex-col items-center justify-center">
               <CardContent className="p-4">
                 <Building2 className="w-8 h-8 text-[#073c75] mx-auto mb-2" />
                 <div className="text-2xl font-bold text-gray-900">
@@ -558,7 +558,7 @@ const EventCalendar = () => {
               </CardContent>
             </Card>
 
-            <Card className="text-center shadow-xl border-0">
+            <Card className="text-center shadow-xl border-0 flex flex-col items-center justify-center">
               <CardContent className="p-4">
                 <Users className="w-8 h-8 text-[#073c75] mx-auto mb-2" />
                 <div className="text-2xl font-bold text-gray-900">1.2K+</div>
