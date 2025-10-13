@@ -659,9 +659,9 @@ const Home = () => {
     <div className="min-h-screen">
       {/* <HeroSectionAlt5 /> */}
       <HeroSectionAlt />
-      <HeroSectionAlt2 />
+      {/* <HeroSectionAlt2 />
       <HeroSectionAlt3 />
-      <HeroSectionAlt4 />
+      <HeroSectionAlt4 /> */}
       {/* <HeroSection /> */}
       <StakeholderSections />
       {/* <PropertyShowcase /> */}
