@@ -2003,6 +2003,7 @@ import emailjs from "@emailjs/browser";
 import flags from "react-phone-number-input/flags";
 import en from "react-phone-number-input/locale/en";
 import CountrySelect from "./CountrySelect";
+import { useNavigate } from "react-router-dom";
 
 // Animation variants
 const fadeInUp = {
@@ -2107,10 +2108,11 @@ const QuestionCarousel = () => {
           <button
             key={index}
             onClick={() => setCurrentQuestion(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${currentQuestion === index
-              ? "bg-[#073c75] scale-125"
-              : "bg-[#073c75]/40 hover:bg-[#073c75]/70"
-              }`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              currentQuestion === index
+                ? "bg-[#073c75] scale-125"
+                : "bg-[#073c75]/40 hover:bg-[#073c75]/70"
+            }`}
           />
         ))}
       </div>
@@ -2120,6 +2122,7 @@ const QuestionCarousel = () => {
 
 // Registration Form Component
 const RegistrationForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -2153,10 +2156,11 @@ const RegistrationForm = () => {
       );
 
       setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setFormData({ name: "", email: "", phone: "", interest: "buyer" });
-      }, 3000);
+      navigate("/thank-you");
+      // setTimeout(() => {
+      //   setSubmitted(false);
+      //   setFormData({ name: "", email: "", phone: "", interest: "buyer" });
+      // }, 3000);
     } catch (error) {
       console.error("EmailJS Error:", error);
       alert("Something went wrong. Please try again!");
@@ -2168,35 +2172,35 @@ const RegistrationForm = () => {
     }, 3000);
   };
 
-  if (submitted) {
-    return (
-      <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-white/40 text-center shadow-2xl"
-      >
-        <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg
-            className="w-8 h-8 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        </div>
-        <h3 className="text-2xl font-bold text-[#073c75] mb-2">You're In!</h3>
-        <p className="text-[#073c75]/80">
-          We'll notify you as soon as DPS launches.
-        </p>
-      </motion.div>
-    );
-  }
+  // if (submitted) {
+  //   return (
+  //     <motion.div
+  //       initial={{ scale: 0.8, opacity: 0 }}
+  //       animate={{ scale: 1, opacity: 1 }}
+  //       className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-white/40 text-center shadow-2xl"
+  //     >
+  //       <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+  //         <svg
+  //           className="w-8 h-8 text-white"
+  //           fill="none"
+  //           stroke="currentColor"
+  //           viewBox="0 0 24 24"
+  //         >
+  //           <path
+  //             strokeLinecap="round"
+  //             strokeLinejoin="round"
+  //             strokeWidth={2}
+  //             d="M5 13l4 4L19 7"
+  //           />
+  //         </svg>
+  //       </div>
+  //       <h3 className="text-2xl font-bold text-[#073c75] mb-2">You're In!</h3>
+  //       <p className="text-[#073c75]/80">
+  //         We'll notify you as soon as DPS launches.
+  //       </p>
+  //     </motion.div>
+  //   );
+  // }
 
   return (
     <motion.div
@@ -2223,9 +2227,7 @@ const RegistrationForm = () => {
           <input
             type="text"
             value={formData.name}
-            onChange={(e) =>
-              setFormData({ ...formData, name: e.target.value })
-            }
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             className="w-full pl-12 pr-4 py-4 bg-white/70 border-2 border-[#073c75]/20 rounded-xl text-[#073c75] placeholder-[#073c75]/60 focus:outline-none focus:ring-2 focus:ring-[#073c75]/50 focus:border-[#073c75] transition-all duration-300 text-lg"
             placeholder="Full Name"
             required
@@ -2296,7 +2298,6 @@ const RegistrationForm = () => {
       </p>
     </motion.div>
   );
-
 };
 
 // Main Coming Soon Page Component

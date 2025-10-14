@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ThankYouPage = () => {
   return (
@@ -75,6 +77,52 @@ const ThankYouPage = () => {
                   You!
                 </span>
               </motion.h1>
+              <motion.div
+                // variants={itemVariants}
+                className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-10"
+              >
+                <motion.div
+                  whileHover="hover"
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <button
+                    className="group bg-white/10 backdrop-blur-xs shadow-2xl text-base px-6 py-3 h-auto overflow-hidden relative rounded-2xl"
+                    asChild
+                  >
+                    <Link to="/" className="flex items-center gap-3 text-white">
+                      <motion.span
+                        // variants={textVariants}
+                        className="relative z-10"
+                      >
+                        Back to Home
+                      </motion.span>
+                      <ArrowRight
+                        className="group-hover:translate-x-1 transition-transform relative z-10"
+                        size={20}
+                      />
+                      <motion.div
+                        className="absolute inset-0"
+                        initial={{ x: "-100%" }}
+                        whileHover={{ x: "0%" }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </Link>
+                  </button>
+                </motion.div>
+
+                {/* <Button
+            size="xl"
+            variant="outline"
+            className="border-white/30 text-white hover:bg-white/10 backdrop-blur-md h-auto px-6 py-3 rounded-2xl"
+            asChild
+          >
+            <Link to="/about" className="flex items-center gap-2">
+              <MapPin size={18} className="opacity-80" />
+              Learn More
+            </Link>
+          </Button> */}
+              </motion.div>
             </motion.div>
           </div>
         </div>
