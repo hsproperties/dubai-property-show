@@ -241,11 +241,12 @@ const Navigation = () => {
               ))}
             </div>
             <div className="lg:flex items-center gap-3 ml-6 hidden">
-              <Button
-                variant="ghost"
-                size="sm"
+              <Link
+                to="tel:+971545727505"
+                // variant="ghost"
+                // size="sm"
                 className={cn(
-                  "transition-colors duration-200",
+                  "transition-colors duration-200 lg:flex items-center gap-0 p-2 rounded-lg",
                   location.pathname !== "/" &&
                     location.pathname !== "/buyers" &&
                     location.pathname !== "/agents" &&
@@ -257,8 +258,8 @@ const Navigation = () => {
                 )}
               >
                 <Phone size={16} className="mr-2" />
-                +971 4 XXX XXXX
-              </Button>
+                +971 5 457 27505
+              </Link>
 
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -373,7 +374,7 @@ const Navigation = () => {
                     className="w-full justify-center gap-2"
                   >
                     <Phone size={16} />
-                    Call: +971 4 XXX XXXX
+                    Call: +971 5 457 27505
                   </Button>
 
                   <Button className="w-full bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white gap-2">

@@ -207,8 +207,9 @@ const PlatformFeaturesSection = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                } items-center gap-12`}
+              className={`flex flex-col ${
+                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+              } items-center gap-12`}
             >
               <div className="lg:w-1/2">
                 <img
@@ -656,7 +657,7 @@ const Developers = () => {
               className="bg-white text-blue-600 hover:bg-gray-100 px-8"
             >
               <Phone className="mr-2" size={20} />
-              Call: +971 4 XXX XXXX
+              Call: +971 5 457 27505
             </Button>
             <Button
               size="lg"

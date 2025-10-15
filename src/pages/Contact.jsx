@@ -208,7 +208,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+971 4 XXX XXXX", "+971 50 XXX XXXX"],
+      details: ["+971 5 457 27505", "+971 50 XXX XXXX"],
       description: "Call us for immediate assistance",
       color: "from-green-500 to-emerald-600",
     },

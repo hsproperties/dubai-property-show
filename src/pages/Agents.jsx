@@ -816,7 +816,7 @@ const Agents = () => {
               className="bg-white text-[#073c75] hover:bg-gray-100 px-8"
             >
               <Phone className="mr-2" size={20} />
-              Call: +971 4 XXX XXXX
+              Call: +971 5 457 27505
             </Button>
             <Button
               size="lg"

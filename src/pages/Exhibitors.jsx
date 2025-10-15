@@ -617,7 +617,7 @@ const Exhibitors = () => {
             <div className="flex items-center justify-center gap-3">
               <Phone className="text-green-300" size={24} />
               <div>
-                <div className="font-semibold">+971 4 XXX XXXX</div>
+                <div className="font-semibold">+971 5 457 27505</div>
                 <div className="text-sm text-gray-300">Book Your Visit</div>
               </div>
             </div>

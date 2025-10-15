@@ -540,8 +540,9 @@ const ExperienceSection = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                } items-center gap-12`}
+              className={`flex flex-col ${
+                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+              } items-center gap-12`}
             >
               <div className="lg:w-1/2">
                 <div className="relative group">
@@ -741,7 +742,7 @@ const CTASection = () => {
                   <Phone className="text-[#073c75]" size={24} />
                   <div>
                     <p className="font-semibold">Call Us</p>
-                    <p className="text-gray-700">+971 4 XXX XXXX</p>
+                    <p className="text-gray-700">+971 5 457 27505</p>
                   </div>
                 </div>
               </div>

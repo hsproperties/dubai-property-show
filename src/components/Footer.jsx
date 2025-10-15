@@ -333,7 +333,7 @@ const Footer = () => {
                 <div className="flex items-center gap-3">
                   <Phone className="text-white flex-shrink-0" size={20} />
                   <div>
-                    <div className="font-medium">+971 4 XXX XXXX</div>
+                    <div className="font-medium">+971 5 457 27505</div>
                     <div className="text-white/70 text-sm">
                       24/7 Customer Support
                     </div>
