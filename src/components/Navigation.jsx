@@ -114,7 +114,7 @@ const Navigation = () => {
                   <span className="text-white font-bold text-lg">DPS</span>
                 </div>
                 <div className="absolute -inset-1 bg-gradient-to-br from-blue-400 to-purple-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div> */}
-                <img
+                {/* <img
                   src={
                     location.pathname !== "/" &&
                     location.pathname !== "/buyers" &&
@@ -127,6 +127,20 @@ const Navigation = () => {
                   }
                   alt="DPS Logo"
                   className="w-44"
+                /> */}
+                <img
+                  src={
+                    location.pathname !== "/" &&
+                    location.pathname !== "/buyers" &&
+                    location.pathname !== "/agents" &&
+                    location.pathname !== "/developers"
+                      ? "/DPS_Blue.png"
+                      : scrolled || isOpen
+                      ? "/DPS_Blue.png"
+                      : "/DPS_LOGO.png"
+                  }
+                  alt="DPS Logo"
+                  className="w-20"
                 />
               </motion.div>
               {/* <div className="hidden sm:block">

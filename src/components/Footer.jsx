@@ -241,7 +241,8 @@ const Footer = () => {
                     <span className="text-white font-bold text-lg">DPS</span>
                   </div>
                   <div className="absolute -inset-1 bg-gradient-to-br from-blue-400 to-purple-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div> */}
-                  <img src="/DPS_LOGOWIDE_WHITE.png" alt="" className="w-60" />
+                  <img src="\DPS_LOGO.png" alt="" className="w-32" />
+                  {/* <img src="/DPS_LOGOWIDE_WHITE.png" alt="" className="w-60" /> */}
                 </motion.div>
                 {/* <div>
                   <div className="text-xl font-bold text-white">Dubai Property Show</div>
@@ -408,7 +409,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="text-white/70 text-sm text-center lg:text-left">
-              <p>&copy; 2025 Dubai Property Show. All rights reserved.</p>
+              <p>&copy; 2025 DPS Property Expo. All rights reserved.</p>
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 items-center gap-2 lg:gap-6 text-sm">
