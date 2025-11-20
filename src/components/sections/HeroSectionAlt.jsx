@@ -385,7 +385,7 @@ const HeroSectionAlt = () => {
                 />
               </svg>
             }
-            value={<AnimatedCounter end={1.2} suffix="T" />}
+            value={<AnimatedCounter end={761} suffix="B" />}
             label="Market Value"
             delay={0.1}
           />
