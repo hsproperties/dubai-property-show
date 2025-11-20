@@ -241,7 +241,11 @@ const Footer = () => {
                     <span className="text-white font-bold text-lg">DPS</span>
                   </div>
                   <div className="absolute -inset-1 bg-gradient-to-br from-blue-400 to-purple-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div> */}
-                  <img src="\DPS_LOGO.png" alt="" className="w-32" />
+                  <img
+                    src="/dps_updated_logo_cropped.png"
+                    alt=""
+                    className="w-32"
+                  />
                   {/* <img src="/DPS_LOGOWIDE_WHITE.png" alt="" className="w-60" /> */}
                 </motion.div>
                 {/* <div>

@@ -219,8 +219,8 @@ const HeroSection = () => {
             {[
               { value: 30, suffix: "+", label: "Top Developers" },
               { value: 4, suffix: "M+", label: "Residents" },
-              { value: 351538, label: "Annual Transactions" },
-              { value: 1.192, suffix: "T", label: "Market Value" },
+              { value: 226000, label: "Annual Transactions" },
+              { value: 761, suffix: "B", label: "Market Value" },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -474,7 +474,7 @@ const ExperienceSection = () => {
         "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       features: [
         "4K displays",
-        "Virtual tours",
+        // "Virtual tours",
         "Interactive models",
         "Detailed layouts",
       ],

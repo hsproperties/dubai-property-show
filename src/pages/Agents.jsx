@@ -55,14 +55,14 @@ const AgentBenefitsSection = () => {
       stats: "Guaranteed commissions",
       color: "from-blue-500 to-blue-700",
     },
-    {
-      icon: Users,
-      title: "Professional Client Environment",
-      description:
-        "Impress your clients with world-class meeting rooms, premium amenities, and a professional atmosphere that reflects quality.",
-      stats: "5-star experience",
-      color: "from-[#073c75] to-green-700",
-    },
+    // {
+    //   icon: Users,
+    //   title: "Professional Client Environment",
+    //   description:
+    //     "Impress your clients with world-class meeting rooms, premium amenities, and a professional atmosphere that reflects quality.",
+    //   stats: "5-star experience",
+    //   color: "from-[#073c75] to-green-700",
+    // },
     {
       icon: Eye,
       title: "Exclusive Opportunities",
@@ -95,7 +95,7 @@ const AgentBenefitsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}

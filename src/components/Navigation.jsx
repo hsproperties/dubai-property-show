@@ -134,10 +134,10 @@ const Navigation = () => {
                     location.pathname !== "/buyers" &&
                     location.pathname !== "/agents" &&
                     location.pathname !== "/developers"
-                      ? "/DPS_Blue.png"
+                      ? "/dps_updated_logo_cropped_colored.png"
                       : scrolled || isOpen
-                      ? "/DPS_Blue.png"
-                      : "/DPS_LOGO.png"
+                      ? "/dps_updated_logo_cropped_colored.png"
+                      : "/dps_updated_logo_cropped.png"
                   }
                   alt="DPS Logo"
                   className="w-20"

@@ -39,14 +39,14 @@ const DeveloperBenefitsSection = () => {
   const inView = useInView(ref, { once: true, threshold: 0.1 });
 
   const benefits = [
-    {
-      icon: Eye,
-      title: "24/7 Visibility",
-      description:
-        "Gain round-the-clock visibility among top agents and serious buyers who might otherwise bypass your sales center.",
-      stats: "30x amplified reach",
-      color: "from-blue-500 to-blue-700",
-    },
+    // {
+    //   icon: Eye,
+    //   title: "24/7 Visibility",
+    //   description:
+    //     "Gain round-the-clock visibility among top agents and serious buyers who might otherwise bypass your sales center.",
+    //   stats: "30x amplified reach",
+    //   color: "from-blue-500 to-blue-700",
+    // },
     {
       icon: DollarSign,
       title: "Reduce Acquisition Costs",
@@ -59,7 +59,7 @@ const DeveloperBenefitsSection = () => {
       icon: Users,
       title: "Center of Exposure",
       description:
-        "Maximize exposure to top agents who routinely bring clients to DPS, ensuring your project is never overlooked.",
+        "Connect with leading agents and investors who actively engage with DPS property expo, keeping your project front and center",
       stats: "10K+ monthly visitors",
       color: "from-purple-500 to-purple-700",
     },
@@ -95,7 +95,7 @@ const DeveloperBenefitsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
@@ -160,14 +160,14 @@ const PlatformFeaturesSection = () => {
       image:
         "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
-    {
-      icon: Coffee,
-      title: "Centralized Amenities",
-      description:
-        "World-class meeting rooms, elegant lounge areas, and premium hospitality partners. Provide a five-star experience for your potential buyers.",
-      image:
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    },
+    // {
+    //   icon: Coffee,
+    //   title: "Centralized Amenities",
+    //   description:
+    //     "World-class meeting rooms, elegant lounge areas, and premium hospitality partners. Provide a five-star experience for your potential buyers.",
+    //   image:
+    //     "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    // },
     {
       icon: Megaphone,
       title: "Omni-Channel Marketing",
