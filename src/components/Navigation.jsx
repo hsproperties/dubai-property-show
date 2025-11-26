@@ -32,7 +32,6 @@ const Navigation = () => {
     setIsOpen(false);
   }, [location]);
 
-  console.log(location);
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -131,13 +130,13 @@ const Navigation = () => {
                 <img
                   src={
                     location.pathname !== "/" &&
-                    location.pathname !== "/buyers" &&
-                    location.pathname !== "/agents" &&
-                    location.pathname !== "/developers"
+                      location.pathname !== "/buyers" &&
+                      location.pathname !== "/agents" &&
+                      location.pathname !== "/developers"
                       ? "/dps_updated_logo_cropped_colored.png"
                       : scrolled || isOpen
-                      ? "/dps_updated_logo_cropped_colored.png"
-                      : "/dps_updated_logo_cropped.png"
+                        ? "/dps_updated_logo_cropped_colored.png"
+                        : "/dps_updated_logo_cropped.png"
                   }
                   alt="DPS Logo"
                   className="w-20"
@@ -172,8 +171,8 @@ const Navigation = () => {
                           location.pathname !== "/developers"
                           ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
                           : scrolled || isOpen
-                          ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
-                          : "text-white/90 hover:text-white hover:bg-white/20"
+                            ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
+                            : "text-white/90 hover:text-white hover:bg-white/20"
                       )}
                     >
                       {item.name}
@@ -194,12 +193,12 @@ const Navigation = () => {
                             ? "text-[#073c75] bg-blue-50"
                             : "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
                           : location.pathname === item.path
-                          ? scrolled || isOpen
-                            ? "text-[#073c75] bg-blue-50"
-                            : "text-white bg-white/20"
-                          : scrolled || isOpen
-                          ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
-                          : "text-white/90 hover:text-white hover:bg-white/20"
+                            ? scrolled || isOpen
+                              ? "text-[#073c75] bg-blue-50"
+                              : "text-white bg-white/20"
+                            : scrolled || isOpen
+                              ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
+                              : "text-white/90 hover:text-white hover:bg-white/20"
                       )}
                     >
                       {item.name}
@@ -267,8 +266,8 @@ const Navigation = () => {
                     location.pathname !== "/developers"
                     ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
                     : scrolled || isOpen
-                    ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
-                    : "text-white/90 hover:text-white hover:bg-white/20"
+                      ? "text-gray-700 hover:text-[#073c75] hover:bg-gray-50"
+                      : "text-white/90 hover:text-white hover:bg-white/20"
                 )}
               >
                 <Phone size={16} className="mr-2" />
@@ -279,10 +278,12 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button className="bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white shadow-lg hover:shadow-xl transition-all duration-200 gap-2">
-                  <Calendar size={16} />
-                  Book Visit
-                </Button>
+                <Link to="/contact">
+                  <Button className="bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white shadow-lg hover:shadow-xl transition-all duration-200 gap-2">
+                    <Calendar size={16} />
+                    Book Visit
+                  </Button>
+                </Link>
               </motion.div>
             </div>
 

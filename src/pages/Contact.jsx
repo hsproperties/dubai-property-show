@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
 import {
   MapPin,
   Phone,
@@ -25,6 +27,7 @@ import {
 } from "lucide-react";
 
 const ContactForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,7 +36,6 @@ const ContactForm = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -47,48 +49,29 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      await emailjs.send(
+        "service_otx1rwi", // EmailJS service ID
+        "template_reojebe", // EmailJS template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          inquiryType: formData.inquiryType,
+          message: formData.message,
+          formType: "Contact Form",
+        },
+        "DsWeIlaGUWjO8AFSt" // EmailJS public key
+      );
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        inquiryType: "",
-        message: "",
-      });
-    }, 3000);
+      // Redirect to thank you page
+      navigate("/thank-you");
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert("Something went wrong. Please try again or contact us directly.");
+      setIsSubmitting(false);
+    }
   };
-
-  if (isSubmitted) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="text-center py-12"
-      >
-        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle className="w-10 h-10 text-[#073c75]" />
-        </div>
-        <h3 className="text-2xl font-bold text-gray-900 mb-4">
-          Message Sent Successfully!
-        </h3>
-        <p className="text-gray-600 mb-6">
-          Thank you for your inquiry. Our team will get back to you within 24
-          hours.
-        </p>
-        <Button onClick={() => setIsSubmitted(false)} variant="outline">
-          Send Another Message
-        </Button>
-      </motion.div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
@@ -208,15 +191,15 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+971 5 457 27505", "+971 50 XXX XXXX"],
+      details: ["+971 5 457 27505", "Call Us Now"],
       description: "Call us for immediate assistance",
       color: "from-green-500 to-emerald-600",
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@dpsexpo.com", "partners@dpsexpo.com"],
-      description: "Send us your inquiries anytime",
+      details: ["info@dpsexpo.com", "Send Your Email"],
+      description: "Send us your inquiries anytime",  
       color: "from-blue-500 to-cyan-600",
     },
     {
@@ -433,11 +416,11 @@ const Contact = () => {
                       Open in Google Maps
                     </Button> */}
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3612.821390602998!2d55.22079707592778!3d25.107906735310458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b798c7080a5%3A0x11c19a9e96fbd2f1!2sH%26S%20Real%20Estate!5e0!3m2!1sen!2sae!4v1759140746683!5m2!1sen!2sae"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d903.2042418661277!2d55.22317783498764!3d25.108056428088194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b96fe8d27c3%3A0xbee722f4fcf94b44!2sDPS%20Exhibitions%20%E2%80%93%20Property%20Expo%20Organizer!5e0!3m2!1sen!2s!4v1763986302992!5m2!1sen!2s"
                       width="600"
                       height="450"
                       loading="lazy"
-                      referrerpolicy="no-referrer-when-downgrade"
+                      referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                   </div>
                 </div>

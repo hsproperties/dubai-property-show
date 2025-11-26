@@ -117,7 +117,7 @@
 
 // export default App;
 
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -135,6 +135,21 @@ import Contact from "./pages/Contact";
 import Developers from "./pages/Developers";
 import Agents from "./pages/Agents";
 import Buyers from "./pages/Buyers";
+import ThankYou from "./pages/ThankYou";
+
+// Component to scroll to top on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Use requestAnimationFrame to ensure DOM is ready, especially with animations
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+    });
+  }, [pathname]);
+
+  return null;
+};
 
 const PageWrapper = ({ children }) => {
   const location = useLocation();
@@ -157,6 +172,7 @@ const PageWrapper = ({ children }) => {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Navigation />
         <AnimatePresence mode="wait">
@@ -223,6 +239,14 @@ function App() {
               element={
                 <PageWrapper>
                   <Buyers />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/thank-you"
+              element={
+                <PageWrapper>
+                  <ThankYou />
                 </PageWrapper>
               }
             />

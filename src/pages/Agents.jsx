@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
 import {
   UserCheck,
   Users,
@@ -124,10 +126,10 @@ const AgentBenefitsSection = () => {
                     <Badge className="bg-[#073c75] text-white text-sm font-semibold">
                       {benefit.stats}
                     </Badge>
-                    <ArrowRight
+                    {/* <ArrowRight
                       className="text-[#073c75] group-hover:translate-x-1 transition-transform"
                       size={20}
-                    />
+                    /> */}
                   </div>
                 </CardContent>
               </Card>
@@ -144,30 +146,30 @@ const ToolsResourcesSection = () => {
   const inView = useInView(ref, { once: true, threshold: 0.1 });
 
   const tools = [
-    {
-      icon: Search,
-      title: "Advanced Property Search",
-      description:
-        "Powerful search and filtering tools to help you find the perfect properties for your clients based on specific criteria.",
-      features: [
-        "Location-based search",
-        "Price range filters",
-        "Property type sorting",
-        "Amenity matching",
-      ],
-    },
-    {
-      icon: BarChart3,
-      title: "Market Analytics Dashboard",
-      description:
-        "Real-time market data, pricing trends, and investment analytics to help you advise clients with confidence.",
-      features: [
-        "Live market data",
-        "Price trend analysis",
-        "ROI calculations",
-        "Comparative market analysis",
-      ],
-    },
+    // {
+    //   icon: Search,
+    //   title: "Advanced Property Search",
+    //   description:
+    //     "Powerful search and filtering tools to help you find the perfect properties for your clients based on specific criteria.",
+    //   features: [
+    //     "Location-based search",
+    //     "Price range filters",
+    //     "Property type sorting",
+    //     "Amenity matching",
+    //   ],
+    // },
+    // {
+    //   icon: BarChart3,
+    //   title: "Market Analytics Dashboard",
+    //   description:
+    //     "Real-time market data, pricing trends, and investment analytics to help you advise clients with confidence.",
+    //   features: [
+    //     "Live market data",
+    //     "Price trend analysis",
+    //     "ROI calculations",
+    //     "Comparative market analysis",
+    //   ],
+    // },
     {
       icon: Eye,
       title: "Client Presentation Tools",
@@ -389,6 +391,7 @@ const SuccessStoriesSection = () => {
 };
 
 const RegistrationFormSection = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -399,6 +402,7 @@ const RegistrationFormSection = () => {
     specialization: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -408,9 +412,35 @@ const RegistrationFormSection = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Agent registration submitted:", formData);
+    setIsSubmitting(true);
+    
+    try {
+      await emailjs.send(
+        "service_otx1rwi", // EmailJS service ID
+        "template_reojebe", // EmailJS template ID
+        {
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          license: formData.license,
+          experience: formData.experience,
+          specialization: formData.specialization,
+          message: formData.message,
+          formType: "Agent Registration",
+        },
+        "DsWeIlaGUWjO8AFSt" // EmailJS public key
+      );
+
+      // Redirect to thank you page
+      navigate("/thank-you");
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert("Something went wrong. Please try again or contact us directly.");
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -581,10 +611,20 @@ const RegistrationFormSection = () => {
                 <Button
                   type="submit"
                   size="lg"
+                  disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white text-lg py-4"
                 >
-                  Submit Registration
-                  <ArrowRight className="ml-2" size={20} />
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      Submit Registration
+                      <ArrowRight className="ml-2" size={20} />
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>
@@ -700,7 +740,7 @@ const HeroSection = () => {
                   className="group bg-white text-gray-900 hover:bg-gray-100 shadow-2xl text-lg px-6 py-3 h-auto font-semibold overflow-hidden relative"
                   asChild
                 >
-                  <Link to="/about" className="flex items-center gap-3">
+                  <Link to="/contact" className="flex items-center gap-3">
                     <motion.span
                       variants={textVariants}
                       className="relative z-10 text-sm"

@@ -251,7 +251,7 @@ const Exhibitors = () => {
     {
       question: "How do I book a visit to an exhibitor's booth?",
       answer:
-        "You can book visits directly through our platform by clicking 'Visit Booth' on any exhibitor card. You can also call our concierge service at +971-4-XXX-XXXX for personalized assistance with scheduling multiple visits.",
+        "You can book visits directly through our platform by clicking 'Visit Booth' on any exhibitor card. You can also call our concierge service at +971 5 457 27505 for personalized assistance with scheduling multiple visits.",
     },
     {
       question: "Are all exhibitors verified and licensed?",

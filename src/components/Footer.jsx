@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import emailjs from "@emailjs/browser";
 import {
   MapPin,
   Phone,
@@ -28,6 +29,40 @@ import AnimatedCounter from "./sections/AnimatedCounter";
 import { NeonGradHeadline } from "./sections/HeroSectionAlt";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    setIsSubmitting(true);
+    
+    try {
+      await emailjs.send(
+        "service_otx1rwi", // EmailJS service ID
+        "template_reojebe", // EmailJS template ID
+        {
+          email: email,
+          formType: "Newsletter Subscription",
+        },
+        "DsWeIlaGUWjO8AFSt" // EmailJS public key
+      );
+
+      setIsSubmitted(true);
+      setEmail("");
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const footerSections = [
     // {
     //   title: "Explore",
@@ -92,23 +127,23 @@ const Footer = () => {
     {
       icon: Facebook,
       name: "Facebook",
-      href: "#",
+      href: "https://www.facebook.com/people/Dubai-Property-Show/61579074947642/",
       color: "hover:text-blue-600",
     },
     {
       icon: Instagram,
       name: "Instagram",
-      href: "#",
+      href: "https://www.instagram.com/dps_expo/",
       color: "hover:text-pink-500",
     },
-    { icon: Twitter, name: "Twitter", href: "#", color: "hover:text-blue-400" },
+    { icon: Twitter, name: "Twitter", href: "https://x.com/dps_expo", color: "hover:text-blue-400" },
     {
       icon: Linkedin,
       name: "LinkedIn",
-      href: "#",
+      href: "https://www.linkedin.com/company/dubaipropertyshow/",
       color: "hover:text-blue-700",
     },
-    { icon: Youtube, name: "YouTube", href: "#", color: "hover:text-red-500" },
+    { icon: Youtube, name: "YouTube", href: "https://www.youtube.com/@dps_expo", color: "hover:text-red-500" },
   ];
 
   const quickStats = [
@@ -203,20 +238,54 @@ const Footer = () => {
             </div>
 
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Input
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="flex-1 bg-white/20 border-white/30 text-white placeholder:text-white/60 focus:bg-white/30 h-12"
-                />
-                <Button className="bg-white text-slate-900 hover:bg-gray-100 px-8 h-12">
-                  <Send size={16} className="mr-2" />
-                  Subscribe
-                </Button>
-              </div>
-              <p className="text-white/60 text-sm mt-3">
-                Join 25,000+ investors and property enthusiasts
-              </p>
+              {isSubmitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-4"
+                >
+                  <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Send className="w-8 h-8 text-green-400" />
+                  </div>
+                  <p className="text-white font-semibold mb-2">Thank you for subscribing!</p>
+                  <p className="text-white/70 text-sm">
+                    You'll receive our latest updates soon.
+                  </p>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubscribe} className="space-y-4">
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Input
+                      type="email"
+                      placeholder="Enter your email address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="flex-1 bg-white/20 border-white/30 text-white placeholder:text-white/60 focus:bg-white/30 h-12"
+                    />
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="bg-white text-slate-900 hover:bg-gray-100 px-8 h-12"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-slate-900 mr-2"></div>
+                          Subscribing...
+                        </>
+                      ) : (
+                        <>
+                          <Send size={16} className="mr-2" />
+                          Subscribe
+                        </>
+                      )}
+                    </Button>
+                  </div>
+                  <p className="text-white/60 text-sm">
+                    Join 25,000+ investors and property enthusiasts
+                  </p>
+                </form>
+              )}
             </div>
           </motion.div>
         </div>
@@ -372,6 +441,7 @@ const Footer = () => {
                   <motion.a
                     key={index}
                     href={social.href}
+                    target="_blank"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     className={`w-12 h-12 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center text-white transition-all duration-300 ${social.color} hover:bg-white hover:shadow-lg border border-white/20`}
@@ -429,12 +499,12 @@ const Footer = () => {
               >
                 Terms of Service
               </Link>
-              <Link
+              {/* <Link
                 to="/cookies"
                 className="text-white/70 hover:text-white transition-colors flex items-center"
               >
                 Cookie Policy
-              </Link>
+              </Link> */}
               <div className="flex items-center gap-2 text-white/70">
                 <Shield size={16} />
                 <span>Secure & Trusted</span>

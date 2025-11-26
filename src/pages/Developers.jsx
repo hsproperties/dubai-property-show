@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
 import {
   Building2,
   Users,
@@ -124,10 +126,10 @@ const DeveloperBenefitsSection = () => {
                     <Badge className="bg-[#073c75] text-white text-sm font-semibold">
                       {benefit.stats}
                     </Badge>
-                    <ArrowRight
+                    {/* <ArrowRight
                       className="text-[#073c75] group-hover:translate-x-1 transition-transform"
                       size={20}
-                    />
+                    /> */}
                   </div>
                 </CardContent>
               </Card>
@@ -157,8 +159,10 @@ const PlatformFeaturesSection = () => {
       title: "State-of-the-Art Technology",
       description:
         "4K screens and immersive audiovisuals to showcase your projects with unparalleled impact. Create unforgettable, high-impact buyer experiences.",
+      // image:
+      //   "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       image:
-        "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "https://cdn.prod.website-files.com/65c57041ca3af1fbf3958cf9/65efe99fc89116c52b1b1d3b_Aqualand_AURA_04jpg.jpg",
     },
     // {
     //   icon: Coffee,
@@ -234,10 +238,10 @@ const PlatformFeaturesSection = () => {
                   {feature.description}
                 </p>
 
-                <Button className="bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white">
+                {/* <Button className="bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white">
                   Learn More
                   <ArrowRight className="ml-2" size={16} />
-                </Button>
+                </Button> */}
               </div>
             </motion.div>
           ))}
@@ -248,6 +252,7 @@ const PlatformFeaturesSection = () => {
 };
 
 const ContactFormSection = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     companyName: "",
     contactName: "",
@@ -256,6 +261,7 @@ const ContactFormSection = () => {
     projectType: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -265,10 +271,33 @@ const ContactFormSection = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Developer inquiry submitted:", formData);
+    setIsSubmitting(true);
+    
+    try {
+      await emailjs.send(
+        "service_otx1rwi", // EmailJS service ID
+        "template_reojebe", // EmailJS template ID
+        {
+          name: formData.contactName,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.companyName,
+          projectType: formData.projectType,
+          message: formData.message,
+          formType: "Developer Inquiry",
+        },
+        "DsWeIlaGUWjO8AFSt" // EmailJS public key
+      );
+
+      // Redirect to thank you page
+      navigate("/thank-you");
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert("Something went wrong. Please try again or contact us directly.");
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -398,10 +427,20 @@ const ContactFormSection = () => {
                 <Button
                   type="submit"
                   size="lg"
+                  disabled={isSubmitting}
                   className="w-full bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white text-lg py-4"
                 >
-                  Reserve Your Booth
-                  <ArrowRight className="ml-2" size={20} />
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      Submitting...
+                    </>
+                  ) : (
+                    <>
+                      Reserve Your Booth
+                      <ArrowRight className="ml-2" size={20} />
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>
@@ -518,7 +557,7 @@ const HeroSection = () => {
                   className="group bg-white text-gray-900 hover:bg-gray-100 shadow-2xl text-lg px-6 py-3 h-auto font-semibold overflow-hidden relative"
                   asChild
                 >
-                  <Link to="/about" className="flex items-center gap-3">
+                  <Link to="/contact" className="flex items-center gap-3">
                     <motion.span
                       variants={textVariants}
                       className="relative z-10 text-sm"
