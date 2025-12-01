@@ -82,8 +82,21 @@ const EventCalendar = () => {
         "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
       description: "Hands-on investment strategies and tips",
     },
+    {
+      id: 6,
+      title: "New Year Celebration & Property Showcase",
+      date: "2025-12-31",
+      time: "10:00 AM - 10:00 PM",
+      location: "Main Exhibition Hall",
+      type: "Product Launch",
+      attendees: 1000,
+      image:
+        "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      description:
+        "Ring in the New Year with Dubai's premier property showcase! Join us for an exclusive celebration featuring special New Year offers, live entertainment, gourmet refreshments, and exclusive previews of upcoming developments. Start 2025 with the perfect property investment opportunity.",
+    },
     // {
-    //   id: 6,
+    //   id: 7,
     //   title: "Dubai Property Show Grand Finale",
     //   date: "2025-11-30",
     //   time: "9:00 AM - 8:00 PM",
@@ -150,6 +163,12 @@ const EventCalendar = () => {
     .filter((event) => new Date(event.date) >= new Date())
     .sort((a, b) => new Date(a.date) - new Date(b.date))
     .slice(0, 3);
+
+  // Calculate total expected attendees from upcoming events
+  const totalExpectedAttendees = upcomingEvents.reduce(
+    (sum, event) => sum + event.attendees,
+    0
+  );
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -643,52 +662,84 @@ const EventCalendar = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {upcomingEvents.map((event, index) => (
-                  <motion.div
-                    key={event.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="group cursor-pointer"
-                    onClick={() => {
-                      const eventDate = new Date(event.date);
-                      setSelectedDate(eventDate);
-                      setCurrentMonth(eventDate);
-                    }}
-                  >
-                    <div className="flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors">
-                      <img
-                        src={event.image}
-                        alt={event.title}
-                        className="w-16 h-16 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-semibold text-gray-900 text-sm mb-1 group-hover:text-[#073c75] transition-colors">
-                          {event.title}
-                        </h4>
-                        <div className="flex items-center gap-2 text-xs text-gray-500 mb-1">
-                          <Calendar size={12} />
-                          {(() => {
-                            // Parse date string to avoid timezone issues
-                            const [year, month, day] = event.date
-                              .split("-")
-                              .map(Number);
-                            const eventDate = new Date(year, month - 1, day);
-                            return eventDate.toLocaleDateString("en-US", {
-                              month: "short",
-                              day: "numeric",
-                            });
-                          })()}
-                        </div>
-                        <div className="flex items-center gap-2 text-xs text-gray-500">
-                          <Clock size={12} />
-                          {event.time.split(" - ")[0]}
+                {upcomingEvents.length > 0 ? (
+                  upcomingEvents.map((event, index) => (
+                    <motion.div
+                      key={event.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="group cursor-pointer"
+                      onClick={() => {
+                        const eventDate = new Date(event.date);
+                        setSelectedDate(eventDate);
+                        setCurrentMonth(eventDate);
+                      }}
+                    >
+                      <div className="flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors">
+                        <img
+                          src={event.image}
+                          alt={event.title}
+                          className="w-16 h-16 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-semibold text-gray-900 text-sm mb-1 group-hover:text-[#073c75] transition-colors">
+                            {event.title}
+                          </h4>
+                          <div className="flex items-center gap-2 text-xs text-gray-500 mb-1">
+                            <Calendar size={12} />
+                            {(() => {
+                              // Parse date string to avoid timezone issues
+                              const [year, month, day] = event.date
+                                .split("-")
+                                .map(Number);
+                              const eventDate = new Date(year, month - 1, day);
+                              return eventDate.toLocaleDateString("en-US", {
+                                month: "short",
+                                day: "numeric",
+                              });
+                            })()}
+                          </div>
+                          <div className="flex items-center gap-2 text-xs text-gray-500">
+                            <Clock size={12} />
+                            {event.time.split(" - ")[0]}
+                          </div>
                         </div>
                       </div>
+                    </motion.div>
+                  ))
+                ) : (
+                  <div className="text-center py-8">
+                    <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                    <p className="text-gray-500 font-medium">
+                      No Upcoming Events
+                    </p>
+                    <p className="text-sm text-gray-400 mt-2">
+                      Check back soon for new events and showcases
+                    </p>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+            <Card className="text-center shadow-xl border-0 flex flex-col items-center justify-center">
+              <CardContent className="p-4">
+                <Users className="w-8 h-8 text-[#073c75] mx-auto mb-2" />
+                {upcomingEvents.length > 0 ? (
+                  <>
+                    <div className="text-2xl font-bold text-gray-900">
+                      {totalExpectedAttendees >= 1000
+                        ? `${(totalExpectedAttendees / 1000).toFixed(1)}K+`
+                        : `${totalExpectedAttendees}+`}
                     </div>
-                  </motion.div>
-                ))}
+                    <div className="text-sm text-gray-600">Expected Attendees</div>
+                  </>
+                ) : (
+                  <>
+                    <div className="text-2xl font-bold text-gray-400">0</div>
+                    <div className="text-sm text-gray-500">No Upcoming Events</div>
+                  </>
+                )}
               </CardContent>
             </Card>
             <Card className="text-center shadow-xl border-0 flex flex-col items-center justify-center">
@@ -698,14 +749,6 @@ const EventCalendar = () => {
                   {events.length}
                 </div>
                 <div className="text-sm text-gray-600">Events This Month</div>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center shadow-xl border-0 flex flex-col items-center justify-center">
-              <CardContent className="p-4">
-                <Users className="w-8 h-8 text-[#073c75] mx-auto mb-2" />
-                <div className="text-2xl font-bold text-gray-900">1.2K+</div>
-                <div className="text-sm text-gray-600">Expected Attendees</div>
               </CardContent>
             </Card>
           </div>

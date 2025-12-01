@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
+import ScheduleVisitModal from "@/components/ScheduleVisitModal";
 import {
   UserCheck,
   Users,
@@ -33,7 +34,6 @@ import {
   Coffee,
   // PresentationChart,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import AnimatedCounter from "../components/sections/AnimatedCounter";
 
 const AgentBenefitsSection = () => {
@@ -415,7 +415,7 @@ const RegistrationFormSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       await emailjs.send(
         "service_otx1rwi", // EmailJS service ID
@@ -635,6 +635,8 @@ const RegistrationFormSection = () => {
   );
 };
 const HeroSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -665,6 +667,12 @@ const HeroSection = () => {
     },
   };
   return (
+    <>
+      <ScheduleVisitModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        userType="Agent"
+      />
     <section className="relative h-[70rem] lg:h-[50rem] flex items-center justify-center overflow-hidden bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900">
       {/* Background Image */}
       <div className="absolute inset-0">
@@ -737,28 +745,26 @@ const HeroSection = () => {
               <motion.div whileHover="hover" initial="hidden" animate="visible">
                 <Button
                   size="xl"
+                  onClick={() => setIsModalOpen(true)}
                   className="group bg-white text-gray-900 hover:bg-gray-100 shadow-2xl text-lg px-6 py-3 h-auto font-semibold overflow-hidden relative"
-                  asChild
                 >
-                  <Link to="/contact" className="flex items-center gap-3">
-                    <motion.span
-                      variants={textVariants}
-                      className="relative z-10 text-sm"
-                    >
-                      Visit DPS Today
-                    </motion.span>
-                    <Calendar
-                      className="group-hover:translate-x-1 transition-transform relative z-10"
-                      size={20}
-                    />
-                    {/* Animated background on hover */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "0%" }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </Link>
+                  <motion.span
+                    variants={textVariants}
+                    className="relative z-10 text-sm"
+                  >
+                    Visit DPS
+                  </motion.span>
+                  <Calendar
+                    className="group-hover:translate-x-1 transition-transform relative z-10 ml-2"
+                    size={20}
+                  />
+                  {/* Animated background on hover */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-100 to-purple-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "0%" }}
+                    transition={{ duration: 0.3 }}
+                  />
                 </Button>
               </motion.div>
             </motion.div>
@@ -827,6 +833,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
     </section>
+    </>
   );
 };
 
