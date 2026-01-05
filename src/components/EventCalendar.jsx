@@ -732,12 +732,16 @@ const EventCalendar = () => {
                         ? `${(totalExpectedAttendees / 1000).toFixed(1)}K+`
                         : `${totalExpectedAttendees}+`}
                     </div>
-                    <div className="text-sm text-gray-600">Expected Attendees</div>
+                    <div className="text-sm text-gray-600">
+                      Expected Attendees
+                    </div>
                   </>
                 ) : (
                   <>
                     <div className="text-2xl font-bold text-gray-400">0</div>
-                    <div className="text-sm text-gray-500">No Upcoming Events</div>
+                    <div className="text-sm text-gray-500">
+                      No Upcoming Events
+                    </div>
                   </>
                 )}
               </CardContent>
