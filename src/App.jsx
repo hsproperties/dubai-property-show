@@ -136,6 +136,10 @@ import Developers from "./pages/Developers";
 import Agents from "./pages/Agents";
 import Buyers from "./pages/Buyers";
 import ThankYou from "./pages/ThankYou";
+import WhyExhibit from "./pages/WhyExhibit";
+import Blogs from "./pages/Blogs";
+import PressRelease from "./pages/PressRelease";
+import Gallery from "./pages/Gallery";
 
 // Component to scroll to top on route change
 const ScrollToTop = () => {
@@ -247,6 +251,38 @@ function App() {
               element={
                 <PageWrapper>
                   <ThankYou />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/why-exhibit"
+              element={
+                <PageWrapper>
+                  <WhyExhibit />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/blogs"
+              element={
+                <PageWrapper>
+                  <Blogs />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/press-release"
+              element={
+                <PageWrapper>
+                  <PressRelease />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/gallery"
+              element={
+                <PageWrapper>
+                  <Gallery />
                 </PageWrapper>
               }
             />

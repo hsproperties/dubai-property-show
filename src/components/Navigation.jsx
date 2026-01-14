@@ -11,6 +11,12 @@ import {
   Users,
   Building2,
   Target,
+  FileText,
+  Image,
+  Newspaper,
+  Award,
+  MapPin,
+  Info,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -35,56 +41,90 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    // {
-    //   name: "For You",
-    //   path: "#",
-    //   submenu: [
-    //     {
-    //       name: "Developers",
-    //       path: "/developers",
-    //       icon: Building2,
-    //       description: "Showcase your projects",
-    //     },
-    //     {
-    //       name: "Agents",
-    //       path: "/agents",
-    //       icon: Users,
-    //       description: "Connect with buyers",
-    //     },
-    //     {
-    //       name: "Buyers",
-    //       path: "/buyers",
-    //       icon: Target,
-    //       description: "Find your dream property",
-    //     },
-    //   ],
-    // },
-    // {
-    //   name: "Properties",
-    //   path: "/properties",
-    //   submenu: [
-    //     { name: "All Properties", path: "/properties" },
-    //     { name: "Luxury Apartments", path: "/properties?type=apartment" },
-    //     { name: "Premium Villas", path: "/properties?type=villa" },
-    //     { name: "Penthouses", path: "/properties?type=penthouse" },
-    //     { name: "Commercial", path: "/properties?type=commercial" },
-    //   ],
-    // },
     {
-      name: "Developers",
-      path: "/developers",
+      name: "For You",
+      path: "#",
+      submenu: [
+        {
+          name: "Developers",
+          path: "/developers",
+          icon: Building2,
+          description: "Showcase your projects",
+        },
+        {
+          name: "Agents",
+          path: "/agents",
+          icon: Users,
+          description: "Connect with buyers",
+        },
+        {
+          name: "Buyers",
+          path: "/buyers",
+          icon: Target,
+          description: "Find your dream property",
+        },
+      ],
     },
     {
-      name: "Agents",
-      path: "/agents",
+      name: "Exhibit",
+      path: "#",
+      submenu: [
+        {
+          name: "Why Exhibit",
+          path: "/why-exhibit",
+          icon: Award,
+          description: "Benefits of exhibiting",
+        },
+        {
+          name: "Exhibitors",
+          path: "/exhibitors",
+          icon: Building2,
+          description: "View all exhibitors",
+        },
+      ],
     },
     {
-      name: "Buyers",
-      path: "/buyers",
+      name: "Visit",
+      path: "#",
+      submenu: [
+        {
+          name: "About",
+          path: "/about",
+          icon: Info,
+          description: "Learn about DPS",
+        },
+        {
+          name: "Contact",
+          path: "/contact",
+          icon: MapPin,
+          description: "Get in touch with us",
+        },
+      ],
     },
-    { name: "Exhibitors", path: "/exhibitors" },
-    // { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
+    {
+      name: "Media",
+      path: "#",
+      submenu: [
+        {
+          name: "Blogs",
+          path: "/blogs",
+          icon: FileText,
+          description: "Latest news and insights",
+        },
+        {
+          name: "Press Release",
+          path: "/press-release",
+          icon: Newspaper,
+          description: "Official announcements",
+        },
+        {
+          name: "Gallery",
+          path: "/gallery",
+          icon: Image,
+          description: "Photo gallery",
+        },
+      ],
+    },
   ];
 
   return (

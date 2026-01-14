@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import HeroSection from "@/components/sections/HeroSection";
 import StakeholderSections from "@/components/sections/StakeholderSections";
 import EventCalendar from "@/components/EventCalendar";
-import AnimatedCounter from "@/components/AnimatedCounter";
+import AnimatedCounter from "@/components/sections/AnimatedCounter";
 import Footer from "@/components/Footer";
 import {
   Building2,
@@ -38,6 +38,9 @@ import {
   Shield,
   Heart,
   UserCheck,
+  Clock,
+  Home as HomeIcon,
+  Coffee,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
@@ -46,6 +49,7 @@ import HeroSectionAlt2 from "../components/sections/HeroSectionAlt2";
 import HeroSectionAlt3 from "../components/sections/HeroSectionAlt3";
 import HeroSectionAlt4 from "../components/sections/HeroSectionAlt4";
 import HeroSectionAlt5 from "../components/sections/HeroSectionAlt5";
+import ScheduleVisitModal from "@/components/ScheduleVisitModal";
 
 const PropertyShowcase = () => {
   const ref = useRef(null);
@@ -654,6 +658,321 @@ const CTASection = () => {
   );
 };
 
+// Buyer Benefits Section Component
+const BuyerBenefitsSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, threshold: 0.1 });
+
+  const benefits = [
+    {
+      icon: Building2,
+      title: "All Choices, One Roof",
+      description:
+        "Find every top developer in Dubai under a single roof. Make the most important decision of your life with perfect information and zero pressure.",
+      stats: "30+ Top Developers",
+      features: [
+        "Central location",
+        "Easy access",
+        "Complete coverage",
+        "Time-efficient",
+      ],
+    },
+    {
+      icon: Search,
+      title: "Compare Side-by-Side",
+      description:
+        "See 30+ developers literally side-by-side. Compare specs, views, and value in real-time—not from memory days apart.",
+      stats: "Real-time comparison",
+      features: [
+        "Instant comparison",
+        "Clear visualization",
+        "Memory-free decisions",
+        "Fair evaluation",
+      ],
+    },
+    {
+      icon: Shield,
+      title: "No Pressure, Just Clarity",
+      description:
+        "Take your time. Ask real questions. Get real answers. No sales pressure—just transparent information to empower your decision.",
+      stats: "Pressure-free environment",
+      features: [
+        "Transparent pricing",
+        "Honest guidance",
+        "Relaxed atmosphere",
+        "Informed choices",
+      ],
+    },
+    {
+      icon: Clock,
+      title: "Your Terms, Your Timeline",
+      description:
+        "You set the pace, revisit projects, include family, and reflect freely. Your important decision deserves respect and ease.",
+      stats: "Flexible scheduling",
+      features: [
+        "Flexible timing",
+        "Family-friendly",
+        "Multiple visits",
+        "Thoughtful decisions",
+      ],
+    },
+  ];
+
+  return (
+    <section ref={ref} className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <Badge className="mb-6 bg-blue-50 text-[#073c75] border-blue-200 hover:text-white text-sm font-semibold px-4 py-2">
+            Your Portfolio Command Center
+          </Badge>
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            Where Choices <span className="text-gradient">Become Clarity</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            At DPS, we bring the entire Dubai Real Estate market under one roof.
+            No endless driving. No confusing options. No pressure.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {benefits.map((benefit, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="group"
+            >
+              <Card className="h-full hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg bg-white backdrop-blur-sm">
+                <CardContent className="p-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <benefit.icon className="text-white" size={28} />
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 transition-colors">
+                    {benefit.title}
+                  </h3>
+
+                  <p className="text-gray-600 leading-relaxed mb-6 text-lg">
+                    {benefit.description}
+                  </p>
+
+                  <div className="space-y-3 mb-6">
+                    {benefit.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-3">
+                        <CheckCircle
+                          className="text-[#073c75] flex-shrink-0"
+                          size={16}
+                        />
+                        <span className="text-gray-600 text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <Badge className="bg-[#073c75] text-white text-sm font-semibold px-3 py-1">
+                      {benefit.stats}
+                    </Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Market Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="text-center"
+        >
+          <Card className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white border-0 shadow-2xl">
+            <CardContent className="p-12">
+              <h3 className="text-3xl font-bold mb-6">
+                Dubai's Thriving Property Market
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                  <div className="text-4xl font-bold mb-2 text-white">
+                    <AnimatedCounter end={4} suffix="M+" />
+                  </div>
+                  <p className="text-gray-200">
+                    People calling Dubai home - and it's not slowing down
+                  </p>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold mb-2 text-white">
+                    <AnimatedCounter end={100000} suffix="+" />
+                  </div>
+                  <p className="text-gray-200">
+                    New residents every year looking for homes and investments
+                  </p>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold mb-2 text-white">
+                    <AnimatedCounter end={963} />
+                  </div>
+                  <p className="text-gray-200">
+                    Property deals completed every single day
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// Experience Section Component
+const ExperienceSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, threshold: 0.1 });
+
+  const experiences = [
+    {
+      icon: HomeIcon,
+      title: "Your Journey, Simplified",
+      description:
+        "Easily find and explore every top developer in one convenient, central location. No more driving across the city. Your perfect home or investment is just steps away.",
+      image:
+        "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: [
+        "Central location",
+        "Easy parking",
+        "All developers",
+        "One-stop shopping",
+      ],
+    },
+    {
+      icon: Play,
+      title: "See Your Future, in Detail",
+      description:
+        "Stunning 4K screens and immersive virtual tours bring properties to life before they're built. Compare finishes, views, and layouts in vivid detail, making your decision with total confidence.",
+      image:
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: [
+        "4K displays",
+        "Interactive models",
+        "Detailed layouts",
+      ],
+    },
+    {
+      icon: Coffee,
+      title: "Explore in Comfort",
+      description:
+        "Relaxed lounge areas, complimentary refreshments, and private meeting spaces. Take your time and enjoy a pressure-free environment to discuss your options with family or advisors.",
+      image:
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: [
+        "Comfortable seating",
+        "Free refreshments",
+        "Private spaces",
+        "Family-friendly",
+      ],
+    },
+    {
+      icon: Shield,
+      title: "Your Trusted Source",
+      description:
+        "DPS is a curated destination, promoted as the trusted place to begin your property search. Start your journey with confidence in a professional environment dedicated to transparency and choice.",
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: [
+        "Verified developers",
+        "Professional environment",
+        "Trusted platform",
+        "Expert guidance",
+      ],
+    },
+  ];
+
+  return (
+    <section ref={ref} className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <Badge className="mb-6 bg-blue-50 text-[#073c75] border-blue-200 hover:text-white text-sm font-semibold px-4 py-2">
+            The DPS Experience
+          </Badge>
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            Designed for <span className="text-gradient">Your Success</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Every aspect of DPS is designed to make your property journey
+            seamless, informed, and enjoyable.
+          </p>
+        </motion.div>
+
+        <div className="space-y-16">
+          {experiences.map((experience, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className={`flex flex-col ${
+                index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+              } items-center gap-12`}
+            >
+              <div className="lg:w-1/2">
+                <div className="relative group">
+                  <img
+                    src={experience.image}
+                    alt={experience.title}
+                    className="w-full h-96 object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                  <div className="absolute top-6 left-6 w-12 h-12 bg-gradient-to-br from-[#073c75] to-[#51779e] rounded-xl flex items-center justify-center shadow-lg">
+                    <experience.icon className="text-white" size={24} />
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:w-1/2">
+                <div className="max-w-lg">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                    {experience.title}
+                  </h3>
+
+                  <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                    {experience.description}
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 mb-8">
+                    {experience.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-3">
+                        <CheckCircle
+                          className="text-[#073c75] flex-shrink-0"
+                          size={20}
+                        />
+                        <span className="text-gray-700 font-medium">
+                          {feature}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Home = () => {
   return (
     <div className="min-h-screen">
@@ -663,11 +982,13 @@ const Home = () => {
       <HeroSectionAlt3 />
       <HeroSectionAlt4 /> */}
       {/* <HeroSection /> */}
+      <EventCalendar />
+      <BuyerBenefitsSection />
+      <ExperienceSection />
       <StakeholderSections />
       {/* <PropertyShowcase /> */}
       {/* <ProcessSection /> */}
       <DeveloperLogosSection />
-      <EventCalendar />
       <CTASection />
       <TestimonialsSection />
       <Footer />
