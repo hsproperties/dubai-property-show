@@ -272,7 +272,7 @@ const HeroSectionAlt = () => {
             <span>Live Now</span>
           </div>
           <span className="text-white/40">|</span>
-          <span>Dubai Property Show 2025</span>
+          <span>Dubai Property Show 2026</span>
         </motion.div>
 
         {/* Heading */}
@@ -281,14 +281,14 @@ const HeroSectionAlt = () => {
           className="text-white mb-6 leading-tight font-bold"
         >
           <span className="block text-4xl sm:text-5xl lg:text-6xl">
-            Discover Dubai’s
+            SEE MORE. COMPARE FASTER.
           </span>
           <span className="block text-4xl sm:text-5xl lg:text-7xl mt-2">
-            <NeonGradHeadline>Premium Properties</NeonGradHeadline>
+            <NeonGradHeadline>DECIDE SMARTER</NeonGradHeadline>
           </span>
-          <span className="block text-xl mt-4 text-white/80 font-light">
+          {/* <span className="block text-xl mt-4 text-white/80 font-light">
             One Platform. Every Deal. Zero Friction.
-          </span>
+          </span> */}
         </motion.h1>
 
         {/* Subtext */}
@@ -296,9 +296,9 @@ const HeroSectionAlt = () => {
           variants={itemVariants}
           className="text-lg sm:text-xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed font-light"
         >
-          Connect with premier developers, explore luxury homes and unlock
-          off-plan gems, and invest in the world’s most dynamic real-estate
-          market.
+          Experience Dubai's most comprehensive property showcase where every
+          option is compared, every question is answered, and every decision is
+          made with complete confidence.
         </motion.p>
 
         {/* CTAs */}
