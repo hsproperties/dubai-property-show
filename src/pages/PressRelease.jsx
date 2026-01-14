@@ -11,22 +11,22 @@ const HeroSection = () => {
   return (
     <section
       ref={heroRef}
-      className="relative py-20 bg-gradient-to-br from-slate-50 to-blue-50"
+      className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 min-h-[400px] flex items-center"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center"
+          className="text-center mb-16"
         >
           <Badge className="mb-6 bg-blue-50 text-[#073c75] border-blue-200 hover:text-white text-sm font-semibold px-4 py-2">
             Official Announcements
           </Badge>
-          <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
             Press <span className="text-gradient">Releases</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Official announcements and news from Dubai Property Show.
           </p>
         </motion.div>
