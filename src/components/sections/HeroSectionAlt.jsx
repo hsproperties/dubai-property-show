@@ -281,14 +281,14 @@ const HeroSectionAlt = () => {
           className="text-white mb-6 leading-tight font-bold"
         >
           <span className="block text-4xl sm:text-5xl lg:text-6xl">
-            SEE MORE. COMPARE FASTER.
+            THE HUB FOR GLOBAL REAL ESTATE
           </span>
           <span className="block text-4xl sm:text-5xl lg:text-7xl mt-2">
-            <NeonGradHeadline>DECIDE SMARTER</NeonGradHeadline>
+            <NeonGradHeadline>IS NOW LIVE</NeonGradHeadline>
           </span>
-          {/* <span className="block text-xl mt-4 text-white/80 font-light">
-            One Platform. Every Deal. Zero Friction.
-          </span> */}
+          <span className="block text-xl sm:text-2xl mt-4 text-white/80 font-light">
+            The Gateway to the World's Fastest-Growing Real Estate Market
+          </span>
         </motion.h1>
 
         {/* Subtext */}
@@ -296,9 +296,9 @@ const HeroSectionAlt = () => {
           variants={itemVariants}
           className="text-lg sm:text-xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed font-light"
         >
-          Experience Dubai's most comprehensive property showcase where every
-          option is compared, every question is answered, and every decision is
-          made with complete confidence.
+          Connect with Dubai's premier developers, explore giga-projects, and
+          discover investment opportunities in the world's most dynamic real
+          estate market.
         </motion.p>
 
         {/* CTAs */}

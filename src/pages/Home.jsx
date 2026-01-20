@@ -41,6 +41,8 @@ import {
   Clock,
   Home as HomeIcon,
   Coffee,
+  FileText,
+  Newspaper,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
@@ -544,11 +546,11 @@ const CTASection = () => {
       {/* Background Images */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
+          src="https://www.dubai.it/en/wp-content/uploads/sites/142/dubai-marina-hd.jpg"
           alt="Dubai Skyline"
           className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div> */}
       </div>
 
       {/* Floating Elements */}
@@ -973,24 +975,802 @@ const ExperienceSection = () => {
   );
 };
 
+// Stats Section (like DWTC)
+const StatsSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, threshold: 0.1 });
+
+  const stats = [
+    {
+      value: "4M+",
+      label: "Listings",
+      description: "Accessing global properties",
+      icon: Building2,
+    },
+    {
+      value: "50K+",
+      label: "Global Visitors",
+      description: "Expected attendees",
+      icon: Users,
+    },
+    {
+      value: "50+",
+      label: "Countries",
+      description: "Represented",
+      icon: Globe,
+    },
+    {
+      value: "30+",
+      label: "Exhibiting",
+      description: "Premium Companies",
+      icon: Award,
+    },
+  ];
+
+  return (
+    <section
+      ref={ref}
+      className="py-20 bg-gradient-to-br from-[#073c75] via-[#0d4a8a] to-[#073c75] relative overflow-hidden"
+    >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Authority Banner
+          </h2>
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+            Accessing 4M+ Listings and 50k+ Global Visitors - Dubai's Thriving
+            Property Market
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+              className="text-center"
+            >
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                    <stat.icon className="text-white" size={32} />
+                  </div>
+                </div>
+                <div className="text-5xl sm:text-6xl font-bold text-white mb-2">
+                  <AnimatedCounter
+                    end={parseInt(stat.value.replace(/[^0-9]/g, ""))}
+                    suffix={
+                      stat.value.includes("M")
+                        ? "M+"
+                        : stat.value.includes("K")
+                        ? "K+"
+                        : "+"
+                    }
+                    duration={2}
+                  />
+                </div>
+                <div className="text-xl font-semibold text-white mb-1">
+                  {stat.label}
+                </div>
+                <div className="text-sm text-white/70">
+                  {stat.description}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Insights/News Section (like DWTC's "Our Insights")
+const InsightsSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, threshold: 0.1 });
+
+  const insights = [
+    {
+      id: 1,
+      title: "Dubai Real Estate Market Trends 2025",
+      excerpt:
+        "Discover the latest trends shaping Dubai's real estate market in 2025, from luxury developments to investment opportunities.",
+      image:
+        "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: "Market Insights",
+      date: "Jan 15, 2025",
+      readTime: "5 min",
+      tags: ["Economy", "Real Estate", "Dubai"],
+    },
+    {
+      id: 2,
+      title: "Top Investment Areas in Dubai",
+      excerpt:
+        "Explore the most promising investment areas in Dubai for 2025, backed by data and expert analysis.",
+      image:
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: "Investment",
+      date: "Jan 12, 2025",
+      readTime: "7 min",
+      tags: ["Investment", "Market Analysis"],
+    },
+    {
+      id: 3,
+      title: "Understanding RERA Regulations",
+      excerpt:
+        "A comprehensive guide to Dubai's Real Estate Regulatory Agency regulations and how they protect buyers and investors.",
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: "Legal",
+      date: "Jan 10, 2025",
+      readTime: "6 min",
+      tags: ["Legal", "RERA"],
+    },
+  ];
+
+  return (
+    <section ref={ref} className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Our Insights
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Stay informed with the latest news, trends, and insights from
+            Dubai's real estate market
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {insights.map((insight, index) => (
+            <motion.div
+              key={insight.id}
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group"
+            >
+              <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={insight.image}
+                    alt={insight.title}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <Badge className="bg-[#073c75] text-white">
+                      {insight.category}
+                    </Badge>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      <span>{insight.date}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      <span>{insight.readTime}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#073c75] transition-colors">
+                    {insight.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    {insight.excerpt}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {insight.tags.map((tag, idx) => (
+                      <Badge
+                        key={idx}
+                        variant="outline"
+                        className="text-xs text-gray-600"
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                  <Button
+                    variant="ghost"
+                    className="text-[#073c75] hover:text-[#073c75] p-0 h-auto"
+                    asChild
+                  >
+                    <Link to="/blogs">
+                      Read Article
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-center"
+        >
+          <Button
+            size="lg"
+            className="bg-[#073c75] hover:bg-[#0d4a8a] text-white"
+            asChild
+          >
+            <Link to="/blogs">
+              View All Insights
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
+          </Button>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// Thematic Arenas Section (replaces EventCalendar)
+const ThematicArenasSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, threshold: 0.1 });
+
+  const arenas = [
+    {
+      id: 1,
+      title: "Innovation Arena",
+      subtitle: "AI-Powered Tools",
+      description:
+        "Experience cutting-edge technology that revolutionizes property discovery and comparison.",
+      icon: Zap,
+      color: "from-blue-500 to-cyan-500",
+      image:
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["AI Property Matching", "Virtual Tours", "Smart Analytics"],
+    },
+    {
+      id: 2,
+      title: "Investor Summit",
+      subtitle: "High-Growth Opportunities",
+      description:
+        "Connect with market leaders and discover lucrative investment opportunities in Dubai's thriving real estate sector.",
+      icon: TrendingUp,
+      color: "from-blue-500 to-cyan-500",
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Market Insights", "ROI Analysis", "Investment Strategies"],
+    },
+    {
+      id: 3,
+      title: "DnA Stage",
+      subtitle: "Developers & Architects",
+      description:
+        "Showcase visionary designs and architectural masterpieces from Dubai's most innovative developers.",
+      icon: Building2,
+      color: "from-blue-500 to-cyan-500",
+      image:
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Design Showcases", "Architectural Tours", "Developer Spotlights"],
+    },
+    {
+      id: 4,
+      title: "Future of Living",
+      subtitle: "Luxury & Sustainable",
+      description:
+        "Explore sustainable luxury residential projects that define the future of urban living in Dubai.",
+      icon: Sparkles,
+      color: "from-blue-500 to-cyan-500",
+      image:
+        "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      features: ["Sustainable Design", "Luxury Amenities", "Smart Homes"],
+    },
+  ];
+
+  return (
+    <section ref={ref} className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Thematic Arenas
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Four distinct stages for your real estate journey
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {arenas.map((arena, index) => (
+            <motion.div
+              key={arena.id}
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group"
+            >
+              <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg">
+                <div className="relative overflow-hidden h-64">
+                  <img
+                    src={arena.image}
+                    alt={arena.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${arena.color} opacity-40`}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
+                      <arena.icon className="text-white" size={40} />
+                    </div>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <div className="mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                      {arena.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 font-medium">
+                      {arena.subtitle}
+                    </p>
+                  </div>
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    {arena.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {arena.features.map((feature, idx) => (
+                      <Badge
+                        key={idx}
+                        className="bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      >
+                        {feature}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Voices of the Industry Section
+const VoicesOfIndustrySection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, threshold: 0.1 });
+
+  const speakers = [
+    {
+      id: 1,
+      name: "Mohamed Alabbar",
+      title: "Founder & Chairman",
+      company: "Emaar Properties",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    },
+    {
+      id: 2,
+      name: "Ahmad Al Matrooshi",
+      title: "Managing Director",
+      company: "Emaar Properties",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    },
+    {
+      id: 3,
+      name: "Hussain Sajwani",
+      title: "Founder & Chairman",
+      company: "DAMAC Properties",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    },
+    {
+      id: 4,
+      name: "P.N.C. Menon",
+      title: "Founder & Chairman",
+      company: "Sobha Realty",
+      image:
+        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    },
+    {
+      id: 5,
+      name: "John Pagano",
+      title: "CEO",
+      company: "Red Sea Global",
+      image:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    },
+    {
+      id: 6,
+      name: "Abdullah Al Hamed",
+      title: "Minister of Housing",
+      company: "UAE Government",
+      image:
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    },
+  ];
+
+  return (
+    <section
+      ref={ref}
+      className="py-20 bg-gray-50 overflow-hidden"
+    >
+      <div className="max-w-full mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Voices of the Industry
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Meet the leaders, CEOs, and visionaries shaping Dubai's real estate
+            future
+          </p>
+        </motion.div>
+
+        {/* Infinite Horizontal Scrolling Marquee */}
+        <Marquee
+          pauseOnHover={true}
+          speed={50}
+          gradient={false}
+          className="lg:py-6"
+        >
+          {[...speakers, ...speakers].map((speaker, index) => (
+            <div key={`${speaker.id}-${index}`} className="mx-6 lg:mx-8 flex items-center">
+              <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 min-w-[200px]">
+                <CardContent className="p-6">
+                  <div className="relative mb-4">
+                    <div className="w-20 h-20 mx-auto rounded-full overflow-hidden border-4 border-[#073c75] hover:border-[#51779e] transition-colors">
+                      <img
+                        src={speaker.image}
+                        alt={speaker.name}
+                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+                  </div>
+                  <h3 className="font-bold text-gray-900 mb-1 text-sm text-center">
+                    {speaker.name}
+                  </h3>
+                  <p className="text-xs text-gray-600 mb-1 text-center">
+                    {speaker.title}
+                  </p>
+                  <p className="text-xs text-[#073c75] font-semibold text-center">
+                    {speaker.company}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </Marquee>
+      </div>
+    </section>
+  );
+};
+
+// Giga-Project Showcases Section
+const GigaProjectShowcasesSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, threshold: 0.1 });
+
+  const projects = [
+    {
+      id: 1,
+      name: "NEOM",
+      location: "Saudi Arabia",
+      description:
+        "A $500 billion giga-project redefining sustainable living and innovation.",
+      image:
+        "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      developer: "NEOM Company",
+    },
+    {
+      id: 2,
+      name: "Masar",
+      location: "Makkah, Saudi Arabia",
+      description:
+        "A visionary urban development project transforming the heart of Makkah.",
+      image:
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      developer: "Umm Al Qura Development",
+    },
+    {
+      id: 3,
+      name: "New Murabba",
+      location: "Riyadh, Saudi Arabia",
+      description:
+        "The world's largest modern downtown, a new model for sustainable urban living.",
+      image:
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      developer: "New Murabba Development Company",
+    },
+    {
+      id: 4,
+      name: "Dubai Creek Harbour",
+      location: "Dubai, UAE",
+      description:
+        "A waterfront destination combining residential, commercial, and cultural experiences.",
+      image:
+        "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      developer: "Emaar Properties",
+    },
+    {
+      id: 5,
+      name: "Palm Jebel Ali",
+      location: "Dubai, UAE",
+      description:
+        "The second palm-shaped island, a symbol of Dubai's ambitious vision.",
+      image:
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      developer: "Nakheel",
+    },
+    {
+      id: 6,
+      name: "Dubai South",
+      location: "Dubai, UAE",
+      description:
+        "A 145-square-kilometer master-planned city around Al Maktoum International Airport.",
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      developer: "Dubai Aviation City Corporation",
+    },
+  ];
+
+  return (
+    <section ref={ref} className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Landmarks of the Future
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Explore the giga-projects that our platform facilitates connections
+            for
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group"
+            >
+              <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg">
+                <div className="relative overflow-hidden h-64">
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <Badge className="bg-[#073c75] text-white mb-2">
+                      {project.location}
+                    </Badge>
+                    <h3 className="text-2xl font-bold text-white">
+                      {project.name}
+                    </h3>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <Building2 className="w-4 h-4" />
+                    <span className="font-medium">{project.developer}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Tailored Visitor Journeys Section (Enhanced)
+const TailoredVisitorJourneysSection = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, threshold: 0.1 });
+
+  const   journeys = [
+    {
+      id: 1,
+      title: "I am an Investor",
+      description:
+        "Discover high-growth opportunities, market insights, and connect with premium developers.",
+      icon: TrendingUp,
+      color: "from-blue-500 to-cyan-600",
+      link: "/buyers",
+      features: [
+        "ROI Analysis Tools",
+        "Market Trends",
+        "Investment Strategies",
+        "Premium Deals",
+      ],
+    },
+    {
+      id: 2,
+      title: "I am a Developer",
+      description:
+        "Showcase your projects, connect with investors, and expand your market reach.",
+      icon: Building2,
+      color: "from-blue-500 to-cyan-600",
+      link: "/developers",
+      features: [
+        "Project Showcases",
+        "Investor Network",
+        "Marketing Tools",
+        "Market Analytics",
+      ],
+    },
+    {
+      id: 3,
+      title: "I am a Homebuyer",
+      description:
+        "Find your dream property, compare options, and make informed decisions with confidence.",
+      icon: HomeIcon,
+      color: "from-blue-500 to-cyan-600",
+      link: "/buyers",
+      features: [
+        "Property Search",
+        "Virtual Tours",
+        "Price Comparisons",
+        "Expert Guidance",
+      ],
+    },
+  ];
+
+  return (
+    <section ref={ref} className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Tailored Visitor Journeys
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Your personalized path to success in Dubai's real estate market
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {journeys.map((journey, index) => (
+            <motion.div
+              key={journey.id}
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="group"
+            >
+              <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg">
+                <div
+                  className={`h-4 bg-gradient-to-r ${journey.color}`}
+                />
+                <CardContent className="p-8">
+                  <div
+                    className={`w-16 h-16 bg-gradient-to-br ${journey.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <journey.icon className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    {journey.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {journey.description}
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    {journey.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <CheckCircle
+                          className={`text-transparent bg-gradient-to-r ${journey.color} bg-clip-text flex-shrink-0`}
+                          size={20}
+                        />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button
+                    className={`w-full bg-gradient-to-r ${journey.color} text-white hover:opacity-90`}
+                    asChild
+                  >
+                    <Link to={journey.link}>
+                      Explore Journey
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Home = () => {
   return (
     <div className="min-h-screen">
-      {/* <HeroSectionAlt5 /> */}
+      {/* 1. The Visionary Hero Section */}
       <HeroSectionAlt />
-      {/* <HeroSectionAlt2 />
-      <HeroSectionAlt3 />
-      <HeroSectionAlt4 /> */}
-      {/* <HeroSection /> */}
-      <EventCalendar />
-      <BuyerBenefitsSection />
+
+      <EventCalendar/>
+      
+      {/* 2. The Authority Banner (Key Highlights) */}
+      <StatsSection />
+      
+      {/* 3. Thematic Arenas (Service Categorization) */}
+      <ThematicArenasSection />
+      
+      {/* 4. Voices of the Industry (Speaker & Leadership Lineup) */}
+      <VoicesOfIndustrySection />
+      
+      {/* 5. Tailored Visitor Journeys */}
+      <TailoredVisitorJourneysSection />
+      
+      {/* 6. Giga-Project Showcases */}
+      <GigaProjectShowcasesSection />
+      
+      {/* Insights/News Section */}
+      <InsightsSection />
+      
+      {/* Experience Section */}
       <ExperienceSection />
-      <StakeholderSections />
-      {/* <PropertyShowcase /> */}
-      {/* <ProcessSection /> */}
+      
+      {/* Developer Logos */}
       <DeveloperLogosSection />
+      
+      {/* Testimonials */}
       <CTASection />
+      
+      {/* CTA Section */}
       <TestimonialsSection />
+      
+      {/* Footer */}
       <Footer />
     </div>
   );
