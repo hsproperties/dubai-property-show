@@ -74,7 +74,7 @@ const HeroSection = () => {
             <Button
               size="xl"
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-4"
+              className="border-2 border-white text-[#073c75] hover:bg-white/90 text-lg px-8 py-4"
               asChild
             >
               <Link to="/exhibitors">View Exhibitors</Link>
@@ -382,7 +382,7 @@ const CTASection = () => {
                 <Button
                   size="xl"
                   variant="outline"
-                  className="border-2 border-white text-white hover:bg-white/10 text-lg px-8 py-4"
+                  className="border-2 border-white text-[#073c75] hover:bg-white/90 text-lg px-8 py-4"
                   asChild
                 >
                   <Link to="/exhibitors">View Current Exhibitors</Link>

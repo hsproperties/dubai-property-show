@@ -506,7 +506,7 @@ const EventCalendar = () => {
                       Featured Event
                     </Badge>
                     <h3 className="text-3xl font-bold mb-4">
-                      Dubai Real Estate Summit 2025
+                      Dubai Real Estate Summit 2026
                     </h3>
                     <p className="text-white/90 mb-6 text-lg">
                       Join industry leaders, top developers, and investment

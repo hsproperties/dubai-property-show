@@ -119,6 +119,8 @@ const Footer = () => {
         },
         { name: "Exhibitors", href: "/exhibitors" },
         { name: "Contact Us", href: "/contact" },
+        { name: "Why Exhibit", href: "/why-exhibit" },
+        { name: "About", href: "/about" },
       ],
     },
   ];
@@ -483,7 +485,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="text-white/70 text-sm text-center lg:text-left">
-              <p>&copy; 2025 DPS Property Expo. All rights reserved.</p>
+              <p>&copy; 2026 DPS Property Expo. All rights reserved.</p>
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 items-center gap-2 lg:gap-6 text-sm">

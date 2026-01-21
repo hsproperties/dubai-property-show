@@ -553,33 +553,6 @@ const CTASection = () => {
         {/* <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div> */}
       </div>
 
-      {/* Floating Elements */}
-      <motion.div
-        className="absolute top-20 right-20 hidden lg:block"
-        animate={{
-          y: [0, -30, 0],
-          rotate: [0, 5, 0],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20">
-          <Building2 className="text-white" size={32} />
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-20 left-20 hidden lg:block"
-        animate={{
-          y: [0, 20, 0],
-          rotate: [0, -3, 0],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
-          <Star className="text-white fill-current" size={24} />
-        </div>
-      </motion.div>
-
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -1134,8 +1107,8 @@ const InsightsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Our Insights
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          Our  <span className="text-gradient">Insights</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Stay informed with the latest news, trends, and insights from
@@ -1296,8 +1269,8 @@ const ThematicArenasSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Thematic Arenas
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          Thematic <span className="text-gradient">Arenas</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Four distinct stages for your real estate journey
@@ -1313,16 +1286,14 @@ const ThematicArenasSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group"
             >
-              <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg">
+              <Card className="h-full overflow-hidden hover:overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg">
                 <div className="relative overflow-hidden h-64">
                   <img
                     src={arena.image}
                     alt={arena.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover overflow-hidden group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${arena.color} opacity-40`}
-                  />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
                       <arena.icon className="text-white" size={40} />
@@ -1345,7 +1316,7 @@ const ThematicArenasSection = () => {
                     {arena.features.map((feature, idx) => (
                       <Badge
                         key={idx}
-                        className="bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        className="from-blue-500 to-cyan-500 text-white hover:from-gray-200 hover:to-gray-300"
                       >
                         {feature}
                       </Badge>
@@ -1429,8 +1400,8 @@ const VoicesOfIndustrySection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Voices of the Industry
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          Voices of the <span className="text-gradient">Industry</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Meet the leaders, CEOs, and visionaries shaping Dubai's real estate
@@ -1446,18 +1417,16 @@ const VoicesOfIndustrySection = () => {
           className="lg:py-6"
         >
           {[...speakers, ...speakers].map((speaker, index) => (
-            <div key={`${speaker.id}-${index}`} className="mx-6 lg:mx-8 flex items-center">
-              <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 min-w-[200px]">
-                <CardContent className="p-6">
-                  <div className="relative mb-4">
-                    <div className="w-20 h-20 mx-auto rounded-full overflow-hidden border-4 border-[#073c75] hover:border-[#51779e] transition-colors">
-                      <img
-                        src={speaker.image}
-                        alt={speaker.name}
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                      />
-                    </div>
-                  </div>
+            <div key={`${speaker.id}-${index}`} className="mx-6 lg:mx-3 flex items-center">
+              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 min-w-[200px] overflow-hidden p-0">
+                <div className="w-[300px] h-[300px] overflow-hidden">
+                  <img
+                    src={speaker.image}
+                    alt={speaker.name}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <CardContent className="p-4">
                   <h3 className="font-bold text-gray-900 mb-1 text-sm text-center">
                     {speaker.name}
                   </h3>
@@ -1518,7 +1487,7 @@ const GigaProjectShowcasesSection = () => {
       name: "Dubai Creek Harbour",
       location: "Dubai, UAE",
       description:
-        "A waterfront destination combining residential, commercial, and cultural experiences.",
+        "A waterfront destination with residential, commercial, and cultural experiences.",
       image:
         "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       developer: "Emaar Properties",
@@ -1554,8 +1523,8 @@ const GigaProjectShowcasesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Landmarks of the Future
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          Landmarks of the  <span className="text-gradient">Future</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Explore the giga-projects that our platform facilitates connections
@@ -1579,9 +1548,9 @@ const GigaProjectShowcasesSection = () => {
                     alt={project.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
-                    <Badge className="bg-[#073c75] text-white mb-2">
+                    <Badge className="bg-[#073c75] text-white mb-2 border-0">
                       {project.location}
                     </Badge>
                     <h3 className="text-2xl font-bold text-white">
@@ -1593,10 +1562,16 @@ const GigaProjectShowcasesSection = () => {
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="flex items-center gap-2 text-sm text-gray-500">
-                    <Building2 className="w-4 h-4" />
+                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+                    <Building2 className="w-4 h-4 text-[#073c75]" />
                     <span className="font-medium">{project.developer}</span>
                   </div>
+                  <Button
+                    className="w-full bg-gradient-to-r from-[#073c75] to-[#51779e] text-white hover:opacity-90 hover:shadow-lg transition-all duration-300"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
                 </CardContent>
               </Card>
             </motion.div>
@@ -1660,8 +1635,15 @@ const TailoredVisitorJourneysSection = () => {
     },
   ];
 
+  // Add images for each journey
+  const journeyImages = [
+    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  ];
+
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section ref={ref} className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -1687,15 +1669,24 @@ const TailoredVisitorJourneysSection = () => {
               className="group"
             >
               <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg">
-                <div
-                  className={`h-4 bg-gradient-to-r ${journey.color}`}
-                />
-                <CardContent className="p-8">
+                <div className="relative overflow-hidden h-64">
+                  <img
+                    src={journeyImages[index]}
+                    alt={journey.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
                   <div
-                    className={`w-16 h-16 bg-gradient-to-br ${journey.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <journey.icon className="text-white" size={32} />
+                    className={`absolute inset-0 bg-gradient-to-br ${journey.color} opacity-60`}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div
+                      className={`w-20 h-20 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center border-2 border-white/30 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <journey.icon className="text-white" size={40} />
+                    </div>
                   </div>
+                </div>
+                <CardContent className="p-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">
                     {journey.title}
                   </h3>
@@ -1706,7 +1697,7 @@ const TailoredVisitorJourneysSection = () => {
                     {journey.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center gap-2">
                         <CheckCircle
-                          className={`text-transparent bg-gradient-to-r ${journey.color} bg-clip-text flex-shrink-0`}
+                          className={`text-[#073c75] flex-shrink-0`}
                           size={20}
                         />
                         <span className="text-gray-700">{feature}</span>
@@ -1714,7 +1705,7 @@ const TailoredVisitorJourneysSection = () => {
                     ))}
                   </ul>
                   <Button
-                    className={`w-full bg-gradient-to-r ${journey.color} text-white hover:opacity-90`}
+                    className={`w-full bg-gradient-to-r ${journey.color} text-white hover:opacity-90 hover:shadow-lg transition-all duration-300`}
                     asChild
                   >
                     <Link to={journey.link}>
@@ -1750,16 +1741,20 @@ const Home = () => {
       <VoicesOfIndustrySection />
       
       {/* 5. Tailored Visitor Journeys */}
-      <TailoredVisitorJourneysSection />
+      {/* <TailoredVisitorJourneysSection /> */}
+
+      <StakeholderSections />
       
       {/* 6. Giga-Project Showcases */}
       <GigaProjectShowcasesSection />
       
       {/* Insights/News Section */}
       <InsightsSection />
+
+      <BuyerBenefitsSection />
       
       {/* Experience Section */}
-      <ExperienceSection />
+      {/* <ExperienceSection /> */}
       
       {/* Developer Logos */}
       <DeveloperLogosSection />

@@ -283,12 +283,12 @@ const HeroSectionAlt = () => {
           <span className="block text-4xl sm:text-5xl lg:text-6xl">
             THE HUB FOR GLOBAL REAL ESTATE
           </span>
-          <span className="block text-4xl sm:text-5xl lg:text-7xl mt-2">
+          <span className="block text-3xl sm:text-4xl lg:text-6xl mt-2">
             <NeonGradHeadline>IS NOW LIVE</NeonGradHeadline>
           </span>
-          <span className="block text-xl sm:text-2xl mt-4 text-white/80 font-light">
-            The Gateway to the World's Fastest-Growing Real Estate Market
-          </span>
+          {/* <span className="block text-xl sm:text-2xl mt-4 text-white/80 font-light">
+           
+          </span> */}
         </motion.h1>
 
         {/* Subtext */}
@@ -296,6 +296,7 @@ const HeroSectionAlt = () => {
           variants={itemVariants}
           className="text-lg sm:text-xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed font-light"
         >
+           The Gateway to the World's Fastest-Growing Real Estate Market
           Connect with Dubai's premier developers, explore giga-projects, and
           discover investment opportunities in the world's most dynamic real
           estate market.
