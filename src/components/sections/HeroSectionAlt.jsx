@@ -294,7 +294,7 @@ const HeroSectionAlt = () => {
         {/* Subtext */}
         <motion.p
           variants={itemVariants}
-          className="text-lg sm:text-xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed font-light"
+          className="text-md sm:text-lg text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed font-light"
         >
            The Gateway to the World's Fastest-Growing Real Estate Market
           Connect with Dubai's premier developers, explore giga-projects, and

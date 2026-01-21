@@ -52,6 +52,7 @@ import HeroSectionAlt3 from "../components/sections/HeroSectionAlt3";
 import HeroSectionAlt4 from "../components/sections/HeroSectionAlt4";
 import HeroSectionAlt5 from "../components/sections/HeroSectionAlt5";
 import ScheduleVisitModal from "@/components/ScheduleVisitModal";
+import HeroSectionVideo from "../components/sections/HeroSectionVideo";
 
 const PropertyShowcase = () => {
   const ref = useRef(null);
@@ -412,6 +413,7 @@ const DeveloperLogosSection = () => {
   );
 };
 
+
 const TestimonialsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, threshold: 0.1 });
@@ -541,16 +543,17 @@ const CTASection = () => {
   return (
     <section
       ref={ref}
-      className="py-20 bg-gradient-to-t from-slate-900 via-blue-900 to-slate-900 relative overflow-hidden"
+      className="py-20 relative overflow-hidden"
     >
       {/* Background Images */}
       <div className="absolute inset-0">
         <img
           src="https://www.dubai.it/en/wp-content/uploads/sites/142/dubai-marina-hd.jpg"
           alt="Dubai Skyline"
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-100"
         />
-        {/* <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"></div> */}
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-blue-900 to-slate-900"></div> */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
       </div>
 
       <motion.div
@@ -1261,7 +1264,7 @@ const ThematicArenasSection = () => {
   ];
 
   return (
-    <section ref={ref} className="py-20 bg-white">
+    <section ref={ref} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -1391,7 +1394,7 @@ const VoicesOfIndustrySection = () => {
   return (
     <section
       ref={ref}
-      className="py-20 bg-gray-50 overflow-hidden"
+      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden"
     >
       <div className="max-w-full mx-auto">
         <motion.div
@@ -1515,7 +1518,7 @@ const GigaProjectShowcasesSection = () => {
   ];
 
   return (
-    <section ref={ref} className="py-20 bg-white">
+    <section ref={ref} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -1727,13 +1730,18 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* 1. The Visionary Hero Section */}
-      <HeroSectionAlt />
+      {/* <HeroSectionAlt /> */}
+
+      <HeroSectionVideo />
 
       <EventCalendar/>
       
       {/* 2. The Authority Banner (Key Highlights) */}
       <StatsSection />
       
+       {/* Developer Logos */}
+       <DeveloperLogosSection />
+
       {/* 3. Thematic Arenas (Service Categorization) */}
       <ThematicArenasSection />
       
@@ -1756,8 +1764,7 @@ const Home = () => {
       {/* Experience Section */}
       {/* <ExperienceSection /> */}
       
-      {/* Developer Logos */}
-      <DeveloperLogosSection />
+
       
       {/* Testimonials */}
       <CTASection />

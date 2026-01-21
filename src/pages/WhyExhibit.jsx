@@ -66,7 +66,7 @@ const HeroSection = () => {
               className="bg-white text-[#073c75] hover:bg-gray-100 text-lg px-8 py-4 shadow-2xl"
               asChild
             >
-              <Link to="/contact">
+              <Link to="/exhibitors">
                 Book Your Booth
                 <ArrowRight className="ml-2" size={20} />
               </Link>
