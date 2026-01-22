@@ -167,7 +167,7 @@ const HeroSectionVideo = () => {
           <motion.div whileHover="hover" initial="hidden" animate="visible">
             <Button
               size="xl"
-              className="group bg-white/10 backdrop-blur-xs shadow-2xl text-base px-6 py-3 h-auto overflow-hidden relative rounded-2xl"
+              className="group bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white backdrop-blur-xs shadow-2xl text-base px-6 py-3 h-auto overflow-hidden relative rounded-2xl"
               asChild
             >
               <Link to="/about" className="flex items-center gap-3">

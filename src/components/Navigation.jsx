@@ -19,11 +19,13 @@ import {
   Info,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ScheduleVisitModal from "@/components/ScheduleVisitModal";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +48,12 @@ const Navigation = () => {
       path: "#",
       submenu: [
         {
+          name: "Buyers",
+          path: "/buyers",
+          icon: Target,
+          description: "Find your dream property",
+        },
+        {
           name: "Developers",
           path: "/developers",
           icon: Building2,
@@ -57,12 +65,7 @@ const Navigation = () => {
           icon: Users,
           description: "Connect with buyers",
         },
-        {
-          name: "Buyers",
-          path: "/buyers",
-          icon: Target,
-          description: "Find your dream property",
-        },
+        
       ],
     },
     {
@@ -318,12 +321,12 @@ const Navigation = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link to="/contact">
-                  <Button className="bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white shadow-lg hover:shadow-xl transition-all duration-200 gap-2">
+                {/* <Link to="/contact"> */}
+                  <Button onClick={() => setIsModalOpen(true)} className="bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white shadow-lg hover:shadow-xl transition-all duration-200 gap-2">
                     <Calendar size={16} />
                     Book Visit
                   </Button>
-                </Link>
+                {/* </Link> */}
               </motion.div>
             </div>
 
@@ -432,7 +435,13 @@ const Navigation = () => {
                     Call: +971 5 457 27505
                   </Button>
 
-                  <Button className="w-full bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white gap-2">
+                  <Button 
+                    onClick={() => {
+                      setIsModalOpen(true);
+                      setIsOpen(false);
+                    }}
+                    className="w-full bg-gradient-to-r from-[#073c75] to-[#51779e] hover:from-[#073c75] hover:to-[#51779e] text-white gap-2"
+                  >
                     <Calendar size={16} />
                     Book Your Visit
                   </Button>
@@ -455,6 +464,12 @@ const Navigation = () => {
           />
         )}
       </AnimatePresence>
+
+      {/* Schedule Visit Modal */}
+      <ScheduleVisitModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </>
   );
 };

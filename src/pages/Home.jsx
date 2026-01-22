@@ -348,7 +348,7 @@ const DeveloperLogosSection = () => {
   return (
     <section
       ref={ref}
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden"
+      className="py-28 bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden"
     >
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -986,7 +986,7 @@ const StatsSection = () => {
   return (
     <section
       ref={ref}
-      className="py-20 bg-gradient-to-br from-[#073c75] via-[#0d4a8a] to-[#073c75] relative overflow-hidden"
+      className="py-28 bg-gradient-to-br from-[#073c75] via-[#0d4a8a] to-[#073c75] relative overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -1264,7 +1264,7 @@ const ThematicArenasSection = () => {
   ];
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section ref={ref} className="py-28 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
