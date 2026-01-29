@@ -1998,7 +1998,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Mail, User, Phone } from "lucide-react";
+import { ArrowRight, Mail, User } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import flags from "react-phone-number-input/flags";
 import en from "react-phone-number-input/locale/en";
@@ -2129,7 +2129,6 @@ const RegistrationForm = () => {
     phone: "",
     interest: "buyer",
   });
-  const [submitted, setSubmitted] = useState(false);
   const [country, setCountry] = useState("AE");
 
   const handlePhoneNumberChange = (value) => {
@@ -2155,19 +2154,15 @@ const RegistrationForm = () => {
         "DsWeIlaGUWjO8AFSt" // replace with your EmailJS public key
       );
 
-      setSubmitted(true);
       navigate("/thank-you");
       // setTimeout(() => {
-      //   setSubmitted(false);
       //   setFormData({ name: "", email: "", phone: "", interest: "buyer" });
       // }, 3000);
     } catch (error) {
       console.error("EmailJS Error:", error);
       alert("Something went wrong. Please try again!");
     }
-    setSubmitted(true);
     setTimeout(() => {
-      setSubmitted(false);
       setFormData({ name: "", email: "", phone: "", interest: "buyer" });
     }, 3000);
   };
