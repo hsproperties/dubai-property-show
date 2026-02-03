@@ -206,13 +206,6 @@ const HeroSectionVideo = () => {
           variants={itemVariants}
           className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 max-w-4xl mx-auto"
         >
-          {/* Residents */}
-          <StatCard
-            icon={<Users className="text-white" size={18} />}
-            value={<AnimatedCounter end={4} suffix="M+" />}
-            label="Dubai Residents"
-            delay={0}
-          />
           {/* Developers */}
           <StatCard
             icon={<Building2 className="text-white" size={18} />}
@@ -254,6 +247,13 @@ const HeroSectionVideo = () => {
             label="Annual Deals"
             delay={0.15}
           />
+          {/* Residents */}
+          <StatCard
+            icon={<Users className="text-white" size={18} />}
+            value={<AnimatedCounter end={50} suffix="K+" />}
+            label="Expected Visitors"
+            delay={0}
+          />  
         </motion.div>
       </motion.div>
     </section>

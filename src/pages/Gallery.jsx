@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { X, ZoomIn } from "lucide-react";
+import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
 const HeroSection = () => {
   const heroRef = useRef(null);
@@ -36,7 +35,7 @@ const HeroSection = () => {
   );
 };
 
-const GalleryImage = ({ image, category, delay = 0, onOpen }) => {
+const GalleryImage = ({ image, delay = 0, onOpen }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, threshold: 0.1 });
 
@@ -56,7 +55,6 @@ const GalleryImage = ({ image, category, delay = 0, onOpen }) => {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <div className="absolute bottom-4 left-4 right-4">
-          <Badge className="bg-[#073c75] text-white mb-2">{category}</Badge>
           <p className="text-white font-medium">{image.alt}</p>
         </div>
         <div className="absolute top-4 right-4">
@@ -69,104 +67,47 @@ const GalleryImage = ({ image, category, delay = 0, onOpen }) => {
   );
 };
 
-const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const categories = ["All", "Facility", "Events", "Developers", "Visitors"];
-
-  const images = [
-    {
-      id: 1,
-      url: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      alt: "DPS Main Exhibition Hall",
-      category: "Facility",
-    },
-    {
-      id: 2,
-      url: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      alt: "Developer Booth Showcase",
-      category: "Developers",
-    },
-    {
-      id: 3,
-      url: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      alt: "Property Consultation Session",
-      category: "Events",
-    },
-    {
-      id: 4,
-      url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      alt: "Visitors Exploring Properties",
-      category: "Visitors",
-    },
-    {
-      id: 5,
-      url: "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      alt: "Luxury Property Display",
-      category: "Facility",
-    },
-    {
-      id: 6,
-      url: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      alt: "Networking Event",
-      category: "Events",
-    },
-    {
-      id: 7,
-      url: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      alt: "Developer Presentation",
-      category: "Developers",
-    },
-    {
-      id: 8,
-      url: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      alt: "Buyer Consultation Area",
-      category: "Visitors",
-    },
-    {
-      id: 9,
-      url: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-      alt: "Exhibition Opening Ceremony",
-      category: "Events",
-    },
+const images = [
+    { id: 1, url: "/gallery/1.jpeg", alt: "Gallery Image 1" },
+    { id: 2, url: "/gallery/2.jpeg", alt: "Gallery Image 2" },
+    { id: 3, url: "/gallery/3.jpeg", alt: "Gallery Image 3" },
+    { id: 4, url: "/gallery/4.jpeg", alt: "Gallery Image 4" },
+    { id: 5, url: "/gallery/5.jpeg", alt: "Gallery Image 5" },
+    { id: 6, url: "/gallery/6.jpeg", alt: "Gallery Image 6" },
+    { id: 7, url: "/gallery/7.jpeg", alt: "Gallery Image 7" },
+    { id: 8, url: "/gallery/8.jpeg", alt: "Gallery Image 8" },
   ];
 
-  const filteredImages =
-    selectedCategory === "All"
-      ? images
-      : images.filter((img) => img.category === selectedCategory);
+const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const currentIndex = selectedImage
+    ? images.findIndex((img) => img.id === selectedImage.id)
+    : -1;
+  const hasPrev = currentIndex > 0;
+  const hasNext = currentIndex >= 0 && currentIndex < images.length - 1;
+
+  const goToPrev = (e) => {
+    e.stopPropagation();
+    if (hasPrev) setSelectedImage(images[currentIndex - 1]);
+  };
+
+  const goToNext = (e) => {
+    e.stopPropagation();
+    if (hasNext) setSelectedImage(images[currentIndex + 1]);
+  };
 
   return (
     <div className="min-h-screen pt-24">
       <HeroSection />
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                className={
-                  selectedCategory === category
-                    ? "bg-[#073c75] text-white"
-                    : ""
-                }
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-
           {/* Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredImages.map((image, index) => (
+            {images.map((image, index) => (
               <GalleryImage
                 key={image.id}
                 image={image}
-                category={image.category}
                 delay={index * 0.1}
                 onOpen={setSelectedImage}
               />
@@ -175,26 +116,43 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Image Modal */}
+      {/* Image Popup Modal */}
       {selectedImage && (
         <div
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
           onClick={() => setSelectedImage(null)}
         >
-          <div className="relative max-w-7xl max-h-full">
+          <button
+            className="absolute top-4 right-4 z-10 flex items-center gap-2 rounded-lg bg-[#073c75] text-white px-4 py-2 hover:bg-[#052d5a] transition-colors"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X size={20} />
+            Close
+          </button>
+          {hasPrev && (
             <button
-              className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
-              onClick={() => setSelectedImage(null)}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-[#073c75] text-white hover:bg-[#052d5a] transition-colors"
+              onClick={goToPrev}
+              aria-label="Previous image"
             >
-              <X size={32} />
+              <ChevronLeft size={28} />
             </button>
-            <img
-              src={selectedImage.url}
-              alt={selectedImage.alt}
-              className="max-w-full max-h-[90vh] object-contain rounded-lg"
-              onClick={(e) => e.stopPropagation()}
-            />
-          </div>
+          )}
+          {hasNext && (
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-[#073c75] text-white hover:bg-[#052d5a] transition-colors"
+              onClick={goToNext}
+              aria-label="Next image"
+            >
+              <ChevronRight size={28} />
+            </button>
+          )}
+          <img
+            src={selectedImage.url}
+            alt={selectedImage.alt}
+            className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
         </div>
       )}
     </div>
@@ -202,4 +160,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-

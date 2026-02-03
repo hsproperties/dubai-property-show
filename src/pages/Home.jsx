@@ -337,12 +337,27 @@ const DeveloperLogosSection = () => {
   const inView = useInView(ref, { once: true, threshold: 0.1 });
 
   const developers = [
-    { image: "/brand-logos/emaar-logo.svg" },
-    { image: "/brand-logos/damac-logo.svg" },
-    { image: "/brand-logos/nakheel-logo.svg" },
-    { image: "/brand-logos/meras-logo.svg" },
-    { image: "/brand-logos/dp-logo.svg" },
-    { image: "/brand-logos/shoba-logo.svg" },
+    { image: "/brand-logos/emaar-logo.svg", name: "Emaar" },
+    { image: "/brand-logos/damac-logo.svg", name: "DAMAC" },
+    { image: "/brand-logos/ellington-logo.svg", name: "Ellington" },
+    { image: "/brand-logos/object-1-logo.svg", name: "Object 1" },
+    { image: "/brand-logos/beyond-logo.svg", name: "Beyond" },
+    { image: "/brand-logos/ardee-logo.svg", name: "Ardee" },
+    { image: "/brand-logos/meras-logo.svg", name: "Meras" },
+    { image: "/brand-logos/nakheel-logo.svg", name: "Nakheel" },
+    { image: "/brand-logos/shoba-logo.svg", name: "Shoba" },
+    { image: "/brand-logos/avenew-logo.svg", name: "Avenew" },
+    { image: "/brand-logos/ays-logo.svg", name: "AYS" },
+    { image: "/brand-logos/binghatti-logo.svg", name: "Binghatti" },
+    { image: "/brand-logos/bnw-logo.svg", name: "BNW" },
+    { image: "/brand-logos/citi-dev-logo.svg", name: "Citi Developments" },
+    { image: "/brand-logos/dp-logo.svg", name: "DP" },
+    { image: "/brand-logos/major-logo.svg", name: "Major" },
+    { image: "/brand-logos/one-dev-logo.svg", name: "One Developments" },
+    { image: "/brand-logos/pantheon-dev-logo.svg", name: "Pantheon Developments" },
+    { image: "/brand-logos/prescott-logo.svg", name: "Prescott" },
+    { image: "/brand-logos/tiger-logo.svg", name: "Tiger" },
+    { image: "/brand-logos/anex-logo.svg", name: "Anex" },
   ];
 
   return (
@@ -379,32 +394,11 @@ const DeveloperLogosSection = () => {
         >
           {developers.map((dev, index) => (
             <div key={index} className="mx-6 lg:mx-16 flex items-center">
-              {/* {index === 4
-                < img
-                    src={dev.image}
-              alt={`developer-logo-${index}`}
-              className="w-36"
-                  />
-              :
               <img
                 src={dev.image}
-                alt={`developer-logo-${index}`}
-                className="w-44"
+                alt={dev.name}
+                className="w-28 lg:w-44 h-12 object-contain object-center"
               />
-              } */}
-              {index === 4 ? (
-                <img
-                  src={dev.image}
-                  alt={`developer-logo-${index}`}
-                  className="w-28 lg:w-40 -mt-4"
-                />
-              ) : (
-                <img
-                  src={dev.image}
-                  alt={`developer-logo-${index}`}
-                  className="w-28 lg:w-44"
-                />
-              )}
             </div>
           ))}
         </Marquee>
@@ -548,12 +542,12 @@ const CTASection = () => {
       {/* Background Images */}
       <div className="absolute inset-0">
         <img
-          src="https://www.dubai.it/en/wp-content/uploads/sites/142/dubai-marina-hd.jpg"
+          src="/gallery/4.jpeg"
           alt="Dubai Skyline"
           className="w-full h-full object-cover opacity-100"
         />
         {/* <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-blue-900 to-slate-900"></div> */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
       </div>
 
       <motion.div
@@ -1450,140 +1444,140 @@ const VoicesOfIndustrySection = () => {
 };
 
 // Giga-Project Showcases Section
-const GigaProjectShowcasesSection = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, threshold: 0.1 });
+// const GigaProjectShowcasesSection = () => {
+//   const ref = useRef(null);
+//   const inView = useInView(ref, { once: true, threshold: 0.1 });
 
-  const projects = [
-    {
-      id: 1,
-      name: "NEOM",
-      location: "Saudi Arabia",
-      description:
-        "A $500 billion giga-project redefining sustainable living and innovation.",
-      image:
-        "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      developer: "NEOM Company",
-    },
-    {
-      id: 2,
-      name: "Masar",
-      location: "Makkah, Saudi Arabia",
-      description:
-        "A visionary urban development project transforming the heart of Makkah.",
-      image:
-        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      developer: "Umm Al Qura Development",
-    },
-    {
-      id: 3,
-      name: "New Murabba",
-      location: "Riyadh, Saudi Arabia",
-      description:
-        "The world's largest modern downtown, a new model for sustainable urban living.",
-      image:
-        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      developer: "New Murabba Development Company",
-    },
-    {
-      id: 4,
-      name: "Dubai Creek Harbour",
-      location: "Dubai, UAE",
-      description:
-        "A waterfront destination with residential, commercial, and cultural experiences.",
-      image:
-        "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      developer: "Emaar Properties",
-    },
-    {
-      id: 5,
-      name: "Palm Jebel Ali",
-      location: "Dubai, UAE",
-      description:
-        "The second palm-shaped island, a symbol of Dubai's ambitious vision.",
-      image:
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      developer: "Nakheel",
-    },
-    {
-      id: 6,
-      name: "Dubai South",
-      location: "Dubai, UAE",
-      description:
-        "A 145-square-kilometer master-planned city around Al Maktoum International Airport.",
-      image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      developer: "Dubai Aviation City Corporation",
-    },
-  ];
+//   const projects = [
+//     {
+//       id: 1,
+//       name: "NEOM",
+//       location: "Saudi Arabia",
+//       description:
+//         "A $500 billion giga-project redefining sustainable living and innovation.",
+//       image:
+//         "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+//       developer: "NEOM Company",
+//     },
+//     {
+//       id: 2,
+//       name: "Masar",
+//       location: "Makkah, Saudi Arabia",
+//       description:
+//         "A visionary urban development project transforming the heart of Makkah.",
+//       image:
+//         "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+//       developer: "Umm Al Qura Development",
+//     },
+//     {
+//       id: 3,
+//       name: "New Murabba",
+//       location: "Riyadh, Saudi Arabia",
+//       description:
+//         "The world's largest modern downtown, a new model for sustainable urban living.",
+//       image:
+//         "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+//       developer: "New Murabba Development Company",
+//     },
+//     {
+//       id: 4,
+//       name: "Dubai Creek Harbour",
+//       location: "Dubai, UAE",
+//       description:
+//         "A waterfront destination with residential, commercial, and cultural experiences.",
+//       image:
+//         "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+//       developer: "Emaar Properties",
+//     },
+//     {
+//       id: 5,
+//       name: "Palm Jebel Ali",
+//       location: "Dubai, UAE",
+//       description:
+//         "The second palm-shaped island, a symbol of Dubai's ambitious vision.",
+//       image:
+//         "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+//       developer: "Nakheel",
+//     },
+//     {
+//       id: 6,
+//       name: "Dubai South",
+//       location: "Dubai, UAE",
+//       description:
+//         "A 145-square-kilometer master-planned city around Al Maktoum International Airport.",
+//       image:
+//         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+//       developer: "Dubai Aviation City Corporation",
+//     },
+//   ];
 
-  return (
-    <section ref={ref} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-          Landmarks of the  <span className="text-gradient">Future</span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explore the giga-projects that our platform facilitates connections
-            for
-          </p>
-        </motion.div>
+//   return (
+//     <section ref={ref} className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <motion.div
+//           initial={{ opacity: 0, y: 30 }}
+//           animate={inView ? { opacity: 1, y: 0 } : {}}
+//           transition={{ duration: 0.8 }}
+//           className="text-center mb-12"
+//         >
+//           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+//           Landmarks of the  <span className="text-gradient">Future</span>
+//           </h2>
+//           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+//             Explore the giga-projects that our platform facilitates connections
+//             for
+//           </p>
+//         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group"
-            >
-              <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg">
-                <div className="relative overflow-hidden h-64">
-                  <img
-                    src={project.image}
-                    alt={project.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <Badge className="bg-[#073c75] text-white mb-2 border-0">
-                      {project.location}
-                    </Badge>
-                    <h3 className="text-2xl font-bold text-white">
-                      {project.name}
-                    </h3>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                    <Building2 className="w-4 h-4 text-[#073c75]" />
-                    <span className="font-medium">{project.developer}</span>
-                  </div>
-                  <Button
-                    className="w-full bg-gradient-to-r from-[#073c75] to-[#51779e] text-white hover:opacity-90 hover:shadow-lg transition-all duration-300"
-                  >
-                    Learn More
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+//           {projects.map((project, index) => (
+//             <motion.div
+//               key={project.id}
+//               initial={{ opacity: 0, y: 50 }}
+//               animate={inView ? { opacity: 1, y: 0 } : {}}
+//               transition={{ duration: 0.6, delay: index * 0.1 }}
+//               className="group"
+//             >
+//               <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg">
+//                 <div className="relative overflow-hidden h-64">
+//                   <img
+//                     src={project.image}
+//                     alt={project.name}
+//                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+//                   />
+//                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/50 to-transparent" />
+//                   <div className="absolute bottom-4 left-4 right-4">
+//                     <Badge className="bg-[#073c75] text-white mb-2 border-0">
+//                       {project.location}
+//                     </Badge>
+//                     <h3 className="text-2xl font-bold text-white">
+//                       {project.name}
+//                     </h3>
+//                   </div>
+//                 </div>
+//                 <CardContent className="p-6">
+//                   <p className="text-gray-600 mb-4 leading-relaxed">
+//                     {project.description}
+//                   </p>
+//                   <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+//                     <Building2 className="w-4 h-4 text-[#073c75]" />
+//                     <span className="font-medium">{project.developer}</span>
+//                   </div>
+//                   <Button
+//                     className="w-full bg-gradient-to-r from-[#073c75] to-[#51779e] text-white hover:opacity-90 hover:shadow-lg transition-all duration-300"
+//                   >
+//                     Learn More
+//                     <ArrowRight className="ml-2 w-4 h-4" />
+//                   </Button>
+//                 </CardContent>
+//               </Card>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
 
 // Tailored Visitor Journeys Section (Enhanced)
 const TailoredVisitorJourneysSection = () => {
@@ -1754,7 +1748,7 @@ const Home = () => {
       <StakeholderSections />
       
       {/* 6. Giga-Project Showcases */}
-      <GigaProjectShowcasesSection />
+      {/* <GigaProjectShowcasesSection /> */}
       
       {/* Insights/News Section */}
       <InsightsSection />
@@ -1763,8 +1757,7 @@ const Home = () => {
       
       {/* Experience Section */}
       {/* <ExperienceSection /> */}
-      
-
+  
       
       {/* Testimonials */}
       <CTASection />
